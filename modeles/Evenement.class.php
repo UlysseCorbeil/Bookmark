@@ -6,7 +6,8 @@
  * Time: 21:18
  */
 
-class Evenement {
+class Evenement
+{
 
     private $idEvenement;
     private $sDateDebut;
@@ -16,59 +17,70 @@ class Evenement {
 
     /* =============================================================================================== */
 
-    public function setidEvenement($idEvenement) {
+    public function setidEvenement($idEvenement)
+    {
         TypeException::estNumerique($idEvenement);
 
         $this->idEvenement = $idEvenement;
     }
 
-    public function setsDateDebut($sDateDebut) {
+    public function setsDateDebut($sDateDebut)
+    {
         TypeException::estChaineDeCaracteres($sDateDebut);
 
         $this->sDateDebut = $sDateDebut;
     }
 
-    public function setsDateFin($sDateFin) {
+    public function setsDateFin($sDateFin)
+    {
         TypeException::estChaineDeCaracteres($sDateFin);
 
         $this->sDateFin = $sDateFin;
     }
 
-    public function setsNomEvenement($sNomEvenement) {
+    public function setsNomEvenement($sNomEvenement)
+    {
         TypeException::estChaineDeCaracteres($sNomEvenement);
 
         $this->sNomEvenement = $sNomEvenement;
     }
 
-    public function setoUtilisateur(Utilisateur $oUtilisateur) {
+    public function setoUtilisateur(Utilisateur $oUtilisateur)
+    {
         $this->oUtilisateur = $oUtilisateur;
     }
 
     /* =============================================================================================== */
 
-    public function getidEvenement() {
+    public function getidEvenement()
+    {
         return $this->idEvenement;
     }
 
-    public function getsDateDebut() {
+    public function getsDateDebut()
+    {
         return $this->sDateDebut;
     }
 
-    public function getsDateFin() {
+    public function getsDateFin()
+    {
         return $this->sDateFin;
     }
 
-    public function getsNomEvenement() {
+    public function getsNomEvenement()
+    {
         return $this->sNomEvenement;
     }
 
-    public function getoUtilisateur() {
+    public function getoUtilisateur()
+    {
         return $this->oUtilisateur;
     }
 
     /* =============================================================================================== */
 
-    public function __construct($idEvenement = 1, $sDateDebut = "", $sDateFin = "", $sNomEvenement = "", $iNoUtilisateur = 1) {
+    public function __construct($idEvenement = 1, $sDateDebut = "", $sDateFin = "", $sNomEvenement = "", $iNoUtilisateur = 1)
+    {
         $this->setidEvenement($idEvenement);
         $this->setsDateDebut($sDateDebut);
         $this->setsDateFin($sDateFin);
@@ -79,7 +91,8 @@ class Evenement {
     /* =============================================================================================== */
 
 
-    public function ajouter() {
+    public function ajouter()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
@@ -106,10 +119,10 @@ class Evenement {
         }
         $oPDOLib->fermerLaConnexion();
         return false;
-
     }
 
-    public function modifier() {
+    public function modifier()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
@@ -138,10 +151,10 @@ class Evenement {
         }
         $oPDOLib->fermerLaConnexion();
         return false;
-
     }
 
-    public function supprimer() {
+    public function supprimer()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
@@ -166,10 +179,10 @@ class Evenement {
         }
         $oPDOLib->fermerLaConnexion();
         return false;
-
     }
 
-    public function rechercherUn() {
+    public function rechercherUn()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
@@ -209,11 +222,11 @@ class Evenement {
         }
         $oPDOLib->fermerLaConnexion();
         return false;
-
     }
 
 
-    public function rechercherTous() {
+    public function rechercherTous()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
@@ -253,10 +266,10 @@ class Evenement {
         }
         $oPDOLib->fermerLaConnexion();
         return false;
+    } //fin de la fonction
 
-    }//fin de la fonction
-
-    public function rechercherTousParUtilisateur() {
+    public function rechercherTousParUtilisateur()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
@@ -297,10 +310,10 @@ class Evenement {
         }
         $oPDOLib->fermerLaConnexion();
         return false;
+    } //fin de la fonction
 
-    }//fin de la fonction
-
-    public function rechercherTousAuj() {
+    public function rechercherTousAuj()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
@@ -340,6 +353,5 @@ class Evenement {
         }
         $oPDOLib->fermerLaConnexion();
         return false;
-
-    }//fin de la fonction
+    } //fin de la fonction
 }
