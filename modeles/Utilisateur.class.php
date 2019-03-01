@@ -6,7 +6,8 @@
  * Time: 20:40
  */
 
-class Utilisateur {
+class Utilisateur
+{
 
     private $idUtilisateur;
     private $sNom;
@@ -19,49 +20,57 @@ class Utilisateur {
 
     /* =============================================================================================== */
 
-    public function setidUtilisateur($idUtilisateur){
+    public function setidUtilisateur($idUtilisateur)
+    {
         TypeException::estNumerique($idUtilisateur);
 
         $this->idUtilisateur = $idUtilisateur;
     }
 
-    public function setsNom($sNom){
+    public function setsNom($sNom)
+    {
         TypeException::estChaineDeCaracteres($sNom);
 
         $this->sNom = $sNom;
     }
 
-    public function setsPrenom($sPrenom){
+    public function setsPrenom($sPrenom)
+    {
         TypeException::estChaineDeCaracteres($sPrenom);
 
         $this->sPrenom = $sPrenom;
     }
 
-    public function setsCourriel($sCourriel){
+    public function setsCourriel($sCourriel)
+    {
         TypeException::estChaineDeCaracteres($sCourriel);
 
         $this->sCourriel = $sCourriel;
     }
 
-    public function setsPseudo($sPseudo){
+    public function setsPseudo($sPseudo)
+    {
         TypeException::estChaineDeCaracteres($sPseudo);
 
         $this->sPseudo = $sPseudo;
     }
 
-    public function setsMotDePasse($sMotDePasse){
+    public function setsMotDePasse($sMotDePasse)
+    {
         TypeException::estChaineDeCaracteres($sMotDePasse);
 
         $this->sMotDePasse = $sMotDePasse;
     }
 
-    public function setsAvatar($sAvatar){
+    public function setsAvatar($sAvatar)
+    {
         TypeException::estChaineDeCaracteres($sAvatar);
 
         $this->sAvatar = $sAvatar;
     }
 
-    public function setsDateInscription($sDateInscription){
+    public function setsDateInscription($sDateInscription)
+    {
         TypeException::estChaineDeCaracteres($sDateInscription);
 
         $this->sDateInscription = $sDateInscription;
@@ -69,41 +78,50 @@ class Utilisateur {
 
     /* =============================================================================================== */
 
-    public function getidUtilisateur(){
+    public function getidUtilisateur()
+    {
         return $this->idUtilisateur;
     }
 
-    public function getsNom(){
+    public function getsNom()
+    {
         return $this->sNom;
     }
 
-    public function getsPrenom(){
+    public function getsPrenom()
+    {
         return $this->sPrenom;
     }
 
-    public function getsCourriel(){
+    public function getsCourriel()
+    {
         return $this->sCourriel;
     }
 
-    public function getsPseudo(){
+    public function getsPseudo()
+    {
         return $this->sPseudo;
     }
 
-    public function getsMotDePasse(){
+    public function getsMotDePasse()
+    {
         return $this->sMotDePasse;
     }
 
-    public function getsAvatar(){
+    public function getsAvatar()
+    {
         return $this->sAvatar;
     }
 
-    public function getsDateInscription(){
+    public function getsDateInscription()
+    {
         return $this->sDateInscription;
     }
 
     /* =============================================================================================== */
 
-    public function __construct($idUtilisateur=1, $sNom="", $sPrenom="", $sCourriel="", $sPseudo="", $sMotDePasse="", $sAvatar="", $sDateInscription="") {
+    public function __construct($idUtilisateur = 1, $sNom = "", $sPrenom = "", $sCourriel = "", $sPseudo = "", $sMotDePasse = "", $sAvatar = "", $sDateInscription = "")
+    {
         $this->setidUtilisateur($idUtilisateur);
         $this->setsNom($sNom);
         $this->setsPrenom($sPrenom);
@@ -117,7 +135,8 @@ class Utilisateur {
     /* =============================================================================================== */
 
 
-    public function ajouter(){
+    public function ajouter()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
@@ -141,20 +160,20 @@ class Utilisateur {
         $b = $oPDOStatement->execute();
 
         //Si la requête a bien été exécutée
-        if($b == true){
+        if ($b == true) {
 
             return (int)$oPDOLib->getoPDO()->lastInsertId();
         }
         $oPDOLib->fermerLaConnexion();
         return false;
-
     }
 
-    public function modifier(){
+    public function modifier()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
-        $sRequete="
+        $sRequete = "
 			UPDATE utilisateur
 			SET sNom= :sNom, sPrenom= :sPrenom, sCourriel= :sCourriel, sPseudo= :sPseudo, sMotDePasse= :sMotDePasse, sAvatar= :sAvatar
 			WHERE idUtilisateur= :idUtilisateur";
@@ -175,20 +194,20 @@ class Utilisateur {
         $b = $oPDOStatement->execute();
 
         //Si la requête a bien été exécutée
-        if($b == true){
+        if ($b == true) {
             $oPDOLib->fermerLaConnexion();
             return (int)$oPDOStatement->rowCount();
         }
         $oPDOLib->fermerLaConnexion();
         return false;
-
     }
 
-    public function supprimer(){
+    public function supprimer()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
-        $sRequete="
+        $sRequete = "
 			DELETE FROM utilisateur
 			WHERE idUtilisateur= :idUtilisateur";
 
@@ -203,20 +222,20 @@ class Utilisateur {
         $b = $oPDOStatement->execute();
 
         //Si la requête a bien été exécutée
-        if($b == true){
+        if ($b == true) {
             $oPDOLib->fermerLaConnexion();
             return (int)$oPDOStatement->rowCount();
         }
         $oPDOLib->fermerLaConnexion();
         return false;
-
     }
 
-    public function rechercherUn(){
+    public function rechercherUn()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
-        $sRequete="
+        $sRequete = "
 			SELECT * 
 			FROM utilisateur
 			WHERE idUtilisateur= :idUtilisateur";
@@ -233,10 +252,10 @@ class Utilisateur {
         //var_dump($oPDOStatement->errorInfo());
 
         //Si la requête a bien été exécutée
-        if($b == true){
+        if ($b == true) {
             //Récupérer l'enregistrement (fetch)
             $aEnregs = $oPDOStatement->fetch(PDO::FETCH_ASSOC);
-            if($aEnregs !== false){
+            if ($aEnregs !== false) {
                 //Affecter les valeurs aux propriétés privées de l'objet
                 $this->__construct(
                     $aEnregs['idUtilisateur'],
@@ -255,15 +274,15 @@ class Utilisateur {
         }
         $oPDOLib->fermerLaConnexion();
         return false;
-
     }
 
 
-    public function rechercherTous(){
+    public function rechercherTous()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
-        $sRequete="
+        $sRequete = "
 			SELECT * 
 			FROM utilisateur";
 
@@ -277,13 +296,13 @@ class Utilisateur {
         $b = $oPDOStatement->execute();
 
         //Si la requête a bien été exécutée
-        if($b == true){
+        if ($b == true) {
             //Récupérer le array
             $aEnregs = $oPDOStatement->fetchAll(PDO::FETCH_ASSOC);
             $iMax = count($aEnregs);
             $aoEnregs = array();
-            if($iMax > 0){
-                for($iEnreg=0;$iEnreg<$iMax;$iEnreg++){
+            if ($iMax > 0) {
+                for ($iEnreg = 0; $iEnreg < $iMax; $iEnreg++) {
                     $aoEnregs[$iEnreg] = new Utilisateur(
                         $aEnregs[$iEnreg]['idUtilisateur'],
                         $aEnregs[$iEnreg]['sNom'],
@@ -302,6 +321,5 @@ class Utilisateur {
         }
         $oPDOLib->fermerLaConnexion();
         return false;
-
-    }//fin de la fonction
+    } //fin de la fonction
 }

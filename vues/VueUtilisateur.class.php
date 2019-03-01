@@ -6,13 +6,15 @@
  * Time: 21:12
  */
 
-class VueUtilisateur {
-    public function afficherUn(Utilisateur $oUtilisateur, $sMsg=""){
+class VueUtilisateur
+{
+    public function afficherUn(Utilisateur $oUtilisateur, $sMsg = "")
+    {
         date_default_timezone_set('America/Toronto');
 
         $sHtml = "
             <nav>
-                <img src='medias/". $oUtilisateur->getsAvatar() ."' alt=''>
+                <img src='medias/" . $oUtilisateur->getsAvatar() . "' alt=''>
                 <ul>
                     <li><a href='#'><i class='fas fa-home'></i></a></li>
                     <li><a href='#'><i class='fas fa-cog'></i></a></li>
@@ -27,19 +29,17 @@ class VueUtilisateur {
 
         $iHeure = date("G");
 
-        if($iHeure >= 5 && $iHeure < 10){
+        if ($iHeure >= 5 && $iHeure < 10) {
             $sMotBienvenue = "Bon matin ";
-        }
-        else if($iHeure >= 10 && $iHeure < 17){
+        } else if ($iHeure >= 10 && $iHeure < 17) {
             $sMotBienvenue = "Bonjour ";
-        }
-        else{
+        } else {
             $sMotBienvenue = "Bonsoir ";
         }
 
 
         $sHtml .= "
-                        <h1>".$sMotBienvenue . $oUtilisateur->getsPrenom() ." ". substr($oUtilisateur->getsNom(), 0, 1) .".</h1>
+                        <h1>" . $sMotBienvenue . $oUtilisateur->getsPrenom() . " " . substr($oUtilisateur->getsNom(), 0, 1) . ".</h1>
                         <div class='flex-container'>
                         <p>Aujourd'hui sera une belle journée!</p>
                     </div>

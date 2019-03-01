@@ -17,7 +17,7 @@ body {
 }
 
 nav {
-    background-color: #FFF;
+    background-color: rgb(255, 255, 255);
     padding: 15px 20px;
     margin: 15px;
     border-radius: 5px;
@@ -27,21 +27,25 @@ nav img {
     width: 35px;
     border-radius: 50%;
 }
-nav ul{
+
+nav ul {
     list-style-type: none;
     margin-top: 70px;
 }
-nav ul li{
+
+nav ul li {
     padding-bottom: 25px;
 }
-nav ul li a{
+
+nav ul li a {
     display: block;
     color: #D1D1D3;
     font-size: 1.2em;
     text-align: center;
     transition: color 0.2s ease-in-out;
 }
-nav ul li:hover a{
+
+nav ul li:hover a {
     color: #6C96E7;
 }
 
@@ -50,14 +54,15 @@ main {
     padding: 20px;
 }
 
-#contenu{
+#contenu {
     flex-flow: column nowrap;
     height: 100%;
 }
 
-.row{
+.row {
     margin-bottom: 35px;
 }
+
 #info {
     margin-bottom: 35px;
     color: #111111;
@@ -77,7 +82,7 @@ main {
     margin-right: 25px;
 }
 
-#site>div{
+#site>div {
     width: calc(100% - 70px);
     overflow-x: auto;
     padding-bottom: 10px;
@@ -108,36 +113,41 @@ main {
     font-size: 15px;
     font-weight: 700;
 }
-.site-lien:last-of-type{
+
+.site-lien:last-of-type {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 25px;
 }
-.site-lien:last-of-type span{
+
+.site-lien:last-of-type span {
     cursor: pointer;
 }
-.site-lien:last-of-type>div{
+
+.site-lien:last-of-type>div {
     display: none;
 }
-.site-lien:last-of-type input{
+
+.site-lien:last-of-type input {
     border: none;
     width: 100px;
     margin: 0px 10px;
 }
-.site-lien:last-of-type button{
+
+.site-lien:last-of-type button {
     background-color: transparent;
     border: none;
     cursor: pointer;
     font-size: 1em;
 }
 
-#actu{
+#actu {
     flex: 1 1 0;
     margin-bottom: 0px;
 }
 
-.card{
+.card {
     background-color: #FFF;
     border-radius: 5px;
     min-width: 30vh;
@@ -145,7 +155,8 @@ main {
     margin-right: 25px;
     flex: 1 1 0;
 }
-.card > div:first-of-type {
+
+.card>div:first-of-type {
     position: relative;
     height: 30vh;
     background-position: center;
@@ -153,14 +164,15 @@ main {
     background-size: cover;
     background-repeat: no-repeat;
 }
-#calendrier > div:first-of-type h2 {
+
+#calendrier>div:first-of-type h2 {
     color: #FFF;
     padding: 25px 20px;
     text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
 }
 
 
-.card > div:first-of-type div {
+.card>div:first-of-type div {
     position: absolute;
     background-color: rgba(101, 161, 235, 0.70);
     padding: 15px;
@@ -171,16 +183,17 @@ main {
     left: 20px;
 }
 
-.card > div:first-of-type p:first-child {
+.card>div:first-of-type p:first-child {
     font-size: 1.8em;
     font-weight: 900;
 }
 
-.card  > div:first-of-type p:last-child {
+.card>div:first-of-type p:last-child {
     font-size: 13px;
     font-weight: 300;
 }
-.card  > div:first-of-type a{
+
+.card>div:first-of-type a {
     width: 40px;
     height: 40px;
     line-height: 40px;
@@ -194,137 +207,161 @@ main {
     box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s ease-in-out;
 }
-.card  > div:first-of-type a:hover{
+
+.card>div:first-of-type a:hover {
     background-color: #60A2F4;
     color: #FFF;
 }
-.card > div:last-of-type{
+
+.card>div:last-of-type {
     padding: 25px 20px;
 }
-.card > div:last-of-type h3{
+
+.card>div:last-of-type h3 {
     font-size: 18px;
     margin-bottom: 15px;
 }
-.card > div:last-of-type>div{
+
+.card>div:last-of-type>div {
     max-height: 200px;
     overflow-y: auto;
 }
 
 
-.event-item{
+.event-item {
     border-left: 2px solid #F49E7F;
     padding-left: 15px;
     font-size: 15px;
     margin-bottom: 15px;
     align-items: center;
 }
-.event-item>div{
+
+.event-item>div {
     flex: 1 1 0;
 }
-.event-item span{
+
+.event-item span {
     font-size: 12px;
     color: #AAA;
 }
-.event-item a{
+
+.event-item a {
     margin-right: 10px;
     color: #333;
 }
 
-#meteo{
+#meteo {
     margin-right: 0px;
 }
-#meteo>div:first-of-type{
+
+#meteo>div:first-of-type {
     align-items: center;
     justify-content: center;
     flex-flow: column nowrap;
 }
-#meteo>div:first-of-type h2{
+
+#meteo>div:first-of-type h2 {
     text-align: center;
     color: #FFF;
     font-weight: 900;
     font-size: 1.5em;
 }
-#meteo>div:first-of-type>p:first-of-type{
+
+#meteo>div:first-of-type>p:first-of-type {
     font-size: 18px;
     color: #FFF;
     margin-bottom: 15px;
 }
-#meteo>div:first-of-type>p:last-of-type{
+
+#meteo>div:first-of-type>p:last-of-type {
     font-size: 2em;
     color: #FFF;
     font-weight: 900;
 }
-.meteo-item{
+
+.meteo-item {
     align-items: center;
     margin-bottom: 20px;
     border-left: 2px solid #6C96E7;
     padding-left: 15px;
 }
-.meteo-item>p{
+
+.meteo-item>p {
     flex: 1 1 0;
 }
-.meteo-item>div>p:first-of-type{
+
+.meteo-item>div>p:first-of-type {
     font-size: 18px;
     font-weight: 900;
     text-align: center;
 }
-.meteo-item>div>p:last-of-type{
+
+.meteo-item>div>p:last-of-type {
     font-size: 14px;
     text-align: center;
     color: #AAA;
     max-width: 125px;
 }
 
-.clear-day{
+.clear-day {
     background: linear-gradient(to bottom, #51A4DB, #74BAE1);
 }
-.clear-night{
+
+.clear-night {
     background: linear-gradient(to bottom, #112158, #9762A2);
 }
-.snow{
+
+.snow {
     background: linear-gradient(to bottom, #9BBBD2, #EDE7E2);
 }
-.morning{
+
+.morning {
     background: linear-gradient(to bottom, #F0E2CF, #F1C0B5);
 }
 
 
-#middle{
+#middle {
     flex: 1.5 1 0;
     flex-flow: column nowrap;
     margin-right: 25px;
 }
 
-#todo{
+#todo {
     background-color: #FFF;
     padding: 25px;
     margin-bottom: 25px;
     border-radius: 5px;
     flex: 1 1 0;
 }
-#todo h2{
+
+#todo h2 {
     display: flex;
     font-size: 20px;
     margin-bottom: 15px;
     align-items: center;
 }
-#todo h2 span{
+
+#todo h2 span {
     flex: 1 1 0;
 }
-#todo h2 a{
+
+#todo h2 a {
     color: #6C96E7;
     text-decoration: none;
     font-size: 15px;
     padding-bottom: 3px;
     border-bottom: 1px solid transparent;
 }
-#todo h2 a:hover{
+
+#todo h2 a:hover {
     border-bottom: 1px solid #6C96E7;
 }
-#todo>div{
+
+#todo>div {
     max-height: 500px;
     overflow-y: auto;
 }
+
 .container {
     display: block;
     position: relative;
@@ -338,10 +375,11 @@ main {
     user-select: none;
 }
 
-#todo .container p{
+#todo .container p {
     font-size: 18px;
     transition: color 0.2s ease-in-out;
 }
+
 #todo .container input {
     position: absolute;
     opacity: 0;
@@ -349,7 +387,8 @@ main {
     height: 0;
     width: 0;
 }
-.todo-item>label{
+
+.todo-item>label {
     flex: 1 1 0;
 }
 
@@ -361,18 +400,22 @@ main {
     width: 25px;
     background-color: #EEE;
 }
-#todo .container input:checked ~ .checkmark {
+
+#todo .container input:checked~.checkmark {
     background-color: #6997EE;
 }
+
 #todo .checkmark:after {
     content: "";
     position: absolute;
     display: none;
 }
-#todo .container input:checked ~ .checkmark:after {
+
+#todo .container input:checked~.checkmark:after {
     display: block;
 }
-#todo .container input:checked ~ p{
+
+#todo .container input:checked~p {
     text-decoration: line-through;
     color: #AAA;
 }
@@ -390,27 +433,31 @@ main {
     transform: rotate(45deg);
 }
 
-.small-box{
+.small-box {
     background-color: #fff;
     padding: 25px;
     flex: 1 1 0;
     border-radius: 5px;
     box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.1);
 }
-.small-box:first-of-type{
+
+.small-box:first-of-type {
     margin-right: 25px;
 }
-#chrono p{
+
+#chrono p {
     font-size: 2em;
     text-align: center;
     font-weight: 400;
     margin-bottom: 15px;
 }
-#chrono>div{
+
+#chrono>div {
     align-items: center;
     justify-content: center;
 }
-#chrono>div button{
+
+#chrono>div button {
     padding: 8px 15px;
     border-radius: 3px;
     cursor: pointer;
@@ -418,19 +465,21 @@ main {
     width: 100px;
     outline: none;
 }
-#chrono>div button:first-of-type{
+
+#chrono>div button:first-of-type {
     background-color: #CCEAF9;
     color: #6F92ED;
     border-bottom: 2px solid #6F92ED;
     margin-right: 15px;
 }
-#chrono>div button:last-of-type{
+
+#chrono>div button:last-of-type {
     background-color: #C2F7E2;
     color: #00D26E;
     border-bottom: 2px solid #00D26E;
 }
 
-.modal{
+.modal {
     position: fixed;
     display: none;
     align-items: center;
@@ -441,34 +490,40 @@ main {
     top: 0;
     background-color: rgba(0, 0, 0, 0.7);
 }
-.modal-contenu{
+
+.modal-contenu {
     position: relative;
     background-color: #FFF;
     padding: 25px;
     border-radius: 5px;
     box-shadow: 0px 0px 25px -5px rgba(0, 0, 0, 0.3);
 }
-.modal-contenu>span{
+
+.modal-contenu>span {
     position: absolute;
     top: 20px;
     right: 20px;
     cursor: pointer;
     color: #AAA;
 }
-.modal-contenu>h3{
+
+.modal-contenu>h3 {
     margin-bottom: 25px;
 }
-.modal-contenu form>div{
+
+.modal-contenu form>div {
     margin-bottom: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid #EAF2F5;
     align-items: center;
 }
-.modal-contenu form>div p{
+
+.modal-contenu form>div p {
     width: 75px;
     color: #333;
 }
-.event form>div>div{
+
+.event form>div>div {
     display: flex;
     align-items: center;
     border: 1px solid #CCC;
@@ -477,12 +532,14 @@ main {
     margin-right: 25px;
     overflow: hidden;
 }
-.event form>div>div label{
+
+.event form>div>div label {
     padding: 5px 10px;
     color: #CCC;
 }
+
 .event form>div>div input[type=text],
-.modal-contenu form>div input[type=text]{
+.modal-contenu form>div input[type=text] {
     display: block;
     height: 100%;
     flex: 1 1 0;
@@ -490,12 +547,14 @@ main {
     outline: none;
     padding: 0 5px;
 }
-.modal-contenu form>div input[type=text]{
+
+.modal-contenu form>div input[type=text] {
     padding: 8px 10px;
     border: 1px solid #CCC;
     border-radius: 3px;
 }
-.modal-contenu button{
+
+.modal-contenu button {
     border: 1px solid #F49E7F;
     padding: 10px 25px;
     background-color: #F49E7F;
@@ -521,10 +580,12 @@ main {
     -ms-user-select: none;
     user-select: none;
 }
-.event .container p{
+
+.event .container p {
     flex: 1 1 0;
     width: auto;
 }
+
 .event .container input {
     position: absolute;
     opacity: 0;
@@ -532,6 +593,7 @@ main {
     height: 0;
     width: 0;
 }
+
 .event .checkmark {
     height: 15px;
     width: 15px;
@@ -540,9 +602,8 @@ main {
     margin-right: 5px;
     transition: border 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
-.event .container input:checked ~ .checkmark {
+
+.event .container input:checked~.checkmark {
     background-color: #F49E7F;
     border: 1px solid #F49E7F;
 }
-
-
