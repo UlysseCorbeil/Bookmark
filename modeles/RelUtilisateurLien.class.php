@@ -11,23 +11,41 @@ class RelUtilisateurLien {
     private $idRelUtilLiens;
     private $oUtilisateur;
     private $oLien;
-    private $iPosLien;
+    private $iPosLien; // Plus le chiffre est élevé, plus il est important
 
     /* ====================================================================================== */
 
+    /**
+     * Set l'id de la relation entre l'utilisateur et le lien
+     * @param $idRelUtilLiens
+     * @throws TypeException
+     */
     public function setidRelUtilLiens($idRelUtilLiens) {
         TypeException::estNumerique($idRelUtilLiens);
         $this->idRelUtilLiens = $idRelUtilLiens;
     }
 
+    /**
+     * Set l'utilisateur
+     * @param Utilisateur $oUtilisateur
+     */
     public function setoUtilisateur(Utilisateur $oUtilisateur) {
         $this->oUtilisateur = $oUtilisateur;
     }
 
+    /**
+     * Set le lien
+     * @param Lien $oLien
+     */
     public function setoLien(Lien $oLien) {
         $this->oLien = $oLien;
     }
 
+    /**
+     * Set la position du lien
+     * @param $iPosLien
+     * @throws TypeException
+     */
     public function setiPosLien($iPosLien) {
         TypeException::estNumerique($iPosLien);
         $this->iPosLien = $iPosLien;
@@ -35,24 +53,48 @@ class RelUtilisateurLien {
 
     /* ====================================================================================== */
 
+    /**
+     * Get l'id de la relation entre l'utilisateur et le lien
+     * @return mixed
+     */
     public function getidRelUtilLiens() {
         return $this->idRelUtilLiens;
     }
 
+    /**
+     * Get l'utilisateur
+     * @return mixed
+     */
     public function getoUtilisateur() {
         return $this->oUtilisateur;
     }
 
+    /**
+     * Get le lien
+     * @return mixed
+     */
     public function getoLien() {
         return $this->oLien;
     }
 
+    /**
+     * Get la position du lien
+     * @return mixed
+     */
     public function getiPosLien() {
         return $this->iPosLien;
     }
 
     /* ====================================================================================== */
 
+    /**
+     * RelUtilisateurLien constructor.
+     * @param int $idRelUtilLiens
+     * @param int $iNoUtilisateur
+     * @param int $iNoLien
+     * @param int $iPosLien
+     * @throws TypeException
+     */
     public function __construct($idRelUtilLiens = 1, $iNoUtilisateur = 1, $iNoLien = 1, $iPosLien = 0) {
         $this->setidRelUtilLiens($idRelUtilLiens);
         $this->setoUtilisateur(new Utilisateur($iNoUtilisateur));
@@ -63,7 +105,7 @@ class RelUtilisateurLien {
     /* ====================================================================================== */
 
     /**
-     * Ajouter une tâche dans la BDD
+     * Ajouter une relation entre l'utilisateur et le lien dans la BDD
      * @return bool|int
      */
     public function ajouter(){
@@ -95,7 +137,7 @@ class RelUtilisateurLien {
     }
 
     /**
-     * Modifier une tâche dans la BDD
+     * Modifier une relation entre l'utilisateur et le lien dans la BDD
      * @return bool|int
      */
     public function modifier(){
@@ -130,7 +172,7 @@ class RelUtilisateurLien {
     }
 
     /**
-     * Supprimer une tâche de la BDD
+     * Supprimer une relation entre l'utilisateur et le lien de la BDD
      * @return bool|int
      */
     public function supprimer(){
@@ -162,7 +204,7 @@ class RelUtilisateurLien {
     }
 
     /**
-     * Rechercher une tâche dans la BDD
+     * Rechercher une relation entre l'utilisateur et le lien dans la BDD
      * @return bool
      * @throws TypeException
      */
@@ -210,7 +252,7 @@ class RelUtilisateurLien {
 
 
     /**
-     * Rechercher toutes tâches dans la BDD
+     * Rechercher toutes relations entre l'utilisateur et le lien dans la BDD
      * @return array|bool
      */
     public function rechercherTous(){
@@ -256,6 +298,11 @@ class RelUtilisateurLien {
     }//fin de la fonction
 
 
+    /**
+     * Rechercher tous les liens en fonction de l'utilisateur
+     * @return array|bool
+     * @throws TypeException
+     */
     public function rechercherTousLiensParUtilisateur(){
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
@@ -270,7 +317,7 @@ class RelUtilisateurLien {
         $oPDOStatement = $oPDOLib->getoPDO()->prepare($sRequete);
 
         //Lier les paramètres aux valeurs
-        //void
+        $oPDOStatement->bindValue(":iNoUtilisateur", $this->getoUtilisateur()->getidUtilisateur(), PDO::PARAM_INT);
 
         //Exécuter la requête
         $b = $oPDOStatement->execute();
@@ -283,17 +330,18 @@ class RelUtilisateurLien {
             $aoEnregs = array();
             if($iMax > 0){
                 for($iEnreg=0;$iEnreg<$iMax;$iEnreg++){
+
                     $aoEnregs[$iEnreg] = new RelUtilisateurLien(
-                        $aEnregs['idRelUtilLiens'],
-                        $aEnregs['iNoUtilisateur'],
-                        $aEnregs['iNoLiens'],
-                        $aEnregs['iPosLien']
+                        $aEnregs[$iEnreg]['idRelUtilLiens'],
+                        $aEnregs[$iEnreg]['iNoUtilisateur'],
+                        $aEnregs[$iEnreg]['iNoLiens'],
+                        $aEnregs[$iEnreg]['iPosLien']
                     );
                     $aoEnregs[$iEnreg]->setoLien(new Lien(
-                        $aEnregs['idLiens'],
-                        $aEnregs['sUrl'],
-                        $aEnregs['sFavicon'],
-                        $aEnregs['sNomSite']
+                        $aEnregs[$iEnreg]['idLiens'],
+                        $aEnregs[$iEnreg]['sUrl'],
+                        $aEnregs[$iEnreg]['sFavicon'],
+                        $aEnregs[$iEnreg]['sNomSite']
                     ));
                 }
                 $oPDOLib->fermerLaConnexion();
