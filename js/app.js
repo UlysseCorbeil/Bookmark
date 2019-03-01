@@ -9,6 +9,9 @@ import {
 import {
     AutoRefresh
 } from "./modules/autoRefresh.js";
+import {
+    SpotifyAPI
+} from "./modules/spotify_API.js";
 
 // Variables pour les classes
 let oAjoutSite = document.getElementById("ajoutSite"),
@@ -18,19 +21,25 @@ let oAjoutSite = document.getElementById("ajoutSite"),
 
     // Variables du temps
     elmTemps = document.querySelector('.small-box h1'),
-    currentDate = new Date(),
-    iHeure = currentDate.getHours(),
-    iMinute = currentDate.getMinutes(),
 
     // Classes
     interaction = new class {},
     meteo = new class {},
     animSite = new class {},
-    autoRefresh = new class {};
+    autoRefresh = new class {},
+    spotify = new class {};
 
+// Intéractions client
 interaction = new Interaction(oAjoutSite, oInputAjout, btnAjoutEvent, modalEvent);
+
+// Gère l'affichage de la météo avec géolocalisation
 meteo = new Meteo();
 
-autoRefresh = new AutoRefresh(elmTemps, iHeure, iMinute);
+// Gère les call API à spotify
+spotify = new SpotifyAPI();
 
+// fonction qui gère les événements automatiques
+autoRefresh = new AutoRefresh(elmTemps);
+
+// Animations
 // animSite = new animSite();

@@ -25,7 +25,7 @@ class VuePage
 
         // Affichage
         echo $sHtml;
-    }
+    } // fin ()
 
     // Affiche le header HTML
     public function getHeader()
@@ -223,7 +223,7 @@ class VuePage
         <div class="small-box">
                     <h2>' . $this->aJours[date("d") + 3] . '</h2>
                     <h1></h1>
-                </div>
+        </div>
             </div>
         </div>';
         return $sfinMiddle;
@@ -317,7 +317,8 @@ class VuePage
     // Affiche les scripts qu'on insere dans le HTML
     public function getScripts()
     {
-        $sScripts = "<script type='module' src='js/app.js'></script>";
+        $sScripts = '<script src="https://sdk.scdn.co/spotify-player.js"></script>';
+        $sScripts .= "<script type='module' src='js/app.js'></script>";
         return $sScripts;
     } // fin ()
 
