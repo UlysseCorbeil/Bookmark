@@ -4,7 +4,8 @@
  * @version: 2019-02-28
  */
 
-class Controleur {
+class Controleur
+{
 
     /**
      * Gérer l'affichage du site
@@ -13,7 +14,8 @@ class Controleur {
      *
      * @return void
      */
-    public function gererSite() {
+    public function gererSite()
+    {
 
         try {
 
@@ -62,7 +64,6 @@ class Controleur {
 
             // Fin de la page HTML
             $oVuePage->getFoot();
-
         } catch (Exception $oException) {
             echo "<p>" . $oException->getMessage() . "</p>";
         }
@@ -77,7 +78,8 @@ class Controleur {
      *
      * @return void
      */
-    public function gererAfficherNav() {
+    public function gererAfficherNav()
+    {
         try {
             $oUtilisateur = new Utilisateur(1);
             $oUtilisateur->rechercherUn();
@@ -96,7 +98,8 @@ class Controleur {
      *
      * @return void
      */
-    public function gererAfficherLiens() {
+    public function gererAfficherLiens()
+    {
         try {
             $oUtilisateur = new Utilisateur(1);
             $oUtilisateur->rechercherUn();
@@ -115,7 +118,8 @@ class Controleur {
      *
      * @return void
      */
-    public function gererAfficherEvenements() {
+    public function gererAfficherEvenements()
+    {
         try {
             $oUtilisateur = new Utilisateur(1);
             $oUtilisateur->rechercherUn();
@@ -134,7 +138,8 @@ class Controleur {
      *
      * @return void
      */
-    public function gererAfficherTaches() {
+    public function gererAfficherTaches()
+    {
         try {
             $oUtilisateur = new Utilisateur(1);
             $oUtilisateur->rechercherUn();
@@ -153,7 +158,8 @@ class Controleur {
      *
      * @return void
      */
-    public function gererAfficherTemps() {
+    public function gererAfficherTemps()
+    {
         try {
             $oUtilisateur = new Utilisateur(1);
             $oUtilisateur->rechercherUn();
@@ -172,7 +178,8 @@ class Controleur {
      *
      * @return void
      */
-    public function gererAfficherMeteo() {
+    public function gererAfficherMeteo()
+    {
         try {
             $oUtilisateur = new Utilisateur(1);
             $oUtilisateur->rechercherUn();
@@ -191,7 +198,8 @@ class Controleur {
      *
      * @return void
      */
-    public function gererAfficherModal() {
+    public function gererAfficherModal()
+    {
         try {
             $oUtilisateur = new Utilisateur(1);
             $oUtilisateur->rechercherUn();
@@ -202,7 +210,5 @@ class Controleur {
         } catch (Exception $oException) {
             echo "<p>" . $oException->getMessage() . "</p>";
         }
-
     }
-
 } // fin classe

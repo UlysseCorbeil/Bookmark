@@ -6,14 +6,16 @@
  * Time: 14:51
  */
 
-class VueModal {
+class VueModal
+{
 
     /**
      * Affichage la fenêtre de dialogue pour ajouter une tâche
      * @param void
      * @return void
      */
-    public function afficherModalTache() {
+    public function afficherModalTache()
+    {
         $sHtml = "
         <div class='modal' id='modalTodo'>
             <div class='modal-contenu modal-todo'>
@@ -40,7 +42,8 @@ class VueModal {
      * @param void
      * @return void
      */
-    public function afficherModalEvenement(){
+    public function afficherModalEvenement()
+    {
         $sHtml = "
         <div class='modal' id='modalEvent'>
         <div class='modal-contenu event'>

@@ -30,7 +30,6 @@ try {
     $oControleur = new Controleur();
 
     $oControleur->gererSite();
-
 } catch (Exception $oException) {
     echo "<p>" . $oException->getMessage() . "</p>";
 }

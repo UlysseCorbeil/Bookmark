@@ -49,5 +49,4 @@ class VuePage
         </html> ';
         echo $sfinHTML;
     } // fin ()
-
 } // fin classe
