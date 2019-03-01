@@ -29,7 +29,7 @@ class VueEvenement
                 <h3>Événements</h3>
                 <div>";
 
-        if($aoEvenements){
+        if ($aoEvenements) {
             for ($i = 0; $i < count($aoEvenements); $i++) {
                 $sHtml .= "
                 <div class='flex-container event-item'>
@@ -37,7 +37,7 @@ class VueEvenement
 
                 //var_dump($aoEvenements[$i]->getsDateFin());
 
-                if($aoEvenements){
+                if ($aoEvenements) {
                     for ($i = 0; $i < count($aoEvenements); $i++) {
                         $sHtml .= "
                 <div class='flex-container event-item'>
@@ -46,10 +46,9 @@ class VueEvenement
                         //var_dump($aoEvenements[$i]->getsDateFin());
 
                         if ($aoEvenements[$i]->getsDateDebut() <= date("Y-m-d H:i:s") && $aoEvenements[$i]->getsDateFin() >= date("Y-m-d H:i:s")) {
-                            $sHtml .= "<span>En cours - Fin à ". date("H:i", strtotime($aoEvenements[$i]->getsDateFin())) ."</span>";
-                        }
-                        else if ($aoEvenements[$i]->getsDateDebut() >= date("Y-m-d H:i:s")) {
-                            $sHtml .= "<span>". date("H:i", strtotime($aoEvenements[$i]->getsDateDebut())) ."</span>";
+                            $sHtml .= "<span>En cours - Fin à " . date("H:i", strtotime($aoEvenements[$i]->getsDateFin())) . "</span>";
+                        } else if ($aoEvenements[$i]->getsDateDebut() >= date("Y-m-d H:i:s")) {
+                            $sHtml .= "<span>" . date("H:i", strtotime($aoEvenements[$i]->getsDateDebut())) . "</span>";
                         }
 
                         $sHtml .= "
@@ -59,17 +58,16 @@ class VueEvenement
             </div>
             ";
                     }
-                }
-                else{
+                } else {
                     $sHtml .= "<p>Aucun événement prévu.</p>";
                 }
 
-        $sHtml .= "
+                $sHtml .= "
                 </div>
             </div>
         </div>
         ";
 
-        echo $sHtml;
-    }
-}
+                echo $sHtml;
+            }
+        }
