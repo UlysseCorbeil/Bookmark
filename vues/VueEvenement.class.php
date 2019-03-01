@@ -27,28 +27,32 @@ class VueEvenement {
                 <h3>Événements</h3>
                 <div>";
 
-        for ($i = 0; $i < count($aoEvenements); $i++) {
-            $sHtml .= "
+        if($aoEvenements){
+            for ($i = 0; $i < count($aoEvenements); $i++) {
+                $sHtml .= "
                 <div class='flex-container event-item'>
                     <div>";
 
-            //var_dump($aoEvenements[$i]->getsDateFin());
+                //var_dump($aoEvenements[$i]->getsDateFin());
 
-            if ($aoEvenements[$i]->getsDateDebut() <= date("Y-m-d H:i:s") && $aoEvenements[$i]->getsDateFin() >= date("Y-m-d H:i:s")) {
-                $sHtml .= "<span>En cours - Fin à ". date("H:i", strtotime($aoEvenements[$i]->getsDateFin())) ."</span>";
-            }
-            else if ($aoEvenements[$i]->getsDateDebut() >= date("Y-m-d H:i:s")) {
-                $sHtml .= "<span>". date("H:i", strtotime($aoEvenements[$i]->getsDateDebut())) ."</span>";
-            }
+                if ($aoEvenements[$i]->getsDateDebut() <= date("Y-m-d H:i:s") && $aoEvenements[$i]->getsDateFin() >= date("Y-m-d H:i:s")) {
+                    $sHtml .= "<span>En cours - Fin à ". date("H:i", strtotime($aoEvenements[$i]->getsDateFin())) ."</span>";
+                }
+                else if ($aoEvenements[$i]->getsDateDebut() >= date("Y-m-d H:i:s")) {
+                    $sHtml .= "<span>". date("H:i", strtotime($aoEvenements[$i]->getsDateDebut())) ."</span>";
+                }
 
-            $sHtml .= "
+                $sHtml .= "
                     <p>" . $aoEvenements[$i]->getsNomEvenement() . "</p>
                 </div>
                 <a href='#'><i class='fas fa-ellipsis-v'></i></a>
             </div>
             ";
+            }
         }
-
+        else{
+            $sHtml .= "<p>Aucun événement prévu.</p>";
+        }
 
         $sHtml .= "
                 </div>
