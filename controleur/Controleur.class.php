@@ -42,6 +42,10 @@ class Controleur
             // Afficher les liens des sites
             $this->gererAfficherLiens();
 
+
+            // DÉBUT DU DIV QUI CONTIENT TOUS LES BLOCS
+            echo "<div id='actu' class='flex-container row'>";
+
             // Afficher le calendrier
             $this->gererAfficherEvenements();
 
@@ -102,10 +106,13 @@ class Controleur
     {
         try {
             $oUtilisateur = new Utilisateur(1);
-            $oUtilisateur->rechercherUn();
+            $oRelUtilisateurLien = new RelUtilisateurLien();
+            $oRelUtilisateurLien->setoUtilisateur($oUtilisateur);
+            $aoLiens = $oRelUtilisateurLien->rechercherTousLiensParUtilisateur();
+
             $oVueLien = new VueLien();
 
-            $oVueLien->afficherTous(array());
+            $oVueLien->afficherTous($aoLiens);
         } catch (Exception $oException) {
             echo "<p>" . $oException->getMessage() . "</p>";
         }
@@ -142,10 +149,13 @@ class Controleur
     {
         try {
             $oUtilisateur = new Utilisateur(1);
-            $oUtilisateur->rechercherUn();
             $oVueTache = new VueTache();
+            $oTache = new Tache();
+            $oTache->setoUtilisateur($oUtilisateur);
 
-            $oVueTache->afficherTous(array());
+            $aoTaches = $oTache->rechercherTousParUtilisateur();
+
+            $oVueTache->afficherTous($aoTaches);
         } catch (Exception $oException) {
             echo "<p>" . $oException->getMessage() . "</p>";
         }

@@ -154,6 +154,8 @@ main {
     overflow: hidden;
     margin-right: 25px;
     flex: 1 1 0;
+    display: flex;
+    flex-flow: column nowrap;
 }
 
 .card>div:first-of-type {
@@ -215,6 +217,9 @@ main {
 
 .card>div:last-of-type {
     padding: 25px 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 0;
 }
 
 .card>div:last-of-type h3 {
@@ -223,7 +228,7 @@ main {
 }
 
 .card>div:last-of-type>div {
-    max-height: 200px;
+    flex: 1 1 0;
     overflow-y: auto;
 }
 
@@ -286,7 +291,8 @@ main {
     padding-left: 15px;
 }
 
-.meteo-item>p {
+.meteo-item>p,
+.meteo-item>div{
     flex: 1 1 0;
 }
 
@@ -300,7 +306,6 @@ main {
     font-size: 14px;
     text-align: center;
     color: #AAA;
-    max-width: 125px;
 }
 
 .clear-day {
