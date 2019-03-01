@@ -315,7 +315,7 @@ class VuePage
     // Affiche les scripts qu'on insere dans le HTML
     public function getScripts()
     {
-        $sScripts = '<script src="js/app.js"></script>';
+        $sScripts = "<script type='module' src='js/app.js'></script>";
         return $sScripts;
     } // fin ()
 

@@ -1,98 +1,19 @@
-(function () {
-    var oAjoutSite = document.getElementById("ajoutSite");
-    var oInputAjout = document.querySelector(".site-lien:last-of-type>div");
-    var modalEvent = document.getElementById("modalEvent");
-    var btnAjoutEvent = document.querySelector("#calendrier a");
+// Importation des modules
 
-    oAjoutSite.addEventListener("click", function () {
-        if (oAjoutSite.getAttribute("data-open") === "false") {
-            oInputAjout.style.display = "block";
+import {
+    Interaction
+} from "./modules/interaction.js";
+import {
+    Meteo
+} from "./modules/meteo.js";
 
-            oAjoutSite.querySelector("i").classList.replace("fa-plus", "fa-minus");
-            oAjoutSite.setAttribute("data-open", "true");
-        } else {
-            oInputAjout.style.display = "none";
-            oAjoutSite.querySelector("i").classList.replace("fa-minus", "fa-plus");
+// Variables pour les classes
+let oAjoutSite = document.getElementById("ajoutSite"),
+    oInputAjout = document.querySelector(".site-lien:last-of-type>div"),
+    modalEvent = document.getElementById("modalEvent"),
+    btnAjoutEvent = document.querySelector("#calendrier a"),
+    interaction = new class {},
+    meteo = new class {};
 
-            oAjoutSite.setAttribute("data-open", "false");
-        }
-    });
-
-    btnAjoutEvent.addEventListener("click", function (evt) {
-        evt.preventDefault();
-        modalEvent.style.display = "flex";
-        document.getElementById("sNomEvenement").focus();
-    });
-
-    modalEvent.querySelector("span").addEventListener("click", function () {
-        modalEvent.style.display = "none";
-    });
-
-    getLocation();
-
-
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(afficherMeteo);
-        } else {
-            afficherMeteo();
-        }
-    }
-
-    function afficherMeteo(position="") {
-
-        if (position != "") {
-            var sRequetePrevision = "https://api.apixu.com/v1/forecast.json?key=4367423a680c4b499f624827192802&days=5&lang=fr&q=" + position.coords.latitude + ",=" + position.coords.longitude;
-            var aJour = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', "Vendredi", "Samedi", 'Dimanche'];
-
-            $.ajax({
-                url: sRequetePrevision,
-                method: "get"
-            })
-            // Si la reqête est terminée
-                .done(function (sHtml) {
-
-                    // Afficher météo actuelle
-                    document.getElementById("meteo-actuelle").innerHTML = "<h2>" + sHtml.current.condition.text + "</h2>" +
-                        "<p>" + sHtml.location.name + ", " + sHtml.location.region + "</p>" +
-                        "<p>" + Math.floor(sHtml.current.temp_c) + " <span>°C</span></p>";
-
-                    // Afficher prévision
-                    var sPrevision = "";
-
-                    for (var i = 0; i < sHtml.forecast.forecastday.length; i++) {
-                        sPrevision += "<div class='flex-container meteo-item'>\n" +
-                            "<p>" + aJour[new Date(sHtml.forecast.forecastday[i].date).getDay()] + "</p>" +
-                            "<div>" +
-                            "<p>" + Math.floor(sHtml.forecast.forecastday[i].day.avgtemp_c) + "°C</p>" +
-                            "<p>" + sHtml.forecast.forecastday[i].day.condition.text + "</p>" +
-                            "</div>" +
-                            "</div>"
-                    }
-
-                    document.getElementById("meteo-prevision").innerHTML = sPrevision;
-                });
-        } else {
-
-            // Afficher météo actuelle
-            document.getElementById("meteo-actuelle").innerHTML = "<h2>-</h2>" +
-                "<p>-, -</p>" +
-                "<p>- °C</span></p>";
-
-            // Afficher prévision
-            var sPrevision = "<div class='flex-container meteo-item'>" +
-                    "<p>" + aJour[new Date().getDay()] + "</p>" +
-                    "<div>" +
-                    "<p>- °C</p>" +
-                    "<p>-</p>" +
-                    "</div>" +
-                    "</div>";
-
-            document.getElementById("meteo-prevision").innerHTML = sPrevision;
-        }
-
-
-    }
-
-
-})();
+interaction = new Interaction(oAjoutSite, oInputAjout, btnAjoutEvent, modalEvent);
+meteo = new Meteo();
