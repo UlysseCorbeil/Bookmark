@@ -209,7 +209,7 @@ class Utilisateur {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
-        $sRequete = "INSERT utilisateur
+        $sRequete = "INSERT INTO utilisateur
 			(sNom, sPrenom, sCourriel, sPseudo, sMotDePasse, sAvatar, sDateInscription)
 			VALUES(:sNom, :sPrenom, :sCourriel, :sPseudo, :sMotDePasse, :sAvatar, :sDateInscription)";
 

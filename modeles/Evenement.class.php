@@ -140,7 +140,7 @@ class Evenement {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
-        $sRequete = "INSERT evenement
+        $sRequete = "INSERT INTO evenement
 			(sDateDebut, sDateFin, sNomEvenement, iNoUtilisateur)
 			VALUES(:sDateDebut, :sDateFin, :sNomEvenement, :iNoUtilisateur)";
 

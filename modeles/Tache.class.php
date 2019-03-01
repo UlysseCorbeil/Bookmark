@@ -3,107 +3,62 @@
  * Created by PhpStorm.
  * User: Pierrot
  * Date: 2019-02-28
- * Time: 19:52
+ * Time: 20:39
  */
 
-class Liens {
+class Tache {
 
-    private $idLiens;
-    private $sUrl;
-    private $sFavicon;
-    private $sNomSite;
+    private $idTache;
+    private $sTache;
+    private $bComplete;
+    private $oUtilisateur;
 
     /* ====================================================================================== */
 
-    /**
-     * Set l'id du lien
-     * @param $idLiens
-     * @throws TypeException
-     */
-    public function setidLiens($idLiens) {
-        TypeException::estNumerique($idLiens);
-        $this->idLiens = $idLiens;
+    public function setidTache($idTache){
+        TypeException::estNumerique($idTache);
+        $this->idTache = $idTache;
     }
 
-    /**
-     * Set l'url du lien
-     * @param $sUrl
-     * @throws TypeException
-     */
-    public function setsUrl($sUrl) {
-        TypeException::estChaineDeCaracteres($sUrl);
-        $this->sUrl = $sUrl;
+    public function setsTache($sTache){
+        TypeException::estChaineDeCaracteres($sTache);
+        $this->sTache = $sTache;
     }
 
-    /**
-     * Set le favicon du lien
-     * @param $sFavicon
-     * @throws TypeException
-     */
-    public function setsFavicon($sFavicon) {
-        TypeException::estChaineDeCaracteres($sFavicon);
-        $this->sFavicon = $sFavicon;
+    public function setbComplete($bComplete){
+        TypeException::estNumerique($bComplete);
+        $this->bComplete = $bComplete;
     }
 
-    /**
-     * Set le nom du site
-     * @param $sNomSite
-     * @throws TypeException
-     */
-    public function setsNomSite($sNomSite) {
-        TypeException::estChaineDeCaracteres($sNomSite);
-        $this->sNomSite = $sNomSite;
+    public function setoUtilisateur(Utilisateur $oUtilisateur){
+        $this->oUtilisateur = $oUtilisateur;
     }
 
     /* ====================================================================================== */
 
-    /**
-     * Get l'id du lien
-     * @return mixed
-     */
-    public function getidLiens() {
-        return $this->idLiens;
+    public function getidTache(){
+        return $this->idTache;
     }
 
-    /**
-     * Get l'URL du lien
-     * @return mixed
-     */
-    public function getsUrl() {
-        return $this->sUrl;
+    public function getsTache(){
+        return $this->sTache;
     }
 
-    /**
-     * Get le favicon du lien
-     * @return mixed
-     */
-    public function getsFavicon() {
-        return $this->sFavicon;
+    public function getbComplete(){
+        return $this->bComplete;
     }
 
-    /**
-     * Get le nom du site
-     * @return mixed
-     */
-    public function getsNomSite() {
-        return $this->sNomSite;
+    public function getoUtilisateur(){
+        return $this->oUtilisateur;
     }
 
     /* ====================================================================================== */
 
-    /**
-     * Liens constructor.
-     * @param int $idLiens
-     * @param string $sUrl
-     * @param string $sFavicon
-     * @param string $sNomSite
-     * @throws TypeException
-     */
-    public function __construct($idLiens = 1, $sUrl = "", $sFavicon = "", $sNomSite = "") {
-        $this->setidLiens($idLiens);
-        $this->setsUrl($sUrl);
-        $this->setsFavicon($sFavicon);
-        $this->setsNomSite($sNomSite);
+    public function __construct($idTache=1, $sTache="", $bComplete=0, $iNoUtilisateur=1) {
+        $this->setidTache($idTache);
+        $this->setsTache($sTache);
+        $this->setbComplete($bComplete);
+        $this->setoUtilisateur(new Utilisateur($iNoUtilisateur));
     }
 
     /* ====================================================================================== */
@@ -116,17 +71,17 @@ class Liens {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
-        $sRequete = "INSERT INTO lien
-			(sUrl, sFavicon, sNomSite)
-			VALUES(:sUrl, :sFavicon, :sNomSite)";
+        $sRequete = "INSERT INTO tache
+			(sTache, bComplete, iNoUtilisateur)
+			VALUES(:sTache, :bComplete, :iNoUtilisateur)";
 
         //Préparer la requête
         $oPDOStatement = $oPDOLib->getoPDO()->prepare($sRequete);
 
         //Lier les paramètres aux valeurs
-        $oPDOStatement->bindValue(":sUrl", $this->getsUrl(), PDO::PARAM_STR);
-        $oPDOStatement->bindValue(":sFavicon", $this->getsFavicon(), PDO::PARAM_STR);
-        $oPDOStatement->bindValue(":sNomSite", $this->getsNomSite(), PDO::PARAM_STR);
+        $oPDOStatement->bindValue(":sTache", $this->getsTache(), PDO::PARAM_STR);
+        $oPDOStatement->bindValue(":bComplete", $this->getbComplete(), PDO::PARAM_STR);
+        $oPDOStatement->bindValue(":iNoUtilisateur", $this->getoUtilisateur()->getidUtilisateur(), PDO::PARAM_INT);
 
         //Exécuter la requête
         $b = $oPDOStatement->execute();
@@ -149,18 +104,18 @@ class Liens {
         $oPDOLib = new PDOLib();
         //Réaliser la requête
         $sRequete="
-			UPDATE lien
-			SET sUrl = :sUrl, sFavicon = :sFavicon, sNomSite = :sNomSite
-			WHERE idLien = :idLien";
+			UPDATE tache
+			SET sTache = :sTache, bComplete = :bComplete, iNoUtilisateur = :iNoUtilisateur
+			WHERE idTache = :idTache";
 
         //Préparer la requête
         $oPDOStatement = $oPDOLib->getoPDO()->prepare($sRequete);
 
         //Lier les paramètres aux valeurs
-        $oPDOStatement->bindValue(":sUrl", $this->getsUrl(), PDO::PARAM_STR);
-        $oPDOStatement->bindValue(":sFavicon", $this->getsFavicon(), PDO::PARAM_STR);
-        $oPDOStatement->bindValue(":sNomSite", $this->getsNomSite(), PDO::PARAM_STR);
-        $oPDOStatement->bindValue(":idLien", $this->getidLiens(), PDO::PARAM_INT);
+        $oPDOStatement->bindValue(":sTache", $this->getsTache(), PDO::PARAM_STR);
+        $oPDOStatement->bindValue(":bComplete", $this->getbComplete(), PDO::PARAM_STR);
+        $oPDOStatement->bindValue(":iNoUtilisateur", $this->getoUtilisateur()->getidUtilisateur(), PDO::PARAM_INT);
+        $oPDOStatement->bindValue(":idTache", $this->getidTache(), PDO::PARAM_INT);
 
         //Exécuter la requête
         $b = $oPDOStatement->execute();
@@ -184,15 +139,15 @@ class Liens {
         $oPDOLib = new PDOLib();
         //Réaliser la requête
         $sRequete="
-			DELETE FROM lien
-			WHERE idLien = :idLien";
+			DELETE FROM tache
+			WHERE idTache = :idTache";
 
 
         //Préparer la requête
         $oPDOStatement = $oPDOLib->getoPDO()->prepare($sRequete);
 
         //Lier les paramètres aux valeurs
-        $oPDOStatement->bindValue(":idLien", $this->getidLiens(), PDO::PARAM_INT);
+        $oPDOStatement->bindValue(":idTache", $this->getidTache(), PDO::PARAM_INT);
 
         //Exécuter la requête
         $b = $oPDOStatement->execute();
@@ -218,14 +173,14 @@ class Liens {
         //Réaliser la requête
         $sRequete="
 			SELECT * 
-			FROM lien
-			WHERE idLien = :idLien";
+			FROM tache
+			WHERE idTache = :idTache";
 
         //Préparer la requête
         $oPDOStatement = $oPDOLib->getoPDO()->prepare($sRequete);
 
         //Lier les paramètres aux valeurs
-        $oPDOStatement->bindValue(":idLien", $this->getidLiens(), PDO::PARAM_INT);
+        $oPDOStatement->bindValue(":idTache", $this->getidTache(), PDO::PARAM_INT);
 
         //Exécuter la requête
         $b = $oPDOStatement->execute();
@@ -239,10 +194,10 @@ class Liens {
             if($aEnregs !== false){
                 //Affecter les valeurs aux propriétés privées de l'objet
                 $this->__construct(
-                    $aEnregs['idLien'],
-                    $aEnregs['sUrl'],
-                    $aEnregs['sFavicon'],
-                    $aEnregs['sNomSite']
+                    $aEnregs['idTache'],
+                    $aEnregs['sTache'],
+                    $aEnregs['bComplete'],
+                    $aEnregs['iNoUtilisateur']
                 );
 
                 $oPDOLib->fermerLaConnexion();
@@ -265,7 +220,7 @@ class Liens {
         //Réaliser la requête
         $sRequete="
 			SELECT * 
-			FROM liens";
+			FROM tache";
 
         //Préparer la requête
         $oPDOStatement = $oPDOLib->getoPDO()->prepare($sRequete);
@@ -284,11 +239,11 @@ class Liens {
             $aoEnregs = array();
             if($iMax > 0){
                 for($iEnreg=0;$iEnreg<$iMax;$iEnreg++){
-                    $aoEnregs[$iEnreg] = new Utilisateur(
-                        $aEnregs[$iEnreg]['idLien'],
-                        $aEnregs[$iEnreg]['sUrl'],
-                        $aEnregs[$iEnreg]['sFavicon'],
-                        $aEnregs[$iEnreg]['sNomSite']
+                    $aoEnregs[$iEnreg] = new Tache(
+                        $aEnregs['idTache'],
+                        $aEnregs['sTache'],
+                        $aEnregs['bComplete'],
+                        $aEnregs['iNoUtilisateur']
                     );
                 }
                 $oPDOLib->fermerLaConnexion();
