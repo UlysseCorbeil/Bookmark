@@ -6,7 +6,8 @@
  * Time: 14:40
  */
 
-class VueTemps {
+class VueTemps
+{
 
     // Tableau contenant les mois en français
     private $aMois = array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
@@ -19,11 +20,12 @@ class VueTemps {
      * @param void
      * @return void
      */
-    public function afficherTous(){
+    public function afficherTous()
+    {
 
         echo "<div class='flex-container'>";
 
-        $this->afficherChrono();
+        $this->afficherWebPlayer();
         $this->afficherHorloge();
 
         echo "</div>";
@@ -34,14 +36,16 @@ class VueTemps {
      * @param void
      * @return void
      */
-    public function afficherChrono(){
+    public function afficherWebPlayer()
+    {
         $sfinMiddle = '
-        <div class="small-box" id="chrono">
-            <p>00:00:00</p>
-            <div class="flex-container">
-                <button>Effacer</button>
-                <button>Démarrer</button>
+        <div class="small-box">
+            <div class="container">
+            <div class="login-container hidden" id="js-login-container">
+            <button class="btn btn--login" id="js-btn-login">Connecter à Spotify</button>
             </div>
+            <div class="main-container hidden" id="js-main-container"></div>
+        </div>
         </div>';
 
         echo $sfinMiddle;
@@ -53,7 +57,8 @@ class VueTemps {
      * @param void
      * @return void
      */
-    public function afficherHorloge(){
+    public function afficherHorloge()
+    {
         $sHtml = "
         <div class='small-box'>
                     <h2>" . $this->aJours[date('d') + 3] . "</h2>
