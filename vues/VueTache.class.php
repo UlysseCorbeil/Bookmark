@@ -15,38 +15,38 @@ class VueTache {
      */
     public function afficherTous($aoTaches, $sMsg=""){
 
-        $sToDo = "<div id='middle' class='flex-container'>
+        $sHtml = "<div id='middle' class='flex-container'>
         <div id='todo'>
             <h2><span>À faire</span><a href='#'><i class='fas fa-plus'></i> Ajouter</a></h2>
-            <div>
+            <div>";
+
+
+        for($i=0; $i<count($aoTaches); $i++){
+            $sHtml .= "
                 <div class='flex-container todo-item'>
-                    <label class='container'>
-                        <input type='checkbox' checked='checked'>
+                    <label class='container'>";
+
+            if($aoTaches[$i]->getbComplete() == 1){
+                $bChecked = "checked";
+            }
+            else{
+                $bChecked = "";
+            }
+
+            $sHtml .= "
+                        <input type='checkbox' ". $bChecked ." name='cchTache_". $aoTaches[$i]->getidTache() ."' id='cchTache_". $aoTaches[$i]->getidTache() ."'>
                         <span class='checkmark'></span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p>". $aoTaches[$i]->getsTache() ."</p>
                     </label>
                     <a href='#'><i class='fas fa-ellipsis-v'></i></a>
-                </div>
-                <div class='flex-container todo-item'>
-                    <label class='container'>
-                        <input type='checkbox' checked='checked'>
-                        <span class='checkmark'></span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    </label>
-                    <a href='#'><i class='fas fa-ellipsis-v'></i></a>
-                </div>
-                <div class='flex-container todo-item'>
-                    <label class='container'>
-                        <input type='checkbox' checked='checked'>
-                        <span class='checkmark'></span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    </label>
-                    <a href='#'><i class='fas fa-ellipsis-v'></i></a>
-                </div>
+                </div>";
+        }
+
+        $sHtml .= "
             </div>
         </div>";
 
-        echo  $sToDo;
+        echo  $sHtml;
     }
 
 }

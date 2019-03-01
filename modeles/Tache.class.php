@@ -308,4 +308,51 @@ class Tache
         $oPDOLib->fermerLaConnexion();
         return false;
     } //fin de la fonction
+
+    /**
+     * Rechercher toutes tâches d'un utilisateur dans la BDD
+     * @return array|bool
+     */
+    public function rechercherTousParUtilisateur()
+    {
+        //Se connecter à la base de données
+        $oPDOLib = new PDOLib();
+        //Réaliser la requête
+        $sRequete = "
+			SELECT * 
+			FROM tache WHERE iNoUtilisateur = :iNoUtilisateur";
+
+        //Préparer la requête
+        $oPDOStatement = $oPDOLib->getoPDO()->prepare($sRequete);
+
+        //Lier les paramètres aux valeurs
+        $oPDOStatement->bindValue(":iNoUtilisateur", $this->getoUtilisateur()->getidUtilisateur(), PDO::PARAM_INT);
+
+        //Exécuter la requête
+        $b = $oPDOStatement->execute();
+
+        //Si la requête a bien été exécutée
+        if ($b == true) {
+            //Récupérer le array
+            $aEnregs = $oPDOStatement->fetchAll(PDO::FETCH_ASSOC);
+            $iMax = count($aEnregs);
+            $aoEnregs = array();
+            if ($iMax > 0) {
+                for ($iEnreg = 0; $iEnreg < $iMax; $iEnreg++) {
+                    $aoEnregs[$iEnreg] = new Tache(
+                        $aEnregs[$iEnreg]['idTache'],
+                        $aEnregs[$iEnreg]['sTache'],
+                        $aEnregs[$iEnreg]['bComplete'],
+                        $aEnregs[$iEnreg]['iNoUtilisateur']
+                    );
+                }
+                $oPDOLib->fermerLaConnexion();
+                //Retourner le array d'objets de la classe Administrateur
+                return $aoEnregs;
+            }
+        }
+        $oPDOLib->fermerLaConnexion();
+        return false;
+    } //fin de la fonction
+
 }
