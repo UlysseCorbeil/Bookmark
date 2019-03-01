@@ -3,17 +3,13 @@
 class VuePage
 {
     // Variables privées qui contient les mois de l'années
-    private $aMois = array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
-    private $aJours = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
+
 
     public function afficherPage($oUtilisateur, $aoEvenements)
     {
         // Initialisation de la page HTML
         $sHtml = '';
 
-        // Injection HTML
-        $sHtml .= $this->getHeader();
-        $sHtml .= $this->afficherUnUtilisateur($oUtilisateur);
         $sHtml .= $this->getSite();
         $sHtml .= $this->afficherEvenements($aoEvenements);
         $sHtml .= $this->getFinCalendrier();
@@ -28,7 +24,7 @@ class VuePage
     }
 
     // Affiche le header HTML
-    public function getHeader()
+    public function getHead()
     {
         $sHeader = '<!doctype html>
             <html lang="fr">
@@ -45,132 +41,8 @@ class VuePage
             </head>
             
             <body>';
-        return $sHeader;
-    } // fin ()
 
-    // Afficher un utilisateur
-    public function afficherUnUtilisateur(Utilisateur $oUtilisateur, $sMsg = "")
-    {
-        date_default_timezone_set('America/Toronto');
-
-        $sHtml = "
-            <nav>
-                <img src='medias/" . $oUtilisateur->getsAvatar() . "' alt=''>
-                <ul>
-                    <li><a href='#'><i class='fas fa-home'></i></a></li>
-                    <li><a href='#'><i class='fas fa-cog'></i></a></li>
-                    <li><a href='#'><i class='fas fa-sign-out-alt'></i></a></li>
-                </ul>
-            </nav>
-            
-            <main>
-                <div id='contenu' class='flex-container'>
-                    <div id='info' class='row'>";
-
-
-        $iHeure = date("G");
-
-        if ($iHeure >= 5 && $iHeure < 10) {
-            $sMotBienvenue = "Bon matin ";
-        } else if ($iHeure >= 10 && $iHeure < 17) {
-            $sMotBienvenue = "Bonjour ";
-        } else {
-            $sMotBienvenue = "Bonsoir ";
-        }
-
-
-        $sHtml .= "
-                        <h1>" . $sMotBienvenue . $oUtilisateur->getsPrenom() . " " . substr($oUtilisateur->getsNom(), 0, 1) . ".</h1>
-                        <div class='flex-container'>
-                        <p>Aujourd'hui sera une belle journée!</p>
-                    </div>
-                </div>
-        ";
-
-        return $sHtml;
-    }
-
-    // Permet l'affichage des événements
-    public function afficherEvenements($aoEvenements, $sMsg = "")
-    {
-        date_default_timezone_set('America/Toronto');
-
-        $sHtml = "
-        <div id='calendrier' class='card'>
-            <div style='background-image: url(\"https://source.unsplash.com/random\");'>
-                <h2>Calendrier</h2>
-                <div>
-                    <p>" . date("d") . "</p>
-                    <p>" . $this->aMois[date('n') - 1] . "</p>
-                </div>
-                <a href='#'><i class='fas fa-plus'></i></a>
-            </div>
-            <div>
-                <h3>Événements</h3>
-                <div>";
-
-        if ($aoEvenements) {
-            for ($i = 0; $i < count($aoEvenements); $i++) {
-                $sHtml .= "
-                        <div class='flex-container event-item'>
-                            <div>";
-
-                if ($aoEvenements[$i]->getsDateDebut() <= date("Y-m-d H:i:s") && $aoEvenements[$i]->getsDateFin() >= date("Y-m-d H:i:s")) {
-                    $sHtml .= "<span>En cours - Fin à " . date("H:i", strtotime($aoEvenements[$i]->getsDateFin())) . "</span>";
-                } else if ($aoEvenements[$i]->getsDateDebut() >= date("Y-m-d H:i:s")) {
-                    $sHtml .= "<span>" . date("H:i", strtotime($aoEvenements[$i]->getsDateDebut())) . "</span>";
-                }
-
-                $sHtml .= "
-                            <p>" . $aoEvenements[$i]->getsNomEvenement() . "</p>
-                        </div>
-                        <a href='#'><i class='fas fa-ellipsis-v'></i></a>
-                    </div>
-                    ";
-            }
-        } else {
-            $sHtml .= "<p>Aucun événement prévu.</p>";
-        }
-
-        $sHtml .= "
-                </div>
-            </div>
-        </div>
-        ";
-
-        return $sHtml;
-    }
-
-    // affichage de la section site
-    public function getSite()
-    {
-        $sSite = "
-        <div id='site' class='row'>
-        <div class='flex-container'>
-            <div class='site-lien'>
-                <a href=''>
-                    <img src='https://www.google.com/s2/favicons?domain=www.google.com' alt=''>
-                    <p>Google</p>
-                </a>
-            </div>
-            <div class='site-lien'>
-                <a href=''>
-                    <img src='https://www.google.com/s2/favicons?domain=www.google.com' alt=''>
-                    <p>Google</p>
-                </a>
-            </div>
-            <div class='site-lien'>
-                <span id='ajoutSite' data-open='false'><i class='fas fa-plus'></i></span>
-                <div>
-                    <input type='text' placeholder='Google.com' name='sUrlSite' id='sUrlSite'>
-                    <button><i class='fas fa-angle-right'></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id='actu' class='flex-container row'>
-    ";
-        return $sSite;
+        echo $sHeader;
     } // fin ()
 
     // affichage de la section middle
