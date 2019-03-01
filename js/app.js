@@ -13,7 +13,10 @@ let oAjoutSite = document.getElementById("ajoutSite"),
     modalEvent = document.getElementById("modalEvent"),
     btnAjoutEvent = document.querySelector("#calendrier a"),
     interaction = new class {},
-    meteo = new class {};
+    meteo = new class {},
+    animSite = new class {};
 
 interaction = new Interaction(oAjoutSite, oInputAjout, btnAjoutEvent, modalEvent);
 meteo = new Meteo();
+
+// animSite = new animSite();
