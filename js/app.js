@@ -39,17 +39,17 @@
         }
     }
 
-    function afficherMeteo(position="") {
+    function afficherMeteo(position = "") {
 
         if (position != "") {
             var sRequetePrevision = "https://api.apixu.com/v1/forecast.json?key=4367423a680c4b499f624827192802&days=5&lang=fr&q=" + position.coords.latitude + ",=" + position.coords.longitude;
             var aJour = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', "Vendredi", "Samedi", 'Dimanche'];
 
             $.ajax({
-                url: sRequetePrevision,
-                method: "get"
-            })
-            // Si la reqête est terminée
+                    url: sRequetePrevision,
+                    method: "get"
+                })
+                // Si la reqête est terminée
                 .done(function (sHtml) {
 
                     // Afficher météo actuelle
@@ -81,12 +81,12 @@
 
             // Afficher prévision
             var sPrevision = "<div class='flex-container meteo-item'>" +
-                    "<p>" + aJour[new Date().getDay()] + "</p>" +
-                    "<div>" +
-                    "<p>- °C</p>" +
-                    "<p>-</p>" +
-                    "</div>" +
-                    "</div>";
+                "<p>" + aJour[new Date().getDay()] + "</p>" +
+                "<div>" +
+                "<p>- °C</p>" +
+                "<p>-</p>" +
+                "</div>" +
+                "</div>";
 
             document.getElementById("meteo-prevision").innerHTML = sPrevision;
         }

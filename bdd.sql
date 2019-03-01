@@ -12,18 +12,28 @@
 
 DROP TABLE IF EXISTS `utilisateur`;
 
-CREATE TABLE `utilisateur` (
+CREATE TABLE `utilisateur`
+(
                              `idUtilisateur` INTEGER NOT NULL AUTO_INCREMENT,
-                             `sNom` VARCHAR(100) NOT NULL,
-                             `sPrenom` VARCHAR(100) NOT NULL,
-                             `sCourriel` VARCHAR(255) NOT NULL,
-                             `sPseudo` VARCHAR(100) NOT NULL,
-                             `sMotDePasse` VARCHAR(250) NOT NULL,
-                             `sAvatar` VARCHAR(150) NOT NULL,
+                             `sNom` VARCHAR
+(100) NOT NULL,
+                             `sPrenom` VARCHAR
+(100) NOT NULL,
+                             `sCourriel` VARCHAR
+(255) NOT NULL,
+                             `sPseudo` VARCHAR
+(100) NOT NULL,
+                             `sMotDePasse` VARCHAR
+(250) NOT NULL,
+                             `sAvatar` VARCHAR
+(150) NOT NULL,
                              `sDateInscription` DATETIME NOT NULL,
-                             PRIMARY KEY (`idUtilisateur`),
-                             UNIQUE KEY (`sPseudo`),
-                             KEY (`sCourriel`)
+                             PRIMARY KEY
+(`idUtilisateur`),
+                             UNIQUE KEY
+(`sPseudo`),
+                             KEY
+(`sCourriel`)
   );
 
 -- ---
@@ -33,12 +43,17 @@ CREATE TABLE `utilisateur` (
 
 DROP TABLE IF EXISTS `lien`;
 
-CREATE TABLE `lien` (
+CREATE TABLE `lien`
+(
                       `idLiens` INTEGER NOT NULL AUTO_INCREMENT,
-                      `sUrl` VARCHAR(255) NOT NULL,
-                      `sFavicon` VARCHAR(255) NOT NULL,
-                      `sNomSite` VARCHAR(150) NOT NULL,
-                      PRIMARY KEY (`idLiens`)
+                      `sUrl` VARCHAR
+(255) NOT NULL,
+                      `sFavicon` VARCHAR
+(255) NOT NULL,
+                      `sNomSite` VARCHAR
+(150) NOT NULL,
+                      PRIMARY KEY
+(`idLiens`)
 );
 
 -- ---
@@ -48,14 +63,18 @@ CREATE TABLE `lien` (
 
 DROP TABLE IF EXISTS `evenement`;
 
-CREATE TABLE `evenement` (
+CREATE TABLE `evenement`
+(
                            `idEvenement` INTEGER NOT NULL AUTO_INCREMENT,
                            `sDateDebut` DATETIME NOT NULL,
                            `sDateFin` DATETIME NOT NULL,
-                           `sNomEvenement` VARCHAR(255) NOT NULL,
+                           `sNomEvenement` VARCHAR
+(255) NOT NULL,
                            `iNoUtilisateur` INTEGER NOT NULL,
-                           PRIMARY KEY (`idEvenement`),
-                           KEY (`iNoUtilisateur`)
+                           PRIMARY KEY
+(`idEvenement`),
+                           KEY
+(`iNoUtilisateur`)
   );
 
 -- ---
@@ -65,13 +84,17 @@ CREATE TABLE `evenement` (
 
 DROP TABLE IF EXISTS `tache`;
 
-CREATE TABLE `tache` (
+CREATE TABLE `tache`
+(
                        `idTache` INTEGER NOT NULL AUTO_INCREMENT,
-                       `sTache` VARCHAR(255) NOT NULL,
+                       `sTache` VARCHAR
+(255) NOT NULL,
                        `bComplete` TINYINT NOT NULL DEFAULT 0,
                        `iNoUtilisateur` INTEGER NOT NULL,
-                       PRIMARY KEY (`idTache`),
-                       KEY (`iNoUtilisateur`)
+                       PRIMARY KEY
+(`idTache`),
+                       KEY
+(`iNoUtilisateur`)
   );
 
 -- ---
@@ -81,13 +104,17 @@ CREATE TABLE `tache` (
 
 DROP TABLE IF EXISTS `rel_utilisateur_lien`;
 
-CREATE TABLE `rel_utilisateur_lien` (
+CREATE TABLE `rel_utilisateur_lien`
+(
                                       `idRelUtilLiens` INTEGER NOT NULL AUTO_INCREMENT,
                                       `iNoUtilisateur` INTEGER NOT NULL,
                                       `iNoLiens` INTEGER NOT NULL,
-                                      PRIMARY KEY (`idRelUtilLiens`),
-                                      KEY (`iNoUtilisateur`),
-  KEY (`iNoLiens`)
+                                      PRIMARY KEY
+(`idRelUtilLiens`),
+                                      KEY
+(`iNoUtilisateur`),
+  KEY
+(`iNoLiens`)
   );
 
 
@@ -105,10 +132,22 @@ ALTER TABLE `rel_utilisateur_lien` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=ut
 -- Foreign Keys
 -- ---
 
-ALTER TABLE `evenement` ADD FOREIGN KEY (iNoUtilisateur) REFERENCES `utilisateur` (`idUtilisateur`);
-ALTER TABLE `tache` ADD FOREIGN KEY (iNoUtilisateur) REFERENCES `utilisateur` (`idUtilisateur`);
-ALTER TABLE `rel_utilisateur_lien` ADD FOREIGN KEY (iNoUtilisateur) REFERENCES `utilisateur` (`idUtilisateur`);
-ALTER TABLE `rel_utilisateur_lien` ADD FOREIGN KEY (iNoLiens) REFERENCES `lien` (`idLiens`);
+ALTER TABLE `evenement`
+ADD FOREIGN KEY
+(iNoUtilisateur) REFERENCES `utilisateur`
+(`idUtilisateur`);
+ALTER TABLE `tache`
+ADD FOREIGN KEY
+(iNoUtilisateur) REFERENCES `utilisateur`
+(`idUtilisateur`);
+ALTER TABLE `rel_utilisateur_lien`
+ADD FOREIGN KEY
+(iNoUtilisateur) REFERENCES `utilisateur`
+(`idUtilisateur`);
+ALTER TABLE `rel_utilisateur_lien`
+ADD FOREIGN KEY
+(iNoLiens) REFERENCES `lien`
+(`idLiens`);
 
 
 

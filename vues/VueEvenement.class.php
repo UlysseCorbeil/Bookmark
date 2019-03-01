@@ -34,8 +34,6 @@ class VueEvenement
                 <div class='flex-container event-item'>
                     <div>";
 
-            //var_dump($aoEvenements[$i]->getsDateFin());
-
             if ($aoEvenements[$i]->getsDateDebut() <= date("Y-m-d H:i:s") && $aoEvenements[$i]->getsDateFin() >= date("Y-m-d H:i:s")) {
                 $sHtml .= "<span>En cours - Fin à " . date("H:i", strtotime($aoEvenements[$i]->getsDateFin())) . "</span>";
             } else if ($aoEvenements[$i]->getsDateDebut() >= date("Y-m-d H:i:s")) {

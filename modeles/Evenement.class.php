@@ -200,8 +200,6 @@ class Evenement
         //Exécuter la requête
         $b = $oPDOStatement->execute();
 
-        //var_dump($oPDOStatement->errorInfo());
-
         //Si la requête a bien été exécutée
         if ($b == true) {
             //Récupérer l'enregistrement (fetch)
@@ -304,6 +302,7 @@ class Evenement
                     );
                 }
                 $oPDOLib->fermerLaConnexion();
+
                 //Retourner le array d'objets de la classe Administrateur
                 return $aoEnregs;
             }
@@ -319,7 +318,8 @@ class Evenement
         //Réaliser la requête
         $sRequete = "SELECT * 
                         FROM evenement 
-                        WHERE sDateFin >= CURRENT_TIMESTAMP() AND sDateDebut <= TIMESTAMP(CURRENT_DATE(), '23:59:59') AND iNoUtilisateur = :iNoUtilisateur ORDER BY sDateDebut ASC";
+                        WHERE sDateFin >= CURRENT_TIMESTAMP() AND sDateDebut <= TIMESTAMP(CURRENT_DATE(),
+                         '23:59:59') AND iNoUtilisateur = :iNoUtilisateur ORDER BY sDateDebut ASC";
 
         //Préparer la requête
         $oPDOStatement = $oPDOLib->getoPDO()->prepare($sRequete);
@@ -346,6 +346,7 @@ class Evenement
                         $aEnregs[$iEnreg]['iNoUtilisateur']
                     );
                 }
+
                 $oPDOLib->fermerLaConnexion();
                 //Retourner le array d'objets de la classe Administrateur
                 return $aoEnregs;
