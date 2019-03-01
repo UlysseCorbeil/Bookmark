@@ -283,10 +283,10 @@ class Tache {
             if($iMax > 0){
                 for($iEnreg=0;$iEnreg<$iMax;$iEnreg++){
                     $aoEnregs[$iEnreg] = new Tache(
-                        $aEnregs['idTache'],
-                        $aEnregs['sTache'],
-                        $aEnregs['bComplete'],
-                        $aEnregs['iNoUtilisateur']
+                        $aEnregs[$iEnreg]['idTache'],
+                        $aEnregs[$iEnreg]['sTache'],
+                        $aEnregs[$iEnreg]['bComplete'],
+                        $aEnregs[$iEnreg]['iNoUtilisateur']
                     );
                 }
                 $oPDOLib->fermerLaConnexion();

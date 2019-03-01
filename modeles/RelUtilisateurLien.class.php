@@ -281,10 +281,10 @@ class RelUtilisateurLien {
             if($iMax > 0){
                 for($iEnreg=0;$iEnreg<$iMax;$iEnreg++){
                     $aoEnregs[$iEnreg] = new RelUtilisateurLien(
-                        $aEnregs['idRelUtilLiens'],
-                        $aEnregs['iNoUtilisateur'],
-                        $aEnregs['iNoLiens'],
-                        $aEnregs['iPosLien']
+                        $aEnregs[$iEnreg]['idRelUtilLiens'],
+                        $aEnregs[$iEnreg]['iNoUtilisateur'],
+                        $aEnregs[$iEnreg]['iNoLiens'],
+                        $aEnregs[$iEnreg]['iPosLien']
                     );
                 }
                 $oPDOLib->fermerLaConnexion();
