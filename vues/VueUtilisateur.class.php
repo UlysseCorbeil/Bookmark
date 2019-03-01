@@ -8,6 +8,11 @@
 
 class VueUtilisateur {
 
+    /**
+     * Afficher le menu de navigation et le bonjour à l'utilisateur
+     * @param Utilisateur $oUtilisateur
+     * @param string $sMsg
+     */
     public function afficherNav(Utilisateur $oUtilisateur, $sMsg=""){
 
         $sHtml = "

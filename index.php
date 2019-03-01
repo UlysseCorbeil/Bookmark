@@ -5,39 +5,32 @@
  * Date: 2019-02-26
  */
 
+// Afficher les erreurs
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+/* ========================================================================================== */
+
+// Définir le fuseau horaire à Toronto
 date_default_timezone_set('America/Toronto');
 
-// Les requires
+/* ========================================================================================== */
 
 // Controleur
 require('controleur/Controleur.class.php');
 
-// Vues
-require('vues/VuePage.class.php');
-require('vues/VueUtilisateur.class.php');
-require('vues/VueLien.class.php');
-require('vues/VueEvenement.class.php');
-require('vues/VueTache.class.php');
-
-// Modeles
-require('modeles/Evenement.class.php');
-require('modeles/Utilisateur.class.php');
-
-// Error Handlers
+// Require Modèles / Vues / Lib
 require('lib/Autoloader.class.php');
-require('lib/PDOLib.class.php');
-require('lib/TypeException.class.php');
-
 spl_autoload_register('autoload');
+
+/* ========================================================================================== */
 
 try {
     $oControleur = new Controleur();
 
     $oControleur->gererSite();
+
 } catch (Exception $oException) {
     echo "<p>" . $oException->getMessage() . "</p>";
 }

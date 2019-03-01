@@ -8,6 +8,11 @@
 
 class VueLien {
 
+    /**
+     * Afficher tous les liens vers les sites
+     * @param $aoLiens
+     * @param string $sMsg
+     */
     public function afficherTous($aoLiens, $sMsg = "") {
         $sSite = "
         <div id='site' class='row'>

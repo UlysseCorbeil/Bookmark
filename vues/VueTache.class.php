@@ -8,6 +8,11 @@
 
 class VueTache {
 
+    /**
+     * Afficher la liste des tâches à faire
+     * @param $aoTaches
+     * @param string $sMsg
+     */
     public function afficherTous($aoTaches, $sMsg=""){
 
         $sToDo = "<div id='middle' class='flex-container'>
