@@ -6,7 +6,7 @@
  * Time: 19:52
  */
 
-class Liens {
+class Lien {
 
     private $idLiens;
     private $sUrl;
