@@ -2,6 +2,7 @@
 
 class VuePage
 {
+    // Variables privées qui contient les mois de l'années
     private $aMois = array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
 
     public function afficherPage($oUtilisateur, $aoEvenements)
@@ -11,9 +12,9 @@ class VuePage
 
         // Injection HTML
         $sHtml .= $this->getHeader();
-        $sHtml .= $this->afficherUn($oUtilisateur);
+        $sHtml .= $this->afficherUnUtilisateur($oUtilisateur);
         $sHtml .= $this->getSite();
-        $sHtml .= $this->afficherTousAuj($aoEvenements);
+        $sHtml .= $this->afficherEvenements($aoEvenements);
         $sHtml .= $this->getFinCalendrier();
         $sHtml .= $this->getFinMiddle();
         $sHtml .= $this->getMeteo();
@@ -46,7 +47,8 @@ class VuePage
         return $sHeader;
     } // fin ()
 
-    public function afficherUn(Utilisateur $oUtilisateur, $sMsg = "")
+    // Afficher un utilisateur
+    public function afficherUnUtilisateur(Utilisateur $oUtilisateur, $sMsg = "")
     {
         date_default_timezone_set('America/Toronto');
 
@@ -87,7 +89,8 @@ class VuePage
         return $sHtml;
     }
 
-    public function afficherTousAuj($aoEvenements, $sMsg = "")
+    // Permet l'affichage des événements
+    public function afficherEvenements($aoEvenements, $sMsg = "")
     {
         date_default_timezone_set('America/Toronto');
 
@@ -137,6 +140,7 @@ class VuePage
         return $sHtml;
     }
 
+    // affichage de la section site
     public function getSite()
     {
         $sSite = "
@@ -168,6 +172,7 @@ class VuePage
         return $sSite;
     } // fin ()
 
+    // affichage de la section middle
     public function getFinCalendrier()
     {
         $sToDo = "<div id='middle' class='flex-container'>
@@ -203,6 +208,7 @@ class VuePage
         return $sToDo;
     } // fin ()
 
+    // affichage du timer
     public function getFinMiddle()
     {
         $sfinMiddle = '<div class="flex-container">
