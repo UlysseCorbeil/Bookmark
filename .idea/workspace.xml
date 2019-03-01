@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2069a53-9d26-47bd-96ad-8833d5fbc179" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modeles/Tache.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modeles/Evenement.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/modeles/Evenement.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modeles/Lien.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/modeles/Lien.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modeles/Utilisateur.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/modeles/Utilisateur.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modeles/Tache.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/modeles/Tache.class.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/modeles/Tache.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="246" column="22" selection-start-line="246" selection-start-column="22" selection-end-line="246" selection-end-column="22" />
+            <state relative-caret-position="414">
+              <caret line="256" column="31" selection-start-line="256" selection-start-column="31" selection-end-line="256" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -161,13 +158,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38321000" />
+    <option name="totallyTimeSpent" value="38580000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12348993" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12348993" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -288,8 +285,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modeles/Tache.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="246" column="22" selection-start-line="246" selection-start-column="22" selection-end-line="246" selection-end-column="22" />
+        <state relative-caret-position="414">
+          <caret line="256" column="31" selection-start-line="256" selection-start-column="31" selection-end-line="256" selection-end-column="31" />
         </state>
       </provider>
     </entry>

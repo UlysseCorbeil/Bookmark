@@ -15,45 +15,88 @@ class Tache {
 
     /* ====================================================================================== */
 
+    /**
+     * Set l'id de la tâche
+     * @param $idTache
+     * @throws TypeException
+     */
     public function setidTache($idTache){
         TypeException::estNumerique($idTache);
         $this->idTache = $idTache;
     }
 
+    /**
+     * Set de la tâche
+     * @param $sTache
+     * @throws TypeException
+     */
     public function setsTache($sTache){
         TypeException::estChaineDeCaracteres($sTache);
         $this->sTache = $sTache;
     }
 
+    /**
+     * Set 0 ou 1 si la tâche est complétée
+     * @param $bComplete
+     * @throws TypeException
+     */
     public function setbComplete($bComplete){
         TypeException::estNumerique($bComplete);
         $this->bComplete = $bComplete;
     }
 
+    /**
+     * Set de l'utilisateur
+     * @param Utilisateur $oUtilisateur
+     */
     public function setoUtilisateur(Utilisateur $oUtilisateur){
         $this->oUtilisateur = $oUtilisateur;
     }
 
     /* ====================================================================================== */
 
+    /**
+     * Get l'id de la tâche
+     * @return mixed
+     */
     public function getidTache(){
         return $this->idTache;
     }
 
+    /**
+     * Get la tâche
+     * @return mixed
+     */
     public function getsTache(){
         return $this->sTache;
     }
 
+    /**
+     * Get si la tâche est complétée
+     * @return mixed
+     */
     public function getbComplete(){
         return $this->bComplete;
     }
 
+    /**
+     * Get l'utilisateur
+     * @return mixed
+     */
     public function getoUtilisateur(){
         return $this->oUtilisateur;
     }
 
     /* ====================================================================================== */
 
+    /**
+     * Tache constructor.
+     * @param int $idTache
+     * @param string $sTache
+     * @param int $bComplete
+     * @param int $iNoUtilisateur
+     * @throws TypeException
+     */
     public function __construct($idTache=1, $sTache="", $bComplete=0, $iNoUtilisateur=1) {
         $this->setidTache($idTache);
         $this->setsTache($sTache);
@@ -64,7 +107,7 @@ class Tache {
     /* ====================================================================================== */
 
     /**
-     * Ajouter un lien dans la BDD
+     * Ajouter une tâche dans la BDD
      * @return bool|int
      */
     public function ajouter(){
@@ -96,7 +139,7 @@ class Tache {
     }
 
     /**
-     * Modifier un lien dans la BDD
+     * Modifier une tâche dans la BDD
      * @return bool|int
      */
     public function modifier(){
@@ -131,7 +174,7 @@ class Tache {
     }
 
     /**
-     * Supprimer un lien de la BDD
+     * Supprimer une tâche de la BDD
      * @return bool|int
      */
     public function supprimer(){
@@ -163,7 +206,7 @@ class Tache {
     }
 
     /**
-     * Rechercher un lien dans la BDD
+     * Rechercher une tâche dans la BDD
      * @return bool
      * @throws TypeException
      */
@@ -211,7 +254,7 @@ class Tache {
 
 
     /**
-     * Rechercher tous les liens dans la BDD
+     * Rechercher toutes tâches dans la BDD
      * @return array|bool
      */
     public function rechercherTous(){
