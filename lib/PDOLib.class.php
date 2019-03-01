@@ -333,4 +333,3 @@ class PDOLib
         $this->oPDO = null;
     }
 } //fin de la classe PDOLib
- 

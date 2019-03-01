@@ -5,11 +5,12 @@ export class AutoRefresh {
 
         this.elmTemps = elmTemps;
 
-        // Initilisation du temps
+        // Appel de la fonction
         this.tempsTimer();
 
     } // fin ()
 
+    // Fonction qui calcule l'heure et l'affiche
     tempsTimer() {
 
         let currentDate = new Date(),
