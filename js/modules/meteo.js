@@ -1,9 +1,5 @@
 export class Meteo {
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ulysse
     // Classe permettant de créer et d'animer les elements de mon calendrier 
     constructor() {
 
@@ -21,10 +17,6 @@ export class Meteo {
         }
     } // fin ()
 
-<<<<<<< HEAD
-
-=======
->>>>>>> ulysse
     afficherMeteo(position = "") {
 
         if (position != "") {
@@ -75,10 +67,6 @@ export class Meteo {
                 "</div>";
 
             document.getElementById("meteo-prevision").innerHTML = sPrevision;
-<<<<<<< HEAD
-
-=======
->>>>>>> ulysse
         } // fin if else
 
 

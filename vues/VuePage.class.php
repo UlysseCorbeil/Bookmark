@@ -4,6 +4,7 @@ class VuePage
 {
     // Variables privées qui contient les mois de l'années
     private $aMois = array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
+    private $aJours = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
 
     public function afficherPage($oUtilisateur, $aoEvenements)
     {
@@ -100,7 +101,7 @@ class VuePage
                 <h2>Calendrier</h2>
                 <div>
                     <p>" . date("d") . "</p>
-                    <p>" . $this->aMois[date("n") - 1] . "</p>
+                    <p>" . $this->aMois[date('n') - 1] . "</p>
                 </div>
                 <a href='#'><i class='fas fa-plus'></i></a>
             </div>
@@ -220,7 +221,8 @@ class VuePage
             </div>
         </div>
         <div class="small-box">
-                    <h2>Horloge</h2>
+                    <h2>' . $this->aJours[date("d") + 3] . '</h2>
+                    <h1></h1>
                 </div>
             </div>
         </div>';

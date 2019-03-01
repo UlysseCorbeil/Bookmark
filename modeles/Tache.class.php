@@ -6,7 +6,8 @@
  * Time: 20:39
  */
 
-class Tache {
+class Tache
+{
 
     private $idTache;
     private $sTache;
@@ -20,7 +21,8 @@ class Tache {
      * @param $idTache
      * @throws TypeException
      */
-    public function setidTache($idTache){
+    public function setidTache($idTache)
+    {
         TypeException::estNumerique($idTache);
         $this->idTache = $idTache;
     }
@@ -30,7 +32,8 @@ class Tache {
      * @param $sTache
      * @throws TypeException
      */
-    public function setsTache($sTache){
+    public function setsTache($sTache)
+    {
         TypeException::estChaineDeCaracteres($sTache);
         $this->sTache = $sTache;
     }
@@ -40,7 +43,8 @@ class Tache {
      * @param $bComplete
      * @throws TypeException
      */
-    public function setbComplete($bComplete){
+    public function setbComplete($bComplete)
+    {
         TypeException::estNumerique($bComplete);
         $this->bComplete = $bComplete;
     }
@@ -49,7 +53,8 @@ class Tache {
      * Set de l'utilisateur
      * @param Utilisateur $oUtilisateur
      */
-    public function setoUtilisateur(Utilisateur $oUtilisateur){
+    public function setoUtilisateur(Utilisateur $oUtilisateur)
+    {
         $this->oUtilisateur = $oUtilisateur;
     }
 
@@ -59,7 +64,8 @@ class Tache {
      * Get l'id de la tâche
      * @return mixed
      */
-    public function getidTache(){
+    public function getidTache()
+    {
         return $this->idTache;
     }
 
@@ -67,7 +73,8 @@ class Tache {
      * Get la tâche
      * @return mixed
      */
-    public function getsTache(){
+    public function getsTache()
+    {
         return $this->sTache;
     }
 
@@ -75,7 +82,8 @@ class Tache {
      * Get si la tâche est complétée
      * @return mixed
      */
-    public function getbComplete(){
+    public function getbComplete()
+    {
         return $this->bComplete;
     }
 
@@ -83,7 +91,8 @@ class Tache {
      * Get l'utilisateur
      * @return mixed
      */
-    public function getoUtilisateur(){
+    public function getoUtilisateur()
+    {
         return $this->oUtilisateur;
     }
 
@@ -97,7 +106,8 @@ class Tache {
      * @param int $iNoUtilisateur
      * @throws TypeException
      */
-    public function __construct($idTache=1, $sTache="", $bComplete=0, $iNoUtilisateur=1) {
+    public function __construct($idTache = 1, $sTache = "", $bComplete = 0, $iNoUtilisateur = 1)
+    {
         $this->setidTache($idTache);
         $this->setsTache($sTache);
         $this->setbComplete($bComplete);
@@ -110,7 +120,8 @@ class Tache {
      * Ajouter une tâche dans la BDD
      * @return bool|int
      */
-    public function ajouter(){
+    public function ajouter()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
@@ -130,23 +141,23 @@ class Tache {
         $b = $oPDOStatement->execute();
 
         //Si la requête a bien été exécutée
-        if($b == true){
+        if ($b == true) {
             return (int)$oPDOLib->getoPDO()->lastInsertId();
         }
         $oPDOLib->fermerLaConnexion();
         return false;
-
     }
 
     /**
      * Modifier une tâche dans la BDD
      * @return bool|int
      */
-    public function modifier(){
+    public function modifier()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
-        $sRequete="
+        $sRequete = "
 			UPDATE tache
 			SET sTache = :sTache, bComplete = :bComplete, iNoUtilisateur = :iNoUtilisateur
 			WHERE idTache = :idTache";
@@ -164,24 +175,24 @@ class Tache {
         $b = $oPDOStatement->execute();
 
         //Si la requête a bien été exécutée
-        if($b == true){
+        if ($b == true) {
             $oPDOLib->fermerLaConnexion();
             return (int)$oPDOStatement->rowCount();
         }
         $oPDOLib->fermerLaConnexion();
         return false;
-
     }
 
     /**
      * Supprimer une tâche de la BDD
      * @return bool|int
      */
-    public function supprimer(){
+    public function supprimer()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
-        $sRequete="
+        $sRequete = "
 			DELETE FROM tache
 			WHERE idTache = :idTache";
 
@@ -196,13 +207,12 @@ class Tache {
         $b = $oPDOStatement->execute();
 
         //Si la requête a bien été exécutée
-        if($b == true){
+        if ($b == true) {
             $oPDOLib->fermerLaConnexion();
             return (int)$oPDOStatement->rowCount();
         }
         $oPDOLib->fermerLaConnexion();
         return false;
-
     }
 
     /**
@@ -210,11 +220,12 @@ class Tache {
      * @return bool
      * @throws TypeException
      */
-    public function rechercherUn(){
+    public function rechercherUn()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
-        $sRequete="
+        $sRequete = "
 			SELECT * 
 			FROM tache
 			WHERE idTache = :idTache";
@@ -231,10 +242,10 @@ class Tache {
         //var_dump($oPDOStatement->errorInfo());
 
         //Si la requête a bien été exécutée
-        if($b == true){
+        if ($b == true) {
             //Récupérer l'enregistrement (fetch)
             $aEnregs = $oPDOStatement->fetch(PDO::FETCH_ASSOC);
-            if($aEnregs !== false){
+            if ($aEnregs !== false) {
                 //Affecter les valeurs aux propriétés privées de l'objet
                 $this->__construct(
                     $aEnregs['idTache'],
@@ -249,7 +260,6 @@ class Tache {
         }
         $oPDOLib->fermerLaConnexion();
         return false;
-
     }
 
 
@@ -257,11 +267,12 @@ class Tache {
      * Rechercher toutes tâches dans la BDD
      * @return array|bool
      */
-    public function rechercherTous(){
+    public function rechercherTous()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
-        $sRequete="
+        $sRequete = "
 			SELECT * 
 			FROM tache";
 
@@ -275,13 +286,13 @@ class Tache {
         $b = $oPDOStatement->execute();
 
         //Si la requête a bien été exécutée
-        if($b == true){
+        if ($b == true) {
             //Récupérer le array
             $aEnregs = $oPDOStatement->fetchAll(PDO::FETCH_ASSOC);
             $iMax = count($aEnregs);
             $aoEnregs = array();
-            if($iMax > 0){
-                for($iEnreg=0;$iEnreg<$iMax;$iEnreg++){
+            if ($iMax > 0) {
+                for ($iEnreg = 0; $iEnreg < $iMax; $iEnreg++) {
                     $aoEnregs[$iEnreg] = new Tache(
                         $aEnregs[$iEnreg]['idTache'],
                         $aEnregs[$iEnreg]['sTache'],
@@ -296,7 +307,5 @@ class Tache {
         }
         $oPDOLib->fermerLaConnexion();
         return false;
-
-    }//fin de la fonction
-
+    } //fin de la fonction
 }

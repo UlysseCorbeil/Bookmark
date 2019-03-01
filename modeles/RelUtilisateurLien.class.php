@@ -6,7 +6,8 @@
  * Time: 20:58
  */
 
-class RelUtilisateurLien {
+class RelUtilisateurLien
+{
 
     private $idRelUtilLiens;
     private $oUtilisateur;
@@ -20,7 +21,8 @@ class RelUtilisateurLien {
      * @param $idRelUtilLiens
      * @throws TypeException
      */
-    public function setidRelUtilLiens($idRelUtilLiens) {
+    public function setidRelUtilLiens($idRelUtilLiens)
+    {
         TypeException::estNumerique($idRelUtilLiens);
         $this->idRelUtilLiens = $idRelUtilLiens;
     }
@@ -29,7 +31,8 @@ class RelUtilisateurLien {
      * Set l'utilisateur
      * @param Utilisateur $oUtilisateur
      */
-    public function setoUtilisateur(Utilisateur $oUtilisateur) {
+    public function setoUtilisateur(Utilisateur $oUtilisateur)
+    {
         $this->oUtilisateur = $oUtilisateur;
     }
 
@@ -37,7 +40,8 @@ class RelUtilisateurLien {
      * Set le lien
      * @param Lien $oLien
      */
-    public function setoLien(Lien $oLien) {
+    public function setoLien(Lien $oLien)
+    {
         $this->oLien = $oLien;
     }
 
@@ -46,7 +50,8 @@ class RelUtilisateurLien {
      * @param $iPosLien
      * @throws TypeException
      */
-    public function setiPosLien($iPosLien) {
+    public function setiPosLien($iPosLien)
+    {
         TypeException::estNumerique($iPosLien);
         $this->iPosLien = $iPosLien;
     }
@@ -57,7 +62,8 @@ class RelUtilisateurLien {
      * Get l'id de la relation entre l'utilisateur et le lien
      * @return mixed
      */
-    public function getidRelUtilLiens() {
+    public function getidRelUtilLiens()
+    {
         return $this->idRelUtilLiens;
     }
 
@@ -65,7 +71,8 @@ class RelUtilisateurLien {
      * Get l'utilisateur
      * @return mixed
      */
-    public function getoUtilisateur() {
+    public function getoUtilisateur()
+    {
         return $this->oUtilisateur;
     }
 
@@ -73,7 +80,8 @@ class RelUtilisateurLien {
      * Get le lien
      * @return mixed
      */
-    public function getoLien() {
+    public function getoLien()
+    {
         return $this->oLien;
     }
 
@@ -81,7 +89,8 @@ class RelUtilisateurLien {
      * Get la position du lien
      * @return mixed
      */
-    public function getiPosLien() {
+    public function getiPosLien()
+    {
         return $this->iPosLien;
     }
 
@@ -95,7 +104,8 @@ class RelUtilisateurLien {
      * @param int $iPosLien
      * @throws TypeException
      */
-    public function __construct($idRelUtilLiens = 1, $iNoUtilisateur = 1, $iNoLien = 1, $iPosLien = 0) {
+    public function __construct($idRelUtilLiens = 1, $iNoUtilisateur = 1, $iNoLien = 1, $iPosLien = 0)
+    {
         $this->setidRelUtilLiens($idRelUtilLiens);
         $this->setoUtilisateur(new Utilisateur($iNoUtilisateur));
         $this->setoLien(new Lien($iNoLien));
@@ -108,7 +118,8 @@ class RelUtilisateurLien {
      * Ajouter une relation entre l'utilisateur et le lien dans la BDD
      * @return bool|int
      */
-    public function ajouter(){
+    public function ajouter()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
@@ -128,23 +139,23 @@ class RelUtilisateurLien {
         $b = $oPDOStatement->execute();
 
         //Si la requête a bien été exécutée
-        if($b == true){
+        if ($b == true) {
             return (int)$oPDOLib->getoPDO()->lastInsertId();
         }
         $oPDOLib->fermerLaConnexion();
         return false;
-
     }
 
     /**
      * Modifier une relation entre l'utilisateur et le lien dans la BDD
      * @return bool|int
      */
-    public function modifier(){
+    public function modifier()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
-        $sRequete="
+        $sRequete = "
 			UPDATE rel_utilisateur_lien
 			SET iNoUtilisateur = :iNoUtilisateur, iNoLiens = :iNoLiens, iPosLien = :iPosLien
 			WHERE idRelUtilLiens = :idRelUtilLiens";
@@ -162,24 +173,24 @@ class RelUtilisateurLien {
         $b = $oPDOStatement->execute();
 
         //Si la requête a bien été exécutée
-        if($b == true){
+        if ($b == true) {
             $oPDOLib->fermerLaConnexion();
             return (int)$oPDOStatement->rowCount();
         }
         $oPDOLib->fermerLaConnexion();
         return false;
-
     }
 
     /**
      * Supprimer une relation entre l'utilisateur et le lien de la BDD
      * @return bool|int
      */
-    public function supprimer(){
+    public function supprimer()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
-        $sRequete="
+        $sRequete = "
 			DELETE FROM rel_utilisateur_lien
 			WHERE idRelUtilLiens = :idRelUtilLiens";
 
@@ -194,13 +205,12 @@ class RelUtilisateurLien {
         $b = $oPDOStatement->execute();
 
         //Si la requête a bien été exécutée
-        if($b == true){
+        if ($b == true) {
             $oPDOLib->fermerLaConnexion();
             return (int)$oPDOStatement->rowCount();
         }
         $oPDOLib->fermerLaConnexion();
         return false;
-
     }
 
     /**
@@ -208,11 +218,12 @@ class RelUtilisateurLien {
      * @return bool
      * @throws TypeException
      */
-    public function rechercherUn(){
+    public function rechercherUn()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
-        $sRequete="
+        $sRequete = "
 			SELECT * 
 			FROM rel_utilisateur_lien
 			WHERE idRelUtilLiens = :idRelUtilLiens";
@@ -229,10 +240,10 @@ class RelUtilisateurLien {
         //var_dump($oPDOStatement->errorInfo());
 
         //Si la requête a bien été exécutée
-        if($b == true){
+        if ($b == true) {
             //Récupérer l'enregistrement (fetch)
             $aEnregs = $oPDOStatement->fetch(PDO::FETCH_ASSOC);
-            if($aEnregs !== false){
+            if ($aEnregs !== false) {
                 //Affecter les valeurs aux propriétés privées de l'objet
                 $this->__construct(
                     $aEnregs['idRelUtilLiens'],
@@ -247,7 +258,6 @@ class RelUtilisateurLien {
         }
         $oPDOLib->fermerLaConnexion();
         return false;
-
     }
 
 
@@ -255,11 +265,12 @@ class RelUtilisateurLien {
      * Rechercher toutes relations entre l'utilisateur et le lien dans la BDD
      * @return array|bool
      */
-    public function rechercherTous(){
+    public function rechercherTous()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
-        $sRequete="
+        $sRequete = "
 			SELECT * 
 			FROM rel_utilisateur_lien";
 
@@ -273,13 +284,13 @@ class RelUtilisateurLien {
         $b = $oPDOStatement->execute();
 
         //Si la requête a bien été exécutée
-        if($b == true){
+        if ($b == true) {
             //Récupérer le array
             $aEnregs = $oPDOStatement->fetchAll(PDO::FETCH_ASSOC);
             $iMax = count($aEnregs);
             $aoEnregs = array();
-            if($iMax > 0){
-                for($iEnreg=0;$iEnreg<$iMax;$iEnreg++){
+            if ($iMax > 0) {
+                for ($iEnreg = 0; $iEnreg < $iMax; $iEnreg++) {
                     $aoEnregs[$iEnreg] = new RelUtilisateurLien(
                         $aEnregs[$iEnreg]['idRelUtilLiens'],
                         $aEnregs[$iEnreg]['iNoUtilisateur'],
@@ -294,8 +305,7 @@ class RelUtilisateurLien {
         }
         $oPDOLib->fermerLaConnexion();
         return false;
-
-    }//fin de la fonction
+    } //fin de la fonction
 
 
     /**
@@ -303,11 +313,12 @@ class RelUtilisateurLien {
      * @return array|bool
      * @throws TypeException
      */
-    public function rechercherTousLiensParUtilisateur(){
+    public function rechercherTousLiensParUtilisateur()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
-        $sRequete="
+        $sRequete = "
 			SELECT * 
 			FROM rel_utilisateur_lien
 			LEFT JOIN lien ON idLiens = iNoLiens
@@ -323,13 +334,13 @@ class RelUtilisateurLien {
         $b = $oPDOStatement->execute();
 
         //Si la requête a bien été exécutée
-        if($b == true){
+        if ($b == true) {
             //Récupérer le array
             $aEnregs = $oPDOStatement->fetchAll(PDO::FETCH_ASSOC);
             $iMax = count($aEnregs);
             $aoEnregs = array();
-            if($iMax > 0){
-                for($iEnreg=0;$iEnreg<$iMax;$iEnreg++){
+            if ($iMax > 0) {
+                for ($iEnreg = 0; $iEnreg < $iMax; $iEnreg++) {
 
                     $aoEnregs[$iEnreg] = new RelUtilisateurLien(
                         $aEnregs[$iEnreg]['idRelUtilLiens'],
@@ -351,7 +362,5 @@ class RelUtilisateurLien {
         }
         $oPDOLib->fermerLaConnexion();
         return false;
-
-    }//fin de la fonction
-
+    } //fin de la fonction
 }

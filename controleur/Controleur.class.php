@@ -21,7 +21,7 @@ class Controleur
             $oUtilisateur = new Utilisateur(2);
             $oUtilisateur->rechercherUn();
 
-            // Initilisation de la classe Evenement
+            // Initilisation des methodes la classe Evenement
             $oEvenement = new Evenement();
             $oEvenement->setoUtilisateur($oUtilisateur);
 
