@@ -17,13 +17,13 @@ class Controleur
     {
 
         try {
-
             // Initilisation de la classe utilisateur et recherche d'un utilisateur
             $oUtilisateur = new Utilisateur(2);
             $oUtilisateur->rechercherUn();
 
             // Initilisation de la classe Evenement
             $oEvenement = new Evenement();
+            $oEvenement->setoUtilisateur($oUtilisateur);
 
             // Recherche de tous les evenements
             $aoEvenements = $oEvenement->rechercherTousAuj();
