@@ -16,58 +16,111 @@ class Evenement {
 
     /* =============================================================================================== */
 
+    /**
+     * Set l'id de l'événement
+     * @param $idEvenement
+     * @throws TypeException
+     */
     public function setidEvenement($idEvenement) {
         TypeException::estNumerique($idEvenement);
 
         $this->idEvenement = $idEvenement;
     }
 
+    /**
+     * Set la date de début de l'événement
+     * @param $sDateDebut
+     * @throws TypeException
+     */
     public function setsDateDebut($sDateDebut) {
         TypeException::estChaineDeCaracteres($sDateDebut);
 
         $this->sDateDebut = $sDateDebut;
     }
 
+    /**
+     * Set de la date de fin de l'événement
+     * @param $sDateFin
+     * @throws TypeException
+     */
     public function setsDateFin($sDateFin) {
         TypeException::estChaineDeCaracteres($sDateFin);
 
         $this->sDateFin = $sDateFin;
     }
 
+    /**
+     * Set le nom de l'événement
+     * @param $sNomEvenement
+     * @throws TypeException
+     */
     public function setsNomEvenement($sNomEvenement) {
         TypeException::estChaineDeCaracteres($sNomEvenement);
 
         $this->sNomEvenement = $sNomEvenement;
     }
 
+    /**
+     * Set l'utilisateur
+     * @param Utilisateur $oUtilisateur
+     */
     public function setoUtilisateur(Utilisateur $oUtilisateur) {
         $this->oUtilisateur = $oUtilisateur;
     }
 
     /* =============================================================================================== */
 
+    /**
+     * Get l'id de l'événement
+     * @return mixed
+     */
     public function getidEvenement() {
         return $this->idEvenement;
     }
 
+    /**
+     * Get la date de début de l'événement
+     * @return mixed
+     */
     public function getsDateDebut() {
         return $this->sDateDebut;
     }
 
+    /**
+     * Get la date de fin de l'événement
+     * @return mixed
+     */
     public function getsDateFin() {
         return $this->sDateFin;
     }
 
+    /**
+     * Get le nom de l'événement
+     * @return mixed
+     */
     public function getsNomEvenement() {
         return $this->sNomEvenement;
     }
 
+    /**
+     * Get l'utilisateur
+     * @return mixed
+     */
     public function getoUtilisateur() {
         return $this->oUtilisateur;
     }
 
     /* =============================================================================================== */
 
+    /**
+     * Evenement constructor.
+     * @param int $idEvenement
+     * @param string $sDateDebut
+     * @param string $sDateFin
+     * @param string $sNomEvenement
+     * @param int $iNoUtilisateur
+     * @throws TypeException
+     */
     public function __construct($idEvenement = 1, $sDateDebut = "", $sDateFin = "", $sNomEvenement = "", $iNoUtilisateur = 1) {
         $this->setidEvenement($idEvenement);
         $this->setsDateDebut($sDateDebut);
@@ -79,6 +132,10 @@ class Evenement {
     /* =============================================================================================== */
 
 
+    /**
+     * Ajouter un événement dans la BDD
+     * @return bool|int
+     */
     public function ajouter() {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
@@ -109,6 +166,10 @@ class Evenement {
 
     }
 
+    /**
+     * Modifier un événement dans la BDD
+     * @return bool|int
+     */
     public function modifier() {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
@@ -141,6 +202,10 @@ class Evenement {
 
     }
 
+    /**
+     * Supprimer un événement dans la BDD
+     * @return bool|int
+     */
     public function supprimer() {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
@@ -169,6 +234,11 @@ class Evenement {
 
     }
 
+    /**
+     * Rechercher un événement dans la BDD
+     * @return bool
+     * @throws TypeException
+     */
     public function rechercherUn() {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
@@ -213,6 +283,11 @@ class Evenement {
     }
 
 
+    /**
+     * Rechercher tous les événements dans la BDD
+     * @return array|bool
+     * @throws TypeException
+     */
     public function rechercherTous() {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
@@ -256,6 +331,12 @@ class Evenement {
 
     }//fin de la fonction
 
+
+    /**
+     * Rechercher tous les événements d'un utilisateur dans la BDD
+     * @return array|bool
+     * @throws TypeException
+     */
     public function rechercherTousParUtilisateur() {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
@@ -300,6 +381,12 @@ class Evenement {
 
     }//fin de la fonction
 
+
+    /**
+     * Rechercher tous les événements d'un utilisateur qui se déroulent aujourd'hui en ordre croissant
+     * @return array|bool
+     * @throws TypeException
+     */
     public function rechercherTousAuj() {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
