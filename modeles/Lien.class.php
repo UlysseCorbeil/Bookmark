@@ -58,6 +58,7 @@ class Liens {
     /* ====================================================================================== */
 
     /**
+     * Get l'id du lien
      * @return mixed
      */
     public function getidLiens() {
@@ -65,6 +66,7 @@ class Liens {
     }
 
     /**
+     * Get l'URL du lien
      * @return mixed
      */
     public function getsUrl() {
@@ -72,6 +74,7 @@ class Liens {
     }
 
     /**
+     * Get le favicon du lien
      * @return mixed
      */
     public function getsFavicon() {
@@ -79,6 +82,7 @@ class Liens {
     }
 
     /**
+     * Get le nom du site
      * @return mixed
      */
     public function getsNomSite() {
