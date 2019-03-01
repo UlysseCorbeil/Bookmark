@@ -6,11 +6,12 @@
  * @version 2016-01-18
  */
 
-class PDOLib {
+class PDOLib
+{
     /* À Modifier */
     const HOST = "localhost";
     const USER = "root";
-    const PWD = "";
+    const PWD = "root";
     const BDD = "page-accueil";
 
     /* Non modifié */
@@ -68,7 +69,8 @@ class PDOLib {
      *
      * @param string $sHost
      */
-    public function setsHost($sHost) {
+    public function setsHost($sHost)
+    {
         TypeException::estVide($sHost);
         TypeException::estChaineDeCaracteres($sHost);
         $this->sHost = $sHost;
@@ -80,7 +82,8 @@ class PDOLib {
      *
      * @param string $sUser
      */
-    public function setsUser($sUser) {
+    public function setsUser($sUser)
+    {
         TypeException::estVide($sUser);
         TypeException::estChaineDeCaracteres($sUser);
         $this->sUser = $sUser;
@@ -92,7 +95,8 @@ class PDOLib {
      *
      * @param string $sPwd
      */
-    public function setsPwd($sPwd) {
+    public function setsPwd($sPwd)
+    {
 
         $this->sPwd = $sPwd;
     }
@@ -116,7 +120,8 @@ class PDOLib {
      * 4D (PDO) — 4D Functions (PDO_4D)
      * Pour vérifier quels sont les pilotes installés : print_r(PDO::getAvailableDrivers());
      */
-    public function setsPiloteBdd($sPiloteBdd) {
+    public function setsPiloteBdd($sPiloteBdd)
+    {
         TypeException::estVide($sPiloteBdd);
         TypeException::estChaineDeCaracteres($sPiloteBdd);
         $aPilotesBdd = array("cubrid", "mssql", "mysql", "sybase", "sqlite");
@@ -134,7 +139,8 @@ class PDOLib {
      *
      * @param string $sBdd
      */
-    public function setsBdd($sBdd) {
+    public function setsBdd($sBdd)
+    {
         TypeException::estVide($sBdd);
         TypeException::estChaineDeCaracteres($sBdd);
         $this->sBdd = $sBdd;
@@ -146,7 +152,8 @@ class PDOLib {
      *
      * @param string $sCharset
      */
-    public function setsCharset($sCharset) {
+    public function setsCharset($sCharset)
+    {
         TypeException::estVide($sCharset);
         TypeException::estChaineDeCaracteres($sCharset);
 
@@ -169,7 +176,8 @@ class PDOLib {
      * PDO::ERRMODE_EXCEPTION : This is the mode you should want in most situations. It fires an exception, allowing you to handle errors gracefully
      *  and hide data that might help someone exploit your system. Here's an example of taking advantage of exceptions
      */
-    public function setsModeErreur($sModeErreur) {
+    public function setsModeErreur($sModeErreur)
+    {
         TypeException::estVide($sModeErreur);
         $aModesErreurs = array("ERRMODE_SILENT", "ERRMODE_WARNING", "ERRMODE_EXCEPTION");
 
@@ -186,7 +194,8 @@ class PDOLib {
      * @access public
      * @return string
      */
-    public function getsHost() {
+    public function getsHost()
+    {
 
         return $this->sHost;
     }
@@ -196,7 +205,8 @@ class PDOLib {
      * @access public
      * @return string
      */
-    public function getsUser() {
+    public function getsUser()
+    {
 
         return $this->sUser;
     }
@@ -206,7 +216,8 @@ class PDOLib {
      * @access public
      * @return string
      */
-    public function getsPwd() {
+    public function getsPwd()
+    {
 
         return $this->sPwd;
     }
@@ -216,7 +227,8 @@ class PDOLib {
      * @access public
      * @return string
      */
-    public function getsBdd() {
+    public function getsBdd()
+    {
 
         return $this->sBdd;
     }
@@ -226,7 +238,8 @@ class PDOLib {
      * @access public
      * @return string
      */
-    public function getsCharset() {
+    public function getsCharset()
+    {
 
         return $this->sCharset;
     }
@@ -236,7 +249,8 @@ class PDOLib {
      * @access public
      * @return string
      */
-    public function getsModeErreur() {
+    public function getsModeErreur()
+    {
 
         return $this->sModeErreur;
     }
@@ -246,7 +260,8 @@ class PDOLib {
      * @access public
      * @return string
      */
-    public function getsPiloteBdd() {
+    public function getsPiloteBdd()
+    {
 
         return $this->sPiloteBdd;
     }
@@ -256,7 +271,8 @@ class PDOLib {
      * @access public
      * @return PDO
      */
-    public function getoPDO() {
+    public function getoPDO()
+    {
         return $this->oPDO;
     }
 
@@ -275,10 +291,15 @@ class PDOLib {
      *
      * @return void
      */
-    public function __construct($sHost = PDOLib::HOST, $sUser = PDOLib::USER,
-                                $sPwd = PDOLib::PWD, $sBdd = PDOLib::BDD, $sPiloteBdd = PDOLib::PILOTE_BDD,
-                                $sCharset = PDOLib::CHARSET,
-                                $sModeErreur = PDOLib::MODE_ERREUR) {
+    public function __construct(
+        $sHost = PDOLib::HOST,
+        $sUser = PDOLib::USER,
+        $sPwd = PDOLib::PWD,
+        $sBdd = PDOLib::BDD,
+        $sPiloteBdd = PDOLib::PILOTE_BDD,
+        $sCharset = PDOLib::CHARSET,
+        $sModeErreur = PDOLib::MODE_ERREUR
+    ) {
         //Affectation
         $this->setsHost($sHost);
         $this->setsUser($sUser);
@@ -297,7 +318,7 @@ class PDOLib {
         //Crée un objet PDO = connexion au SGBD mysql
         //sur la base de données Video
         $this->oPDO = new PDO($sDsn, $sUser, $sPassword);
-    }//fin de la fonction
+    } //fin de la fonction
 
 
     /**
@@ -307,8 +328,9 @@ class PDOLib {
      *
      * @return void
      */
-    public function fermerLaConnexion() {
+    public function fermerLaConnexion()
+    {
         $this->oPDO = null;
     }
-}//fin de la classe PDOLib
-?>
+} //fin de la classe PDOLib
+ 
