@@ -129,10 +129,11 @@ class Controleur
     {
         try {
             $oUtilisateur = new Utilisateur(1);
-            $oUtilisateur->rechercherUn();
             $oVueEvenement = new VueEvenement();
+            $oEvenement = new Evenement();
+            $aoEvenements = $oEvenement->rechercherTousAuj();
 
-            $oVueEvenement->afficherTousAuj(array());
+            $oVueEvenement->afficherTousAuj($aoEvenements);
         } catch (Exception $oException) {
             echo "<p>" . $oException->getMessage() . "</p>";
         }

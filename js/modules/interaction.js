@@ -14,6 +14,7 @@ export class Interaction {
         this.clicAjoutSite();
         this.btnAjoutSite();
         this.modalEventClic();
+        this.AjouterEvenement();
 
     } // fin constr
 
@@ -49,6 +50,53 @@ export class Interaction {
         this.modalEvent.querySelector("span").addEventListener('click', () => {
             this.modalEvent.style.display = "none";
         });
+    }
+
+    AjouterEvenement() {
+        let cchJournee = document.getElementById("cchJournee");
+        let btnAjouter = document.getElementById("btnAjouterEvenement");
+
+        btnAjouter.addEventListener("click", function (evt) {
+
+            evt.preventDefault();
+
+            let sNomEvenement = document.getElementById("sNomEvenement").value;
+            let sDateDebut = document.getElementById("sDateDebut").value;
+            let sHeureDebut = document.getElementById("sHeureDebut").value;
+            let sDateFin = document.getElementById("sDateFin").value;
+            let sHeureFin = document.getElementById("sHeureFin").value;
+
+
+            if (cchJournee.checked) {
+                sHeureFin = "23:59:59";
+                sDateFin = sDateDebut;
+            }
+
+            $.ajax({
+                url: "controleur/ajax/gererAjouterEvenement.php",
+                method: "POST",
+                data: {
+                    sNomEvenement : sNomEvenement,
+                    sDateDebut : sDateDebut,
+                    sHeureDebut : sHeureDebut,
+                    sDateFin : sDateFin,
+                    sHeureFin : sHeureFin,
+                    cmd : "cmd"
+                }
+            })
+            // Si la reqête est terminée
+                .done(function (sHtml) {
+                    let el = document.querySelector("#calendrier > div:last-of-type > div");
+
+                    console.log(sHtml);
+
+                    el.innerHTML = sHtml;
+                    //console.log(sHtml);
+                });
+
+        })
+
+
     }
 
 } // fin classe

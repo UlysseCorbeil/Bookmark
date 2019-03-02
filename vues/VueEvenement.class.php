@@ -66,4 +66,40 @@ class VueEvenement {
         echo $sHtml;
     }
 
+    public function afficherEvenements($aoEvenements, $sMsg = ""){
+        $sHtml = "";
+
+        if ($aoEvenements) {
+            for ($i = 0; $i < count($aoEvenements); $i++) {
+                $sHtml .= "
+                        <div class='flex-container event-item'>
+                            <div>";
+
+                $sDateDebut = new DateTime($aoEvenements[$i]->getsDateDebut());
+                $sDateFin = new DateTime($aoEvenements[$i]->getsDateFin());
+
+
+                if ($sDateDebut <= date("Y-m-d H:i:s") && $sDateFin >= date("Y-m-d H:i:s")) {
+                    $sHtml .= "<span>En cours - Fin à " . date("H:i", strtotime($aoEvenements[$i]->getsDateFin())) . "</span>";
+                } else if ($sDateDebut >= date("Y-m-d H:i:s")) {
+                    $sHtml .= "<span>" . date("H:i", strtotime($aoEvenements[$i]->getsDateDebut())) . "</span>";
+                }
+
+                $sHtml .= "
+                            <p>" . $aoEvenements[$i]->getsNomEvenement() . "</p>
+                        </div>
+                        <a href='#'><i class='fas fa-ellipsis-v'></i></a>
+                    </div>
+        ";
+            }
+        } else {
+            $sHtml .= "<p>Aucun événement prévu.</p>";
+        }
+
+
+        echo $sHtml;
+    }
+
+
+
 }
