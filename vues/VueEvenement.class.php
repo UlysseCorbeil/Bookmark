@@ -36,13 +36,16 @@ class VueEvenement {
 
         if ($aoEvenements) {
             for ($i = 0; $i < count($aoEvenements); $i++) {
-                $sHtml .= "
-                        <div class='flex-container event-item'>
-                            <div>";
 
                 if ($aoEvenements[$i]->getsDateDebut() <= date("Y-m-d H:i:s") && $aoEvenements[$i]->getsDateFin() >= date("Y-m-d H:i:s")) {
+                    $sHtml .= "
+                        <div class='flex-container event-item event-item-now'>
+                            <div>";
                     $sHtml .= "<span>En cours - Fin à " . date("H:i", strtotime($aoEvenements[$i]->getsDateFin())) . "</span>";
                 } else if ($aoEvenements[$i]->getsDateDebut() >= date("Y-m-d H:i:s")) {
+                    $sHtml .= "
+                        <div class='flex-container event-item'>
+                            <div>";
                     $sHtml .= "<span>" . date("H:i", strtotime($aoEvenements[$i]->getsDateDebut())) . "</span>";
                 }
 
@@ -73,18 +76,21 @@ class VueEvenement {
 
         if ($aoEvenements) {
             for ($i = 0; $i < count($aoEvenements); $i++) {
-                $sHtml .= "
-                        <div class='flex-container event-item'>
-                            <div>";
 
                 $sDateDebut = ($aoEvenements[$i]->getsDateDebut());
                 $sDateFin = ($aoEvenements[$i]->getsDateFin());
                 $sDateMaintenant = new DateTime("now", new DateTimeZone("America/Toronto"));
 
                 if ($sDateDebut <= $sDateMaintenant->format("Y-m-d H:i:s") && $sDateFin >= $sDateMaintenant->format("Y-m-d H:i:s")) {
+                    $sHtml .= "
+                        <div class='flex-container event-item event-item-now'>
+                            <div>";
                     $sHtml .= "<span>En cours - Fin à ". date('H:i', strtotime($sDateFin)) ."</span>";
                 }
                 else if ($sDateDebut >= $sDateMaintenant->format("Y-m-d H:i:s")) {
+                    $sHtml .= "
+                        <div class='flex-container event-item'>
+                            <div>";
                     $sHtml .= "<span>" . date('H:i', strtotime($sDateDebut)) . "</span>";
                 }
 

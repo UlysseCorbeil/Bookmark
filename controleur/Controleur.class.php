@@ -4,8 +4,7 @@
  * @version: 2019-02-28
  */
 
-class Controleur
-{
+class Controleur {
 
     /**
      * Gérer l'affichage du site
@@ -14,8 +13,7 @@ class Controleur
      *
      * @return void
      */
-    public function gererSite()
-    {
+    public function gererSite() {
 
         try {
 
@@ -58,9 +56,11 @@ class Controleur
             // Afficher la météo
             $this->gererAfficherMeteo();
 
+            echo "</div></div></main>";
+            // </MAIN>
+
             // Afficher les modals
             $this->gererAfficherModal();
-            // </MAIN>
 
             /* ========================================================================================== */
             /* FIN DE LA PAGE */
@@ -82,8 +82,7 @@ class Controleur
      *
      * @return void
      */
-    public function gererAfficherNav()
-    {
+    public function gererAfficherNav() {
         try {
             $oUtilisateur = new Utilisateur(1);
             $oUtilisateur->rechercherUn();
@@ -102,8 +101,7 @@ class Controleur
      *
      * @return void
      */
-    public function gererAfficherLiens()
-    {
+    public function gererAfficherLiens() {
         try {
             $oUtilisateur = new Utilisateur(1);
             $oRelUtilisateurLien = new RelUtilisateurLien();
@@ -125,8 +123,7 @@ class Controleur
      *
      * @return void
      */
-    public function gererAfficherEvenements()
-    {
+    public function gererAfficherEvenements() {
         try {
             $oUtilisateur = new Utilisateur(1);
             $oVueEvenement = new VueEvenement();
@@ -146,8 +143,7 @@ class Controleur
      *
      * @return void
      */
-    public function gererAfficherTaches()
-    {
+    public function gererAfficherTaches() {
         try {
             $oUtilisateur = new Utilisateur(1);
             $oVueTache = new VueTache();
@@ -169,8 +165,7 @@ class Controleur
      *
      * @return void
      */
-    public function gererAfficherTemps()
-    {
+    public function gererAfficherTemps() {
         try {
             $oUtilisateur = new Utilisateur(1);
             $oUtilisateur->rechercherUn();
@@ -189,8 +184,7 @@ class Controleur
      *
      * @return void
      */
-    public function gererAfficherMeteo()
-    {
+    public function gererAfficherMeteo() {
         try {
             $oUtilisateur = new Utilisateur(1);
             $oUtilisateur->rechercherUn();
@@ -209,8 +203,7 @@ class Controleur
      *
      * @return void
      */
-    public function gererAfficherModal()
-    {
+    public function gererAfficherModal() {
         try {
             $oUtilisateur = new Utilisateur(1);
             $oUtilisateur->rechercherUn();

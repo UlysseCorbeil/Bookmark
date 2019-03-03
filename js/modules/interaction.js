@@ -15,6 +15,7 @@ export class Interaction {
         this.btnAjoutSite();
         this.modalEventClic();
         this.AjouterEvenement();
+        this.BloquerHeureFin();
 
     } // fin constr
 
@@ -92,6 +93,20 @@ export class Interaction {
                 });
 
         })
+    }
+
+    BloquerHeureFin(){
+        let cchJournee = document.getElementById("cchJournee");
+        let oDateFin = document.querySelector("#modalEvent .modal-contenu form > div:last-of-type");
+
+        cchJournee.addEventListener("input", function(){
+           if(cchJournee.checked){
+               oDateFin.style.display = "none";
+           }
+           else{
+               oDateFin.style.display = "flex";
+           }
+        });
     }
 
 } // fin classe

@@ -240,6 +240,9 @@ main {
     margin-bottom: 15px;
     align-items: center;
 }
+.event-item-now{
+    border-color: #00D26E;
+}
 
 .event-item>div {
     flex: 1 1 0;
