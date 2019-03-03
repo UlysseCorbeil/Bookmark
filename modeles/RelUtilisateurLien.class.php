@@ -317,6 +317,7 @@ class RelUtilisateurLien
     {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
+
         //Réaliser la requête
         $sRequete = "
 			SELECT * 
@@ -356,7 +357,8 @@ class RelUtilisateurLien
                     ));
                 }
                 $oPDOLib->fermerLaConnexion();
-                //Retourner le array d'objets de la classe Administrateur
+
+                //Retourner le array d'objets 
                 return $aoEnregs;
             }
         }

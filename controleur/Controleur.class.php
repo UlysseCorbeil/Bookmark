@@ -85,7 +85,7 @@ class Controleur
     public function gererAfficherNav()
     {
         try {
-            $oUtilisateur = new Utilisateur(1);
+            $oUtilisateur = new Utilisateur(2);
             $oUtilisateur->rechercherUn();
             $oVueUtilisateur = new VueUtilisateur();
 
@@ -96,7 +96,7 @@ class Controleur
     }
 
     /**
-     * Gérer l'affichage du liens vers les sites
+     * Gérer l'affichage des liens vers les sites
      *
      * @param void
      *
@@ -105,7 +105,7 @@ class Controleur
     public function gererAfficherLiens()
     {
         try {
-            $oUtilisateur = new Utilisateur(1);
+            $oUtilisateur = new Utilisateur(2);
             $oRelUtilisateurLien = new RelUtilisateurLien();
             $oRelUtilisateurLien->setoUtilisateur($oUtilisateur);
             $aoLiens = $oRelUtilisateurLien->rechercherTousLiensParUtilisateur();
@@ -128,7 +128,7 @@ class Controleur
     public function gererAfficherEvenements()
     {
         try {
-            $oUtilisateur = new Utilisateur(1);
+            $oUtilisateur = new Utilisateur(2);
             $oUtilisateur->rechercherUn();
             $oVueEvenement = new VueEvenement();
 
@@ -148,7 +148,7 @@ class Controleur
     public function gererAfficherTaches()
     {
         try {
-            $oUtilisateur = new Utilisateur(1);
+            $oUtilisateur = new Utilisateur(2);
             $oVueTache = new VueTache();
             $oTache = new Tache();
             $oTache->setoUtilisateur($oUtilisateur);
@@ -171,7 +171,7 @@ class Controleur
     public function gererAfficherTemps()
     {
         try {
-            $oUtilisateur = new Utilisateur(1);
+            $oUtilisateur = new Utilisateur(2);
             $oUtilisateur->rechercherUn();
             $oVueTemps = new VueTemps();
 
@@ -191,7 +191,7 @@ class Controleur
     public function gererAfficherMeteo()
     {
         try {
-            $oUtilisateur = new Utilisateur(1);
+            $oUtilisateur = new Utilisateur(2);
             $oUtilisateur->rechercherUn();
             $oVueMeteo = new VueMeteo();
 
@@ -211,7 +211,7 @@ class Controleur
     public function gererAfficherModal()
     {
         try {
-            $oUtilisateur = new Utilisateur(1);
+            $oUtilisateur = new Utilisateur(2);
             $oUtilisateur->rechercherUn();
             $oVueModal = new VueModal();
 

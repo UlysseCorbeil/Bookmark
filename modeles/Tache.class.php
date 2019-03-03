@@ -354,5 +354,4 @@ class Tache
         $oPDOLib->fermerLaConnexion();
         return false;
     } //fin de la fonction
-
 }

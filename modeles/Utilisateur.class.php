@@ -6,7 +6,8 @@
  * Time: 20:40
  */
 
-class Utilisateur {
+class Utilisateur
+{
 
     private $idUtilisateur;
     private $sNom;
@@ -24,7 +25,8 @@ class Utilisateur {
      * @param $idUtilisateur
      * @throws TypeException
      */
-    public function setidUtilisateur($idUtilisateur) {
+    public function setidUtilisateur($idUtilisateur)
+    {
         TypeException::estNumerique($idUtilisateur);
 
         $this->idUtilisateur = $idUtilisateur;
@@ -35,7 +37,8 @@ class Utilisateur {
      * @param $sNom
      * @throws TypeException
      */
-    public function setsNom($sNom) {
+    public function setsNom($sNom)
+    {
         TypeException::estChaineDeCaracteres($sNom);
 
         $this->sNom = $sNom;
@@ -46,7 +49,8 @@ class Utilisateur {
      * @param $sPrenom
      * @throws TypeException
      */
-    public function setsPrenom($sPrenom) {
+    public function setsPrenom($sPrenom)
+    {
         TypeException::estChaineDeCaracteres($sPrenom);
 
         $this->sPrenom = $sPrenom;
@@ -57,7 +61,8 @@ class Utilisateur {
      * @param $sCourriel
      * @throws TypeException
      */
-    public function setsCourriel($sCourriel) {
+    public function setsCourriel($sCourriel)
+    {
         TypeException::estChaineDeCaracteres($sCourriel);
 
         $this->sCourriel = $sCourriel;
@@ -68,7 +73,8 @@ class Utilisateur {
      * @param $sPseudo
      * @throws TypeException
      */
-    public function setsPseudo($sPseudo) {
+    public function setsPseudo($sPseudo)
+    {
         TypeException::estChaineDeCaracteres($sPseudo);
 
         $this->sPseudo = $sPseudo;
@@ -79,7 +85,8 @@ class Utilisateur {
      * @param $sMotDePasse
      * @throws TypeException
      */
-    public function setsMotDePasse($sMotDePasse) {
+    public function setsMotDePasse($sMotDePasse)
+    {
         TypeException::estChaineDeCaracteres($sMotDePasse);
 
         $this->sMotDePasse = $sMotDePasse;
@@ -90,7 +97,8 @@ class Utilisateur {
      * @param $sAvatar
      * @throws TypeException
      */
-    public function setsAvatar($sAvatar) {
+    public function setsAvatar($sAvatar)
+    {
         TypeException::estChaineDeCaracteres($sAvatar);
 
         $this->sAvatar = $sAvatar;
@@ -101,7 +109,8 @@ class Utilisateur {
      * @param $sDateInscription
      * @throws TypeException
      */
-    public function setsDateInscription($sDateInscription) {
+    public function setsDateInscription($sDateInscription)
+    {
         TypeException::estChaineDeCaracteres($sDateInscription);
 
         $this->sDateInscription = $sDateInscription;
@@ -113,7 +122,8 @@ class Utilisateur {
      * Get l'id de l'utilisateur
      * @return mixed
      */
-    public function getidUtilisateur() {
+    public function getidUtilisateur()
+    {
         return $this->idUtilisateur;
     }
 
@@ -121,7 +131,8 @@ class Utilisateur {
      * Get le nom de famille de l'utilisateur
      * @return mixed
      */
-    public function getsNom() {
+    public function getsNom()
+    {
         return $this->sNom;
     }
 
@@ -129,7 +140,8 @@ class Utilisateur {
      * Get le prénom de l'utilisateur
      * @return mixed
      */
-    public function getsPrenom() {
+    public function getsPrenom()
+    {
         return $this->sPrenom;
     }
 
@@ -137,7 +149,8 @@ class Utilisateur {
      * Get le courriel de l'utilisateur
      * @return mixed
      */
-    public function getsCourriel() {
+    public function getsCourriel()
+    {
         return $this->sCourriel;
     }
 
@@ -145,7 +158,8 @@ class Utilisateur {
      * Get le pseudo de l'utilisateur
      * @return mixed
      */
-    public function getsPseudo() {
+    public function getsPseudo()
+    {
         return $this->sPseudo;
     }
 
@@ -153,7 +167,8 @@ class Utilisateur {
      * Get le mot de passe de l'utilisateur
      * @return mixed
      */
-    public function getsMotDePasse() {
+    public function getsMotDePasse()
+    {
         return $this->sMotDePasse;
     }
 
@@ -161,7 +176,8 @@ class Utilisateur {
      * Get l'avatar de l'utilisateur
      * @return mixed
      */
-    public function getsAvatar() {
+    public function getsAvatar()
+    {
         return $this->sAvatar;
     }
 
@@ -169,7 +185,8 @@ class Utilisateur {
      * Get la date d'inscription de l'utilisateur
      * @return mixed
      */
-    public function getsDateInscription() {
+    public function getsDateInscription()
+    {
         return $this->sDateInscription;
     }
 
@@ -187,7 +204,8 @@ class Utilisateur {
      * @param string $sDateInscription
      * @throws TypeException
      */
-    public function __construct($idUtilisateur = 1, $sNom = "", $sPrenom = "", $sCourriel = "", $sPseudo = "", $sMotDePasse = "", $sAvatar = "", $sDateInscription = "") {
+    public function __construct($idUtilisateur = 1, $sNom = "", $sPrenom = "", $sCourriel = "", $sPseudo = "", $sMotDePasse = "", $sAvatar = "", $sDateInscription = "")
+    {
         $this->setidUtilisateur($idUtilisateur);
         $this->setsNom($sNom);
         $this->setsPrenom($sPrenom);
@@ -204,7 +222,8 @@ class Utilisateur {
      * Ajouter un utilisateur dans la BDD
      * @return bool|int
      */
-    public function ajouter() {
+    public function ajouter()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
@@ -241,7 +260,8 @@ class Utilisateur {
      * Modifier un utilisateur dans la BDD
      * @return bool|int
      */
-    public function modifier() {
+    public function modifier()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
@@ -278,7 +298,8 @@ class Utilisateur {
      * Supprimer un utilisateur de la BDD
      * @return bool|int
      */
-    public function supprimer() {
+    public function supprimer()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
@@ -310,7 +331,8 @@ class Utilisateur {
      * @return bool
      * @throws TypeException
      */
-    public function rechercherUn() {
+    public function rechercherUn()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
@@ -351,7 +373,8 @@ class Utilisateur {
      * @return array|bool
      * @throws TypeException
      */
-    public function rechercherTous() {
+    public function rechercherTous()
+    {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête

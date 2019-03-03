@@ -276,7 +276,8 @@ class Lien
         //Réaliser la requête
         $sRequete = "
 			SELECT * 
-			FROM liens";
+            FROM liens
+            ";
 
         //Préparer la requête
         $oPDOStatement = $oPDOLib->getoPDO()->prepare($sRequete);
