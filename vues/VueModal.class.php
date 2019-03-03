@@ -45,7 +45,7 @@ class VueModal
     public function afficherModalEvenement()
     {
         $sHtml = "
-        <div class='modal' id='modalEvent' style='display: flex;'>
+        <div class='modal' id='modalEvent'>
         <div class='modal-contenu event'>
             <span><i class='fas fa-times'></i></span>
             <h3>Ajouter un événement</h3>
@@ -53,17 +53,17 @@ class VueModal
             <form action='index.php' method='POST'>
                 <div class='flex-container'>
                     <p>Titre</p>
-                    <input type='text' name='sNomEvenement' id='sNomEvenement' placeholder=\"Titre de l'événement\">
+                    <input type='text' name='sNomEvenement' id='sNomEvenement' placeholder=\"Titre de l'événement\" required>
                 </div>
                 <div class='flex-container'>
                     <p>Début</p>
                     <div>
                         <label for='sDateDebut'><i class='far fa-calendar'></i></label>
-                        <input type='text' name='sDateDebut' id='sDateDebut' placeholder='2019-02-27' value='". date("Y-m-d") ."'>
+                        <input type='text' name='sDateDebut' id='sDateDebut' placeholder='2019-02-27' value='". date("Y-m-d") ."' required>
                     </div>
                     <div>
                         <label for='sHeureDebut'><i class='far fa-clock'></i></label>
-                        <input type='text' name='sHeureDebut' id='sHeureDebut' placeholder='12:00' value='". date("H:i") ."'>
+                        <input type='text' name='sHeureDebut' id='sHeureDebut' placeholder='12:00' value='". date("H:i") ."' required>
                     </div>
 
                     <label class='container'>
@@ -80,7 +80,7 @@ class VueModal
                     </div>
                     <div>
                         <label for='sHeureFin'><i class='far fa-clock'></i></label>
-                        <input type='text' name='sHeureFin' id='sHeureFin' placeholder='12:00' value='23:59'>
+                        <input type='text' name='sHeureFin' id='sHeureFin' placeholder='12:00'>
                     </div>
                 </div>
 

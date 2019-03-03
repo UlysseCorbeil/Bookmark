@@ -6,6 +6,9 @@
  * Time: 18:26
  */
 
+// Définir le fuseau horaire à Toronto
+date_default_timezone_set('America/Toronto');
+
 require "../../modeles/Utilisateur.class.php";
 require "../../modeles/Evenement.class.php";
 
@@ -15,37 +18,44 @@ require "../../lib/TypeException.class.php";
 require "../../vues/VueEvenement.class.php";
 
 
-try{
+try {
 
     $oUtilisateur = new Utilisateur(1);
     $oVueEvenement = new VueEvenement();
 
-    if(isset($_POST['cmd']) == true){
+    if (isset($_POST['cmd']) == true) {
 
-        $sDateDebut =  date('Y-m-d H:i:s', strtotime($_POST['sDateDebut'] ." ". $_POST['sHeureDebut'] . ":00"));
-        $sDateFin =  date('Y-m-d H:i:s', strtotime($_POST['sDateFin'] ." ". $_POST['sHeureFin'] . ":00"));
+        // Vérifier si les données reçues existent
+        if (isset($_POST['sDateDebut']) && isset($_POST['sHeureDebut']) && isset($_POST['sDateFin']) && isset($_POST['sHeureFin']) && isset($_POST['sNomEvenement'])) {
 
-        $oEvenement = new Evenement(1, $sDateDebut, $sDateFin, $_POST['sNomEvenement']);
-        $oEvenement->setoUtilisateur($oUtilisateur);
+            $sDateDebut = new DateTime($_POST['sDateDebut'] . " " . $_POST['sHeureDebut'] . ":00", new DateTimeZone('America/Toronto'));
 
-        if($oEvenement->ajouter()){
-            $sMsg = "Événement ajouté!";
-        }
-        else{
+            if ($_POST['sHeureFin'] == "23:59:59") {
+                $sDateFin = new DateTime($_POST['sDateFin'] . " " . $_POST['sHeureFin'], new DateTimeZone('America/Toronto'));
+            } else {
+                $sDateFin = new DateTime($_POST['sDateFin'] . " " . $_POST['sHeureFin'] . ":00", new DateTimeZone('America/Toronto'));
+            }
+
+            $oEvenement = new Evenement(1, $sDateDebut->format('Y-m-d H:i:s'), $sDateFin->format('Y-m-d H:i:s'), $_POST['sNomEvenement']);
+            $oEvenement->setoUtilisateur($oUtilisateur);
+
+            if ($oEvenement->ajouter()) {
+                $sMsg = "Événement ajouté!";
+            } else {
+                $sMsg = "Erreur lors de l'ajout de l'événement";
+            }
+        } else {
             $sMsg = "Erreur lors de l'ajout de l'événement";
         }
 
+        var_dump($sMsg);
+
         $aoEvenements = $oEvenement->rechercherTousAuj();
-        //var_dump($aoEvenements);
-
-
         $oVueEvenement->afficherEvenements($aoEvenements);
-    }
-    else{
+    } else {
         echo "Oh Oh, la police...";
     }
 
-}
-catch (Exception $oException){
+} catch (Exception $oException) {
     echo $oException->getMessage();
 }

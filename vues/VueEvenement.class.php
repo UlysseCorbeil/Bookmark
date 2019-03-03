@@ -75,14 +75,15 @@ class VueEvenement {
                         <div class='flex-container event-item'>
                             <div>";
 
-                $sDateDebut = new DateTime($aoEvenements[$i]->getsDateDebut());
-                $sDateFin = new DateTime($aoEvenements[$i]->getsDateFin());
+                $sDateDebut = ($aoEvenements[$i]->getsDateDebut());
+                $sDateFin = ($aoEvenements[$i]->getsDateFin());
+                $sDateMaintenant = new DateTime("now", new DateTimeZone("America/Toronto"));
 
-
-                if ($sDateDebut <= date("Y-m-d H:i:s") && $sDateFin >= date("Y-m-d H:i:s")) {
-                    $sHtml .= "<span>En cours - Fin à " . date("H:i", strtotime($aoEvenements[$i]->getsDateFin())) . "</span>";
-                } else if ($sDateDebut >= date("Y-m-d H:i:s")) {
-                    $sHtml .= "<span>" . date("H:i", strtotime($aoEvenements[$i]->getsDateDebut())) . "</span>";
+                if ($sDateDebut <= $sDateMaintenant->format("Y-m-d H:i:s") && $sDateFin >= $sDateMaintenant->format("Y-m-d H:i:s")) {
+                    $sHtml .= "<span>En cours - Fin à ". date('H:i', strtotime($sDateFin)) ."</span>";
+                }
+                else if ($sDateDebut >= $sDateMaintenant->format("Y-m-d H:i:s")) {
+                    $sHtml .= "<span>" . date('H:i', strtotime($sDateDebut)) . "</span>";
                 }
 
                 $sHtml .= "
