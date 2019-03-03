@@ -69,6 +69,8 @@ class VueEvenement {
     public function afficherEvenements($aoEvenements, $sMsg = ""){
         $sHtml = "";
 
+        $sHtml .= $sMsg;
+
         if ($aoEvenements) {
             for ($i = 0; $i < count($aoEvenements); $i++) {
                 $sHtml .= "

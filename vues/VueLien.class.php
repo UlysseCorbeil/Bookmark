@@ -18,13 +18,15 @@ class VueLien {
             <div id='site' class='row'>
                 <div class='flex-container'>";
 
-        for($i=0; $i<count($aoLiens); $i++){
-            $sHtml .= "<div class='site-lien'>
+        if($aoLiens){
+            for($i=0; $i<count($aoLiens); $i++){
+                $sHtml .= "<div class='site-lien'>
                         <a href='". $aoLiens[$i]->getoLien()->getsUrl() ."' target='_BLANK'>
                             <img src='https://www.google.com/s2/favicons?domain=". $aoLiens[$i]->getoLien()->getsFavicon() ."' alt=''>
                             <p>". $aoLiens[$i]->getoLien()->getsNomSite() ."</p>
                         </a>
                     </div>";
+            }
         }
 
         $sHtml .= "

@@ -86,17 +86,12 @@ export class Interaction {
             })
             // Si la reqête est terminée
                 .done(function (sHtml) {
-                    let el = document.querySelector("#calendrier > div:last-of-type > div");
+                    let oEvenements = document.querySelector("#calendrier > div:last-of-type > div");
 
-                    console.log(sHtml);
-
-                    el.innerHTML = sHtml;
-                    //console.log(sHtml);
+                    oEvenements.innerHTML = sHtml;
                 });
 
         })
-
-
     }
 
 } // fin classe
