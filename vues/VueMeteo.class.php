@@ -6,15 +6,25 @@
  * Time: 14:43
  */
 
-class VueMeteo {
+class VueMeteo
+{
 
     /**
      * Afficher la météo
      * @param void
      * @return void
      */
-    public function afficherMeteo(){
-        $sMeteo = '<div id="meteo" class="card">
+    public function afficherMeteo()
+    {
+        $sMeteo = '
+        
+        <div id="meteo" class="card">
+
+            <ul class="tab-mnu">
+                <li class = "active" >Météo</li>
+                <li>Nouvelles</li>
+            </ul>
+
         <div class="flex-container morning" id="meteo-actuelle">
             <!-- Afficher météo actuelle -->
         </div>
@@ -28,5 +38,4 @@ class VueMeteo {
         ';
         echo $sMeteo;
     }
-
 }

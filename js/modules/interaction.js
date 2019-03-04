@@ -154,6 +154,6 @@ export class Interaction {
                 oDateFin.style.display = "flex";
             }
         });
-    }
+    } // fin ()
 
 } // fin classe

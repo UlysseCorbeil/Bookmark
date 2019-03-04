@@ -1,0 +1,39 @@
+.tab-mnu {
+    display: block;
+    list-style: none;
+}
+
+.tab-mnu:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.tab-mnu li {
+    box-sizing: border-box;
+    float: left;
+    background-color: white;
+    color: black;
+    width: 50%;
+    text-align: center;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    cursor: pointer;
+}
+
+.tab-mnu .active {
+    background-color: #6997EE;
+    color: white;
+    cursor: default;
+}
+
+.tab-cont {
+    box-sizing: border-box;
+    border-top: 1px solid white;
+    background-color: white;
+    color: #292d2f;
+}
+
+.tab-cont .tab-pane {
+    padding: 20px 25px;
+}
