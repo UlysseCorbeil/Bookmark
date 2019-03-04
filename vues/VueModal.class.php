@@ -25,7 +25,7 @@ class VueModal
                 <form action='index.php' method='POST'>
                     <div class='flex-container'>
                         <p>Tâche</p>
-                        <input type='text' name='sNomTache' id='sNomTache' placeholder='Tâche à réaliser'>
+                        <input type='text' name='sNomTache' id='sNomTache' placeholder='Tâche à réaliser' required autocomplete='off'>
                     </div>
     
                     <button id = 'btnAjouterTache'>Créer</button>
@@ -53,7 +53,7 @@ class VueModal
             <form action='index.php' method='POST'>
                 <div class='flex-container'>
                     <p>Titre</p>
-                    <input type='text' name='sNomEvenement' id='sNomEvenement' placeholder=\"Titre de l'événement\" required>
+                    <input type='text' name='sNomEvenement' id='sNomEvenement' placeholder=\"Titre de l'événement\" required autocomplete='off'>
                 </div>
                 <div class='flex-container'>
                     <p>Début</p>
