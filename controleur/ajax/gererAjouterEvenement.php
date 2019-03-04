@@ -67,7 +67,7 @@ try {
             }
 
             // Vérifier si le nom de l'événement n'est pas vide
-            if (empty($_POST['sNomEvenement'])) {
+            if (empty($_POST['sNomEvenement']) || preg_match('/^\s*$/', $_POST['sNomEvenement'])) {
                 $erreur = true;
                 array_push($aErreur, "Nom de l'événement vide!");
             }
