@@ -14,34 +14,53 @@ class VueLien
      * @param $aoLiens
      * @param string $sMsg
      */
-    public function afficherTous($aoLiens, $sMsg = "")
+    public function afficherTous($aoLiens)
     {
-        $sHtml = "
-            <div id='site' class='row'>
-                <div class='flex-container'>";
-
-        if($aoLiens){
-            for($i=0; $i<count($aoLiens); $i++){
-                $sHtml .= "<div class='site-lien'>
-                        <a href='". $aoLiens[$i]->getoLien()->getsUrl() ."' target='_BLANK'>
-                            <img src='https://www.google.com/s2/favicons?domain=". $aoLiens[$i]->getoLien()->getsFavicon() ."' alt=''>
-                            <p>". $aoLiens[$i]->getoLien()->getsNomSite() ."</p>
-                        </a>
-                    </div>";
-            }
-        }
-
-        $sHtml .= "
-                    <div class='site-lien'>
-                        <span id='ajoutSite' data-open='false'><i class='fas fa-plus'></i></span>
-                        <div>
-                            <input type='text' placeholder='Google.com' name='sUrlSite' id='sUrlSite'>
-                            <button><i class='fas fa-angle-right'></i></button>
-                        </div>
-                    </div>
+        $sHtml = '
+            <form method="get" action="http://www.google.com/search" id = "site">
+                <div>
+                    <input type="text" class = "googleSearch"  name="q" value="" placeholder = "Recherche Google" autocomplete="off"/>
+                    
                 </div>
-            </div>";
+            </form>
+                ';
 
         echo $sHtml;
     }
+
+    // /**
+    //  * Afficher tous les liens vers les sites
+    //  * @param $aoLiens
+    //  * @param string $sMsg
+    //  */
+    // public function afficherTous($aoLiens, $sMsg = "")
+    // {
+    //     $sHtml = "
+    //         <div id='site' class='row'>
+    //             <div class='flex-container'>";
+
+    //     if ($aoLiens) {
+    //         for ($i = 0; $i < count($aoLiens); $i++) {
+    //             $sHtml .= "<div class='site-lien'>
+    //                     <a href='" . $aoLiens[$i]->getoLien()->getsUrl() . "' target='_BLANK'>
+    //                         <img src='https://www.google.com/s2/favicons?domain=" . $aoLiens[$i]->getoLien()->getsFavicon() . "' alt=''>
+    //                         <p>" . $aoLiens[$i]->getoLien()->getsNomSite() . "</p>
+    //                     </a>
+    //                 </div>";
+    //         }
+    //     }
+
+    //     $sHtml .= "
+    //                 <div class='site-lien'>
+    //                     <span id='ajoutSite' data-open='false'><i class='fas fa-plus'></i></span>
+    //                     <div>
+    //                         <input type='text' placeholder='Google.com' name='sUrlSite' id='sUrlSite'>
+    //                         <button><i class='fas fa-angle-right'></i></button>
+    //                     </div>
+    //                 </div>
+    //             </div>
+    //         </div>";
+
+    //     echo $sHtml;
+    // }
 }

@@ -11,7 +11,7 @@ export class Interaction {
         this.modalEvent = modalEvent;
 
         // Appel des fonctions
-        this.clicAjoutSite();
+        // this.clicAjoutSite();
         this.btnAjoutSite();
         this.modalEventClic();
         this.AjouterEvenement();
@@ -20,21 +20,21 @@ export class Interaction {
     } // fin constr
 
     // Fait apparaitre le menu et ses icones
-    clicAjoutSite() {
-        this.oAjoutSite.addEventListener('click', () => {
-            if (this.oAjoutSite.getAttribute("data-open") === "false") {
-                this.oInputAjout.style.display = "block";
+    // clicAjoutSite() {
+    //     this.oAjoutSite.addEventListener('click', () => {
+    //         if (this.oAjoutSite.getAttribute("data-open") === "false") {
+    //             this.oInputAjout.style.display = "block";
 
-                this.oAjoutSite.querySelector("i").classList.replace("fa-plus", "fa-minus");
-                this.oAjoutSite.setAttribute("data-open", "true");
-            } else {
-                this.oInputAjout.style.display = "none";
-                this.oAjoutSite.querySelector("i").classList.replace("fa-minus", "fa-plus");
+    //             this.oAjoutSite.querySelector("i").classList.replace("fa-plus", "fa-minus");
+    //             this.oAjoutSite.setAttribute("data-open", "true");
+    //         } else {
+    //             this.oInputAjout.style.display = "none";
+    //             this.oAjoutSite.querySelector("i").classList.replace("fa-minus", "fa-plus");
 
-                this.oAjoutSite.setAttribute("data-open", "false");
-            }
-        });
-    } // fin ()
+    //             this.oAjoutSite.setAttribute("data-open", "false");
+    //         }
+    //     });
+    // } // fin ()
 
     // On fait apprait le menu au clic du bouton
     // On empêche aussi l'utilisateur de cliquer ailleurs
@@ -74,18 +74,18 @@ export class Interaction {
             }
 
             $.ajax({
-                url: "controleur/ajax/gererAjouterEvenement.php",
-                method: "POST",
-                data: {
-                    sNomEvenement : sNomEvenement,
-                    sDateDebut : sDateDebut,
-                    sHeureDebut : sHeureDebut,
-                    sDateFin : sDateFin,
-                    sHeureFin : sHeureFin,
-                    cmd : "cmd"
-                }
-            })
-            // Si la reqête est terminée
+                    url: "controleur/ajax/gererAjouterEvenement.php",
+                    method: "POST",
+                    data: {
+                        sNomEvenement: sNomEvenement,
+                        sDateDebut: sDateDebut,
+                        sHeureDebut: sHeureDebut,
+                        sDateFin: sDateFin,
+                        sHeureFin: sHeureFin,
+                        cmd: "cmd"
+                    }
+                })
+                // Si la reqête est terminée
                 .done(function (sHtml) {
                     let oEvenements = document.querySelector("#calendrier > div:last-of-type > div");
 
@@ -95,17 +95,16 @@ export class Interaction {
         })
     }
 
-    BloquerHeureFin(){
+    BloquerHeureFin() {
         let cchJournee = document.getElementById("cchJournee");
         let oDateFin = document.querySelector("#modalEvent .modal-contenu form > div:last-of-type");
 
-        cchJournee.addEventListener("input", function(){
-           if(cchJournee.checked){
-               oDateFin.style.display = "none";
-           }
-           else{
-               oDateFin.style.display = "flex";
-           }
+        cchJournee.addEventListener("input", function () {
+            if (cchJournee.checked) {
+                oDateFin.style.display = "none";
+            } else {
+                oDateFin.style.display = "flex";
+            }
         });
     }
 
