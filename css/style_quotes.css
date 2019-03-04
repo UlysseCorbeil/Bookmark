@@ -1,0 +1,36 @@
+blockquote {
+    border: none;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    quotes: "\201C""\201D""\2018""\2019";
+    color: rgba(0, 0, 0, 0.50);
+}
+
+blockquote h3 {
+    font-size: 1.3rem;
+}
+
+blockquote h3:before {
+    content: open-quote;
+    font-weight: bold;
+    font-size: 80px;
+    color: #00000025;
+}
+
+blockquote h3:after {
+    content: close-quote;
+    font-weight: bold;
+    font-size: 80px;
+    color: #00000025;
+}
+
+.googleSearch {
+    font-family: 'Lato', sans-serif;
+    outline: none;
+    width: 74.5%;
+    display: flex;
+    /* margin: 0 auto; */
+    padding: 0.8rem;
+    border-radius: 7px;
+    margin-right: 25px;
+    border: none;
+}
