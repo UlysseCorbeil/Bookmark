@@ -35,6 +35,9 @@ class Controleur
             // Afficher le NAV de la page
             $this->gererAfficherNav();
 
+            // Afficher la quote
+            $this->gererAfficherQuote();
+
             /* ========================================================================================== */
             /* CONTENU DE LA PAGE */
             /* ========================================================================================== */
@@ -87,11 +90,35 @@ class Controleur
     public function gererAfficherNav()
     {
         try {
+            // Recherche un utilisateur 
             $oUtilisateur = new Utilisateur(2);
             $oUtilisateur->rechercherUn();
+
             $oVueUtilisateur = new VueUtilisateur();
 
             $oVueUtilisateur->afficherNav($oUtilisateur);
+        } catch (Exception $oException) {
+            echo "<p>" . $oException->getMessage() . "</p>";
+        }
+    }
+
+    /**
+     * Gérer l'affichage de la quote
+     *
+     * @param void
+     *
+     * @return void
+     */
+    public function gererAfficherQuote()
+    {
+        try {
+
+            // Recherche un utilisateur 
+            $oVueQuote = new VueQuote();
+            $oQuote = new Quote();
+            $oQuote->chercherRandQuote();
+
+            $oVueQuote->afficherQuote($oQuote);
         } catch (Exception $oException) {
             echo "<p>" . $oException->getMessage() . "</p>";
         }

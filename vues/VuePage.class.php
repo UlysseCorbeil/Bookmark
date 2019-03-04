@@ -23,6 +23,7 @@ class VuePage
                 <link rel="stylesheet" href="css/style.css">
                 <link rel="stylesheet" href="css/style_po.css">
                 <link rel="stylesheet" href="css/style_ulysse.css">
+                <link rel="stylesheet" href="css/style_quotes.css">
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
                 <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
                 

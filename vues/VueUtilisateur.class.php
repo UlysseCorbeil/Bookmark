@@ -6,14 +6,16 @@
  * Time: 13:13
  */
 
-class VueUtilisateur {
+class VueUtilisateur
+{
 
     /**
      * Afficher le menu de navigation et le bonjour à l'utilisateur
      * @param Utilisateur $oUtilisateur
      * @param string $sMsg
      */
-    public function afficherNav(Utilisateur $oUtilisateur, $sMsg=""){
+    public function afficherNav(Utilisateur $oUtilisateur, $sMsg = "")
+    {
 
         $sHtml = "
             <nav>
@@ -43,13 +45,9 @@ class VueUtilisateur {
 
         $sHtml .= "
                         <h1>" . $sMotBienvenue . $oUtilisateur->getsPrenom() . " " . substr($oUtilisateur->getsNom(), 0, 1) . ".</h1>
-                        <div class='flex-container'>
-                        <p>Aujourd'hui sera une belle journée!</p>
-                    </div>
-                </div>
+
         ";
 
         echo $sHtml;
     }
-
 }

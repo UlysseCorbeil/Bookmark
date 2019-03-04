@@ -9,14 +9,14 @@
 class Utilisateur
 {
 
-    private $idUtilisateur;
-    private $sNom;
-    private $sPrenom;
-    private $sCourriel;
-    private $sPseudo;
-    private $sMotDePasse;
-    private $sAvatar;
-    private $sDateInscription;
+    private $idUtilisateur,
+        $sNom,
+        $sPrenom,
+        $sCourriel,
+        $sPseudo,
+        $sMotDePasse,
+        $sAvatar,
+        $sDateInscription;
 
     /* =============================================================================================== */
 
@@ -115,7 +115,6 @@ class Utilisateur
 
         $this->sDateInscription = $sDateInscription;
     }
-
     /* =============================================================================================== */
 
     /**
@@ -189,6 +188,7 @@ class Utilisateur
     {
         return $this->sDateInscription;
     }
+
 
     /* =============================================================================================== */
 
@@ -408,5 +408,5 @@ class Utilisateur
         }
         $oPDOLib->fermerLaConnexion();
         return false;
-    }
-}
+    } // fin ()
+} // fin classe
