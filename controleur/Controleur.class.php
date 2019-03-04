@@ -58,9 +58,11 @@ class Controleur
             // Afficher la météo
             $this->gererAfficherMeteo();
 
+            echo "</div></div></main>";
+            // </MAIN>
+
             // Afficher les modals
             $this->gererAfficherModal();
-            // </MAIN>
 
             /* ========================================================================================== */
             /* FIN DE LA PAGE */
@@ -128,11 +130,12 @@ class Controleur
     public function gererAfficherEvenements()
     {
         try {
-            $oUtilisateur = new Utilisateur(2);
-            $oUtilisateur->rechercherUn();
+            $oUtilisateur = new Utilisateur(1);
             $oVueEvenement = new VueEvenement();
+            $oEvenement = new Evenement();
+            $aoEvenements = $oEvenement->rechercherTousAuj();
 
-            $oVueEvenement->afficherTousAuj(array());
+            $oVueEvenement->afficherTousAuj($aoEvenements);
         } catch (Exception $oException) {
             echo "<p>" . $oException->getMessage() . "</p>";
         }

@@ -240,6 +240,9 @@ main {
     margin-bottom: 15px;
     align-items: center;
 }
+.event-item-now{
+    border-color: #00D26E;
+}
 
 .event-item>div {
     flex: 1 1 0;
@@ -533,9 +536,12 @@ main {
     align-items: center;
     border: 1px solid #CCC;
     border-radius: 3px;
-    width: 125px;
+    width: 100px;
     margin-right: 25px;
     overflow: hidden;
+}
+.event .input-date{
+    width: auto;
 }
 
 .event form>div>div label {
@@ -544,7 +550,8 @@ main {
 }
 
 .event form>div>div input[type=text],
-.modal-contenu form>div input[type=text] {
+.modal-contenu form>div input[type=text],
+.modal-contenu form>div input[type=date] {
     display: block;
     height: 100%;
     flex: 1 1 0;
@@ -553,7 +560,7 @@ main {
     padding: 0 5px;
 }
 
-.modal-contenu form>div input[type=text] {
+.modal-contenu form>div input[type=text]{
     padding: 8px 10px;
     border: 1px solid #CCC;
     border-radius: 3px;

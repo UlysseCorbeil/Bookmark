@@ -24,12 +24,7 @@ class VueMeteo {
                         <!-- Afficher prévision météo -->
                     </div>
                 </div>
-            </div>
-
-        </div>
-        </div>
-        </main>
-        
+            </div>        
         ';
         echo $sMeteo;
     }

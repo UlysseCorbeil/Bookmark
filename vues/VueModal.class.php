@@ -53,17 +53,17 @@ class VueModal
             <form action='index.php' method='POST'>
                 <div class='flex-container'>
                     <p>Titre</p>
-                    <input type='text' name='sNomEvenement' id='sNomEvenement' placeholder=\"Titre de l'événement\">
+                    <input type='text' name='sNomEvenement' id='sNomEvenement' placeholder=\"Titre de l'événement\" required>
                 </div>
                 <div class='flex-container'>
                     <p>Début</p>
-                    <div>
+                    <div class='input-date'>
                         <label for='sDateDebut'><i class='far fa-calendar'></i></label>
-                        <input type='text' name='sDateDebut' id='sDateDebut' placeholder='2019-02-27'>
+                        <input type='date' name='sDateDebut' id='sDateDebut' placeholder='2019-02-27' value='" . date("Y-m-d") . "' required>
                     </div>
                     <div>
                         <label for='sHeureDebut'><i class='far fa-clock'></i></label>
-                        <input type='text' name='sHeureDebut' id='sHeureDebut' placeholder='12:00'>
+                        <input type='text' name='sHeureDebut' id='sHeureDebut' placeholder='12:00' value='" . date("H:i") . "' required>
                     </div>
 
                     <label class='container'>
@@ -74,9 +74,9 @@ class VueModal
                 </div>
                 <div class='flex-container'>
                     <p>Fin</p>
-                    <div>
+                    <div class='input-date'>
                         <label for='sDateFin'><i class='far fa-calendar'></i></label>
-                        <input type='text' name='sDateFin' id='sDateFin' placeholder='2019-02-27'>
+                        <input type='date' name='sDateFin' id='sDateFin' placeholder='2019-02-27' value='" . date("Y-m-d") . "'>
                     </div>
                     <div>
                         <label for='sHeureFin'><i class='far fa-clock'></i></label>
@@ -84,7 +84,7 @@ class VueModal
                     </div>
                 </div>
 
-                <button>Créer</button>
+                <button id='btnAjouterEvenement'>Créer</button>
             </form>
         </div>
     </div>";
