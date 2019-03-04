@@ -6,7 +6,8 @@
  * Time: 13:13
  */
 
-class VueEvenement {
+class VueEvenement
+{
 
     // Tableau contenant les mois en français
     private $aMois = array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
@@ -19,7 +20,8 @@ class VueEvenement {
      * @param $aoEvenements
      * @param string $sMsg
      */
-    public function afficherTousAuj($aoEvenements, $sMsg = "") {
+    public function afficherTousAuj($aoEvenements, $sMsg = "")
+    {
         $sHtml = "
         <div id='calendrier' class='card'>
             <div style='background-image: url(\"https://source.unsplash.com/random\");'>
@@ -69,7 +71,8 @@ class VueEvenement {
         echo $sHtml;
     }
 
-    public function afficherEvenements($aoEvenements, $sMsg = ""){
+    public function afficherEvenements($aoEvenements, $sMsg = "")
+    {
         $sHtml = "";
 
         $sHtml .= $sMsg;
@@ -85,9 +88,8 @@ class VueEvenement {
                     $sHtml .= "
                         <div class='flex-container event-item event-item-now'>
                             <div>";
-                    $sHtml .= "<span>En cours - Fin à ". date('H:i', strtotime($sDateFin)) ."</span>";
-                }
-                else if ($sDateDebut >= $sDateMaintenant->format("Y-m-d H:i:s")) {
+                    $sHtml .= "<span>En cours - Fin à " . date('H:i', strtotime($sDateFin)) . "</span>";
+                } else if ($sDateDebut >= $sDateMaintenant->format("Y-m-d H:i:s")) {
                     $sHtml .= "
                         <div class='flex-container event-item'>
                             <div>";
@@ -108,7 +110,4 @@ class VueEvenement {
 
         echo $sHtml;
     }
-
-
-
 }
