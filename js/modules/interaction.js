@@ -2,19 +2,22 @@ export class Interaction {
 
 
     // Classe permettant de créer et d'animer les elements de mon calendrier 
-    constructor(oAjoutSite, oInputAjout, btnAjoutEvent, modalEvent) {
+    constructor(oAjoutSite, oInputAjout, btnAjoutEvent, modalEvent, btnAjoutTache, modalTache) {
 
         // Initilisation des variables
         this.oAjoutSite = oAjoutSite;
         this.oInputAjout = oInputAjout;
         this.btnAjoutEvent = btnAjoutEvent;
         this.modalEvent = modalEvent;
+        this.btnAjoutTache = btnAjoutTache;
+        this.modalTache = modalTache;
 
         // Appel des fonctions
         // this.clicAjoutSite();
         this.btnAjoutSite();
         this.modalEventClic();
         this.AjouterEvenement();
+        this.AjouterTache();
         this.BloquerHeureFin();
 
     } // fin constr
@@ -39,17 +42,32 @@ export class Interaction {
     // On fait apprait le menu au clic du bouton
     // On empêche aussi l'utilisateur de cliquer ailleurs
     btnAjoutSite() {
+
+        // Au clic du bouton pour ajouter une evenement
         this.btnAjoutEvent.addEventListener('click', (evt) => {
             evt.preventDefault();
             this.modalEvent.style.display = "flex";
             document.getElementById("sNomEvenement").focus();
         });
+
+        // Au clic du bouton pour ajouter une tâche
+        this.btnAjoutTache.addEventListener('click', (evt) => {
+            evt.preventDefault();
+            this.modalTache.style.display = "flex";
+            document.getElementById("sNomTache").focus();
+        });
     }
 
-    // Clic du modalEvent
+    // Gère les evenements clics d'ajouts
     modalEventClic() {
+        // Clic d'événements
         this.modalEvent.querySelector("span").addEventListener('click', () => {
             this.modalEvent.style.display = "none";
+        });
+
+        // Clic de tâches
+        this.modalTache.querySelector("span").addEventListener('click', () => {
+            this.modalTache.style.display = "none";
         });
     }
 
@@ -94,6 +112,36 @@ export class Interaction {
 
         })
     }
+
+    // Permet d'ajouter des tâches 
+    AjouterTache() {
+
+        let btnAjouter = document.getElementById("btnAjouterTache");
+
+        btnAjouter.addEventListener("click", function (evt) {
+
+            evt.preventDefault();
+
+            // Les variables
+            let sNomTache = document.getElementById("sNomTache").value;
+
+            $.ajax({
+                    url: "controleur/ajax/gererAjouterTache.php",
+                    method: "POST",
+                    data: {
+                        sNomTache: sNomTache,
+                        cmd: "cmd"
+                    }
+                })
+                // Si la reqête est terminée
+                .done(function (sHtml) {
+                    let oTaches = document.querySelector("#todo div:last-of-type");
+
+                    oTaches.innerHTML = sHtml;
+                }); // fin AJAX
+
+        }) // fin evt
+    } // fin ()
 
     BloquerHeureFin() {
         let cchJournee = document.getElementById("cchJournee");

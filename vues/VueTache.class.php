@@ -22,29 +22,27 @@ class VueTache
             <h2><span>À faire</span><a href='#'><i class='fas fa-plus'></i> Ajouter</a></h2>
             <div>";
 
-        if($aoTaches){
-            for($i=0; $i<count($aoTaches); $i++){
+        if ($aoTaches) {
+            for ($i = 0; $i < count($aoTaches); $i++) {
                 $sHtml .= "
                 <div class='flex-container todo-item'>
                     <label class='container'>";
 
-                if($aoTaches[$i]->getbComplete() == 1){
+                if ($aoTaches[$i]->getbComplete() == 1) {
                     $bChecked = "checked";
-                }
-                else{
+                } else {
                     $bChecked = "";
                 }
 
                 $sHtml .= "
-                        <input type='checkbox' ". $bChecked ." name='cchTache_". $aoTaches[$i]->getidTache() ."' id='cchTache_". $aoTaches[$i]->getidTache() ."'>
+                        <input type='checkbox' " . $bChecked . " name='cchTache_" . $aoTaches[$i]->getidTache() . "' id='cchTache_" . $aoTaches[$i]->getidTache() . "'>
                         <span class='checkmark'></span>
                         <p>" . $aoTaches[$i]->getsTache() . "</p>
                     </label>
                     <a href='#'><i class='fas fa-ellipsis-v'></i></a>
                 </div>";
             }
-        }
-        else{
+        } else {
             $sHtml .= "<p>Aucune tâches pour le moment! Cliquer sur Ajouter pour en créer une.</p>";
         }
 
@@ -54,4 +52,42 @@ class VueTache
 
         echo  $sHtml;
     }
+
+    /**
+     * Afficher la liste des tâches à faire
+     * @param $aoTaches
+     * @param string $sMsg
+     */
+    public function afficherTaches($aoTaches, $sMsg = "")
+    {
+        $sHtml = "";
+
+        $sHtml .= $sMsg;
+
+        if ($aoTaches) {
+            for ($i = 0; $i < count($aoTaches); $i++) {
+                $sHtml .= "
+                <div class='flex-container todo-item'>
+                    <label class='container'>";
+
+                if ($aoTaches[$i]->getbComplete() == 1) {
+                    $bChecked = "checked";
+                } else {
+                    $bChecked = "";
+                }
+
+                $sHtml .= "
+                        <input type='checkbox' " . $bChecked . " name='cchTache_" . $aoTaches[$i]->getidTache() . "' id='cchTache_" . $aoTaches[$i]->getidTache() . "'>
+                        <span class='checkmark'></span>
+                        <p>" . $aoTaches[$i]->getsTache() . "</p>
+                    </label>
+                    <a href='#'><i class='fas fa-ellipsis-v'></i></a>
+                </div>";
+            }
+        } else {
+            $sHtml .= "<p>Aucune tâches pour le moment! Cliquer sur Ajouter pour en créer une.</p>";
+        }
+
+        echo $sHtml;
+    } // fin ()
 }

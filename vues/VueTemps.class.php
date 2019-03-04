@@ -61,12 +61,11 @@ class VueTemps
     {
         $sHtml = "
         <div class='small-box'>
-                    <h2>" . $this->aJours[date('d') + 3] . "</h2>
+                    <h2>" . $this->aJours[date('N') - 1] . "</h2>
                     <h1></h1>
                 </div>
             </div>
             ";
-
         echo $sHtml;
     }
 }

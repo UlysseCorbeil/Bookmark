@@ -45,31 +45,29 @@ try {
             /* ===================================================================================================== */
 
             // Valider si la date de début est au bon format et n'est pas vide
-            if(validerDate($sDateDebut) && !empty($_POST['sDateDebut'])){
+            if (validerDate($sDateDebut) && !empty($_POST['sDateDebut'])) {
                 $sDateDebut = DateTime::createFromFormat('Y-m-d H:i:s', $sDateDebut,  new DateTimeZone('America/Toronto'));
-            }
-            else{
+            } else {
                 array_push($aErreur, "Date de début invalide! AAAA-MM-JJ HH:MM");
                 $erreur = true;
             }
 
             // Valider si la date de fin est au bon format et n'est pas vide
-            if(validerDate($sDateFin) && !empty($_POST['sDateFin'])){
+            if (validerDate($sDateFin) && !empty($_POST['sDateFin'])) {
                 $sDateFin = DateTime::createFromFormat('Y-m-d H:i:s', $sDateFin,  new DateTimeZone('America/Toronto'));
-            }
-            else{
+            } else {
                 array_push($aErreur, "Date de fin invalide! AAAA-MM-JJ HH:MM");
                 $erreur = true;
             }
 
             // Vérifier si la date de fin est plus grande que celle de début
-            if($sDateDebut > $sDateFin){
+            if ($sDateDebut > $sDateFin) {
                 array_push($aErreur, "La date de fin doit être plus grande que la date de début!");
                 $erreur = true;
             }
 
             // Vérifier si le nom de l'événement n'est pas vide
-            if(empty($_POST['sNomEvenement'])){
+            if (empty($_POST['sNomEvenement'])) {
                 $erreur = true;
                 array_push($aErreur, "Nom de l'événement vide!");
             }
@@ -77,7 +75,7 @@ try {
             /* ===================================================================================================== */
 
             // S'il n'y a pas d'erreur,
-            if(!$erreur){
+            if (!$erreur) {
                 // Créer l'événement
                 $oEvenement = new Evenement(1, $sDateDebut->format('Y-m-d H:i:s'), $sDateFin->format('Y-m-d H:i:s'), $_POST['sNomEvenement']);
                 $oEvenement->setoUtilisateur($oUtilisateur);
@@ -94,7 +92,7 @@ try {
             $sMsg = "Erreur lors de l'ajout de l'événement";
         }
 
-        if(empty($sMsg)){
+        if (empty($sMsg)) {
             $sMsg = implode(" ", $aErreur);
         }
 
@@ -103,7 +101,6 @@ try {
     } else {
         echo "Oh Oh, la police...";
     }
-
 } catch (Exception $oException) {
     echo $oException->getMessage();
 }
@@ -118,12 +115,13 @@ try {
  *
  * @return bool
  */
-function validerDate($date, $strict = true){
+function validerDate($date, $strict = true)
+{
     $oDateTime = DateTime::createFromFormat('Y-m-d H:i:s', $date);
 
-    if($strict){
+    if ($strict) {
         $aErreurs = DateTime::getLastErrors();
-        if(!empty($aErreurs['warning_count'])){
+        if (!empty($aErreurs['warning_count'])) {
             return false;
         }
     }

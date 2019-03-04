@@ -157,7 +157,7 @@ class Controleur
     public function gererAfficherEvenements()
     {
         try {
-            $oUtilisateur = new Utilisateur(1);
+            $oUtilisateur = new Utilisateur(2);
             $oVueEvenement = new VueEvenement();
             $oEvenement = new Evenement();
             $aoEvenements = $oEvenement->rechercherTousAuj();

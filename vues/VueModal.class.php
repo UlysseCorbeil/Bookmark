@@ -28,7 +28,7 @@ class VueModal
                         <input type='text' name='sNomTache' id='sNomTache' placeholder='Tâche à réaliser'>
                     </div>
     
-                    <button>Créer</button>
+                    <button id = 'btnAjouterTache'>Créer</button>
                 </form>
             </div>
         </div>";

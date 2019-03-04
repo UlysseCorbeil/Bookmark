@@ -18,6 +18,8 @@ let oAjoutSite = document.getElementById("ajoutSite"),
     oInputAjout = document.querySelector(".site-lien:last-of-type>div"),
     modalEvent = document.getElementById("modalEvent"),
     btnAjoutEvent = document.querySelector("#calendrier a"),
+    btnAjoutTache = document.querySelector("#todo a"),
+    modalTache = document.getElementById('modalTodo'),
 
     // Variables du temps
     elmTemps = document.querySelector('.small-box h1'),
@@ -30,7 +32,7 @@ let oAjoutSite = document.getElementById("ajoutSite"),
     spotify = new class {};
 
 // Intéractions client
-interaction = new Interaction(oAjoutSite, oInputAjout, btnAjoutEvent, modalEvent);
+interaction = new Interaction(oAjoutSite, oInputAjout, btnAjoutEvent, modalEvent, btnAjoutTache, modalTache);
 
 // Gère l'affichage de la météo avec géolocalisation
 meteo = new Meteo();
