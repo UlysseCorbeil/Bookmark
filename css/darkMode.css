@@ -1,0 +1,36 @@
+/* #info h1,
+span,
+#calendrier h2,
+p,
+div {
+    color: white;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.849);
+}
+
+div #todo,
+nav,
+#calendrier,
+.small-box,
+.progress,
+#meteo {
+    background-color: rgb(26, 26, 26);
+}
+
+blockquote h3:before {
+    content: open-quote;
+    font-weight: bold;
+    font-size: 80px;
+    color: #ffffff25;
+}
+
+blockquote h3:after {
+
+    color: #ffffff25;
+}
+
+blockquote {
+    color: rgba(255, 255, 255, 0.5);
+} */
