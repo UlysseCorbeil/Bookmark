@@ -14,23 +14,6 @@ class VueTemps
     // Tableau contenant les jours de la semaine en français
     private $aJours = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
 
-
-    /**
-     * Afficher les deux boites de temps (horloge et chronomètre)
-     * @param void
-     * @return void
-     */
-    public function afficherTous()
-    {
-
-        echo "<div class='flex-container'>";
-
-        $this->afficherWebPlayer();
-        $this->afficherHorloge();
-
-        echo "</div>";
-    }
-
     /**
      * Afficher le chronomètre
      * @param void
@@ -60,9 +43,20 @@ class VueTemps
     public function afficherHorloge()
     {
         $sHtml = "
-        <div class='small-box'>
-                    <h2>" . $this->aJours[date('N') - 1] . "</h2>
-                    <h1></h1>
+            <div id='horloge'
+                 style='background-image: url(\"https://images.unsplash.com/photo-1551634979-2b11f8c946fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80\");'>
+                <h2>05 : 42 <span>PM</span></h2>
+            </div>
+            ";
+        echo $sHtml;
+    }
+
+    public function afficherDate(){
+        $sHtml = "
+            <div class='row'>
+                <div id='date'>
+                    <span>Aujourd'hui</span>
+                    <p>4 Mars 2019</p>
                 </div>
             </div>
             ";

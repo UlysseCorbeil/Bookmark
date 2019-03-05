@@ -23,50 +23,47 @@ class VueEvenement
     public function afficherTousAuj($aoEvenements, $sMsg = "")
     {
         $sHtml = "
-        <div id='calendrier' class='card'>
-            <div style='background-image: url(\"https://source.unsplash.com/random\");'>
-                <h2>Calendrier</h2>
+            <div id='calendrier'>
+                <table>
+                    <tr>
+                        <th>D</th>
+                        <th>L</th>
+                        <th>M</th>
+                        <th>M</th>
+                        <th>J</th>
+                        <th>V</th>
+                        <th>S</th>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><span class='auj'>4</span></td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><span class='event-bullet'></span></td>
+                        <td></td>
+                        <td><span class='event-bullet'></span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
                 <div>
-                    <p>" . date("d") . "</p>
-                    <p>" . $this->aMois[date('n') - 1] . "</p>
-                </div>
-                <a href='#'><i class='fas fa-plus'></i></a>
-            </div>
-            <div>
-                <h3>Événements</h3>
-                <div>";
-
-        if ($aoEvenements) {
-            for ($i = 0; $i < count($aoEvenements); $i++) {
-
-                if ($aoEvenements[$i]->getsDateDebut() <= date("Y-m-d H:i:s") && $aoEvenements[$i]->getsDateFin() >= date("Y-m-d H:i:s")) {
-                    $sHtml .= "
-                        <div class='flex-container event-item event-item-now'>
-                            <div>";
-                    $sHtml .= "<span>En cours - Fin à " . date("H:i", strtotime($aoEvenements[$i]->getsDateFin())) . "</span>";
-                } else if ($aoEvenements[$i]->getsDateDebut() >= date("Y-m-d H:i:s")) {
-                    $sHtml .= "
-                        <div class='flex-container event-item'>
-                            <div>";
-                    $sHtml .= "<span>" . date("H:i", strtotime($aoEvenements[$i]->getsDateDebut())) . "</span>";
-                }
-
-                $sHtml .= "
-                            <p>" . $aoEvenements[$i]->getsNomEvenement() . "</p>
+                    <h2>Événements</h2>
+                    <div id='events-container'>
+                        <div class='item events-item live'>
+                            <span>En cours - Fin à 23:59</span>
+                            <p>Sprint 3 - Projet de fin d'études</p>
                         </div>
-                        <a href='#'><i class='fas fa-ellipsis-v'></i></a>
                     </div>
-                    ";
-            }
-        } else {
-            $sHtml .= "<p>Aucun événement prévu.</p>";
-        }
-
-        $sHtml .= "
                 </div>
             </div>
-        </div>
-        ";
+            ";
 
         echo $sHtml;
     }
