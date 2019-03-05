@@ -12,9 +12,11 @@ export class Meteo {
     getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(this.afficherMeteo);
+            //console.log(navigator.geolocation.getCurrentPosition());
         } else {
-            afficherMeteo();
+            this.afficherMeteo();
         }
+        
     } // fin ()
 
     afficherMeteo(position = "") {
@@ -70,6 +72,7 @@ export class Meteo {
         } // fin if else
 
 
-    } // fin ()
+    } // fin ()  
+      
 
 } // fin classe
