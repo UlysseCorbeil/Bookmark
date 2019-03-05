@@ -1,0 +1,604 @@
+body{
+    background-color: var(--bg-color);
+    display: flex;
+}
+
+/* === NAV === */
+nav{
+    background-color: var(--blanc);
+    width: 75px;
+    border-right: 2px solid var(--border-nav);
+    position: relative;
+}
+nav>span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75px;
+    color: var(--main-texte-gris-sous-titre);
+    cursor: pointer;
+}
+nav ul{
+    list-style-type: none;
+}
+nav ul li{
+    border-left: 3px solid var(--blanc);
+}
+
+nav ul li a{
+    display: block;
+    padding: 35px 0;
+    text-align: center;
+    color: var(--main-texte-gris-2);
+}
+nav ul li:hover a{
+    color: var(--main-bleu-fonce);
+}
+
+nav .actif{
+    border-left: 3px solid var(--main-bleu-fonce);
+}
+nav .actif a{
+    color: var(--main-bleu-fonce);
+    background-color: var(--main-bleu-pale);
+}
+nav>div{
+    position: absolute;
+    bottom: 25px;
+    width: 100%;
+    text-align: center;
+}
+nav>div>a{
+    color: var(--main-texte-gris-sous-titre);
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+nav>div>a:hover{
+    color: var(--main-bleu-fonce);
+}
+
+nav>div>p,
+nav>div>p a{
+    color: var(--main-texte-gris-sous-titre);
+    font-size: 10px;
+    transition: color 0.3s ease-in-out;
+}
+nav>div>p{
+    margin-top: 15px;
+}
+nav>div>p a{
+    text-decoration: none;
+    border-bottom: 1px solid var(--blanc);
+    padding-bottom: 2px;
+    transition: border 0.3s ease-in-out;
+}
+nav>div>p a:hover{
+    color: var(--main-bleu-fonce);
+    border-bottom: 1px solid var(--main-bleu-fonce);
+}
+
+
+/* === MAIN === */
+main{
+    flex-flow: column nowrap;
+    flex: 1 1 0;
+}
+
+
+/* === HEADER === */
+header{
+    background-color: var(--blanc);
+    height: 75px;
+    align-items: center;
+}
+header #search{
+    flex: 1 1 0;
+    display: flex;
+    align-items: center;
+}
+header #search span{
+    margin-left: 35px;
+    color: var(--main-texte-gris-1);
+}
+header #search input[type=text]{
+    display: block;
+    flex: 1 1 0;
+    height: 50px;
+    margin-left: 35px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    font-weight: 700;
+    color: var(--main-texte-gris-1);
+}
+
+header #user{
+    align-items: center;
+    margin: 0 35px;
+}
+header #user img{
+    display: block;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-left: 25px;
+}
+
+header #settings{
+    height: 100%;
+    width: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 2px solid var(--border-nav);
+}
+header #settings a{
+    color: var(--main-texte-gris-2);
+}
+
+
+/* === CONTENT === */
+#content{
+    flex: 1 1 0;
+    padding: 35px;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.row{
+    margin-bottom: 35px;
+}
+.row:last-of-type{
+    margin-bottom: 0;
+}
+.row:nth-of-type(n+2){
+    flex: 1 1 0;
+}
+
+.row:nth-of-type(n+2)>div:not(.column){
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: var(--blanc);
+    box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.2);
+    flex: 1 1 0;
+    margin-right: 35px;
+    border-radius: 10px;
+    padding: 25px;
+}
+.row:nth-of-type(n+2)>div h2{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.row>div:last-of-type{
+    margin: 0;
+}
+.row .column{
+    flex: 1 1 0;
+}
+.row .column>div{
+    background-color: var(--blanc);
+    box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.2);
+    flex: 1 1 0;
+    margin-right: 35px;
+    border-radius: 10px;
+    padding: 25px;
+}
+.row .column>div:first-of-type{
+    margin-bottom: 35px;
+}
+
+#meteo>div,
+#calendrier>div,
+.div-content{
+    flex: 1 1 0;
+    overflow: auto;
+}
+
+.item{
+    border-left: 2px solid var(--main-bleu-fonce);
+    padding: 5px 15px;
+    margin-bottom: 15px;
+}
+.item>span{
+    display: block;
+    color: var(--main-texte-gris-sous-titre);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+.item>p{
+    font-weight: 700;
+    color: var(--main-texte-gris-h2);
+}
+
+
+/* === DATE === */
+#date>span{
+    color: var(--main-texte-gris-sous-titre);
+    text-transform: uppercase;
+    font-weight: 500;
+}
+#date>p{
+    color: var(--main-texte-gris-h2);
+    font-weight: 900;
+    font-size: 2em;
+}
+
+
+/* === CALENDRIER === */
+#calendrier table{
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+    margin-bottom: 15px;
+}
+#calendrier table td,
+#calendrier table th{
+    text-align: center;
+}
+#calendrier table th{
+    color: var(--main-texte-gris-1);
+    font-weight: 400;
+    font-size: 18px;
+}
+#calendrier table td{
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--main-texte-gris-2);
+    padding: 5px 0;
+}
+#calendrier .auj{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-bleu-pale);
+    color: var(--main-bleu-fonce);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+#calendrier .event-bullet{
+    display: block;
+    border-radius: 50%;
+    margin: auto;
+    width: 7px;
+    height: 7px;
+    background-color: var(--main-bleu-fonce);
+}
+#calendrier .events-item{
+    border-color: var(--main-mauve-fonce);
+}
+#calendrier .live{
+    border-color: var(--main-vert-fonce);
+}
+
+/* === HORLOGE === */
+#horloge{
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+#horloge h2{
+    font-size: 2.5em;
+    font-weight: 900;
+    color: var(--blanc);
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+}
+#horloge h2>span{
+    color: var(--main-texte-gris-pale);
+}
+
+/* === METEO === */
+#meteo h1{
+    color: var(--main-texte-gris-2);
+    font-weight: 900;
+    font-size: 2.3em;
+    margin-bottom: 15px;
+}
+#meteo h1>span{
+    color: var(--main-texte-gris-1);
+    margin-left: 35px;
+}
+#meteo .meteo-item>p>span:first-of-type{
+ margin: 0 15px;
+}
+#meteo .meteo-item>p>span:last-of-type{
+    color: var(--main-texte-gris-sous-titre);
+}
+
+/* === CITATION === */
+#citation{
+    position: relative;
+}
+#citation>span{
+    color: var(--main-bleu-pale);
+    font-size: 8em;
+    font-weight: 900;
+    position: absolute;
+    line-height: 75px;
+    font-style: italic;
+}
+#citation>span:first-of-type{
+    top: 35px;
+    left: 10px;
+}
+#citation>span:last-of-type{
+    bottom: -10px;
+    right: 40px;
+}
+#citation>p{
+    margin-top: 10px;
+    position: relative;
+    z-index: 1;
+    font-weight: 600;
+    color: var(--main-texte-gris-h2);
+    text-align: justify;
+    line-height: 25px;
+}
+
+/* === NOUVELLES === */
+#nouvelles{
+
+}
+#nouvelles .news-item{
+    border-color: var(--main-rouge-fonce);
+}
+#nouvelles .news-item a{
+    color: var(--main-texte-gris-h2);
+    font-weight: 700;
+    text-decoration: none;
+    display: block;
+}
+#nouvelles .news-item a:hover{
+    text-decoration: underline;
+}
+
+
+/* === A FAIRE === */
+#taches .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#taches .container p {
+    font-size: 18px;
+    transition: color 0.2s ease-in-out;
+    color: var(--main-texte-gris-h2);
+}
+
+#taches .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.todo-item>label {
+    flex: 1 1 0;
+}
+
+#taches .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #EEE;
+}
+
+#taches .container input:checked~.checkmark {
+    background-color: var(--main-bleu-fonce);
+}
+
+#taches .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+#taches .container input:checked~.checkmark:after {
+    display: block;
+}
+
+#taches .container input:checked~p {
+    text-decoration: line-through;
+    color: var(--main-texte-gris-sous-titre);
+}
+
+/* Style the checkmark/indicator */
+#taches .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* === CALCULATRICE === */
+#calculatrice input{
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    border-bottom: 1px solid var(--main-bleu-pale);
+    margin-bottom: 10px;
+    font-size: 15px;
+    transition: border 0.3s ease-in-out;
+}
+#calculatrice input:focus{
+    border-color: var(--main-bleu-fonce);
+}
+#calculatrice p{
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--main-texte-gris-h2);
+    text-align: right;
+}
+#calculatrice p>span{
+    color: var(--main-texte-gris-sous-titre);
+    margin-right: 20px;
+}
+
+/* === ALERTES === */
+.alerte{
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.3);
+
+}
+.alerte>span{
+    margin-right: 10px;
+}
+.alerte[data-opt=success]{
+    border-left: 5px solid var(--alerte-vert-fonce);
+    color: var(--alerte-vert-fonce);
+    background-color: var(--alerte-vert-pale);
+}
+.alerte[data-opt=warning]{
+    border-left: 5px solid var(--alerte-jaune-fonce);
+    color: var(--alerte-jaune-fonce);
+    background-color: var(--alerte-jaune-pale);
+}
+.alerte[data-opt=error]{
+    border-left: 5px solid var(--alerte-rouge-fonce);
+    color: var(--alerte-rouge-fonce);
+    background-color: var(--alerte-rouge-pale);
+}
+
+
+/* === MODAL === */
+.modal {
+    position: fixed;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.modal-contenu {
+    position: relative;
+    background-color: #FFF;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 25px -5px rgba(0, 0, 0, 0.3);
+}
+.modal-contenu>span {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    color: #AAA;
+}
+.modal-contenu>h3 {
+    margin-bottom: 25px;
+}
+.modal-contenu form>div {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #EAF2F5;
+    align-items: center;
+}
+.modal-contenu form>div p {
+    width: 75px;
+    color: #333;
+}
+.event form>div>div {
+    display: flex;
+    align-items: center;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    width: 100px;
+    margin-right: 25px;
+    overflow: hidden;
+}
+.event .input-date {
+    width: auto;
+}
+.event form>div>div label {
+    padding: 5px 10px;
+    color: #CCC;
+}
+.event form>div>div input[type=text],
+.modal-contenu form>div input[type=text],
+.modal-contenu form>div input[type=date] {
+    display: block;
+    height: 100%;
+    flex: 1 1 0;
+    border: none;
+    outline: none;
+    padding: 0 5px;
+}
+.modal-contenu form>div input[type=text] {
+    padding: 8px 10px;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+}
+.modal-contenu button {
+    border: 1px solid #F49E7F;
+    padding: 10px 25px;
+    background-color: #F49E7F;
+    border-radius: 3px;
+    color: #FFF;
+    cursor: pointer;
+    outline: none;
+}
+.event .container {
+    height: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+    font-size: 15px;
+    margin: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.event .container p {
+    flex: 1 1 0;
+    width: auto;
+}
+.event .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.event .checkmark {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: 1px solid #CCC;
+    margin-right: 5px;
+    transition: border 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+.event .container input:checked~.checkmark {
+    background-color: #F49E7F;
+    border: 1px solid #F49E7F;
+}

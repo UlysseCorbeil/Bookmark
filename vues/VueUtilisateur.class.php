@@ -6,47 +6,33 @@
  * Time: 13:13
  */
 
-class VueUtilisateur
-{
+class VueUtilisateur {
 
     /**
-     * Afficher le menu de navigation et le bonjour à l'utilisateur
+     * Afficher le Header avec le nom de l'utilisateur
+     *
      * @param Utilisateur $oUtilisateur
-     * @param string $sMsg
      */
-    public function afficherNav(Utilisateur $oUtilisateur, $sMsg = "")
-    {
+    public function afficherNav(Utilisateur $oUtilisateur) {
 
         $sHtml = "
-            <nav>
-                <img src='medias/" . $oUtilisateur->getsAvatar() . "' alt=''>
-                <ul>
-                    <li><a href='#'><i class='fas fa-home'></i></a></li>
-                    <li><a href='#'><i class='fas fa-cog'></i></a></li>
-                    <li><a href='#'><i class='fas fa-sign-out-alt'></i></a></li>
-                </ul>
-            </nav>
+        <main class='flex-container'>
+            <header class='flex-container'>
+                <div id='search'>
+                    <span><i class='fas fa-search'></i></span>
+                    <input type='text' placeholder='Rechercher sur Google'>
+                </div>
+                <div id='user' class='flex-container'>
+                    <p>" . $oUtilisateur->getsPrenom() . " " . substr($oUtilisateur->getsNom(), 0, 1) . "</p>
+                    <img src='../medias/P1020673.jpg' alt=''>
+                </div>
+                <div id='settings'>
+                    <a href='#'><i class='fas fa-cog'></i></a>
+                </div>
+            </header>
             
-            <main>
-                <div id='contenu' class='flex-container'>
-                    <div id='info' class='row'>";
-
-
-        $iHeure = date("G");
-
-        if ($iHeure >= 5 && $iHeure < 10) {
-            $sMotBienvenue = "Bon matin ";
-        } else if ($iHeure >= 10 && $iHeure < 17) {
-            $sMotBienvenue = "Bonjour ";
-        } else {
-            $sMotBienvenue = "Bonsoir ";
-        }
-
-
-        $sHtml .= "
-                        <h1>" . $sMotBienvenue . $oUtilisateur->getsPrenom() . " " . substr($oUtilisateur->getsNom(), 0, 1) . ".</h1>
-
-        ";
+            <div id='content'>
+            ";
 
         echo $sHtml;
     }
