@@ -4,7 +4,8 @@
  * @version: 2019-02-28
  */
 
-class Controleur {
+class Controleur
+{
 
     /**
      * Gérer l'affichage du site
@@ -13,7 +14,8 @@ class Controleur {
      *
      * @return void
      */
-    public function gererSite() {
+    public function gererSite()
+    {
 
         try {
 
@@ -58,7 +60,7 @@ class Controleur {
             $this->gererAfficherMeteo();
 
             // Citation
-            $this->gererAfficherQuote();
+            $this->gererAfficherCitation();
 
             echo "</div>";
 
@@ -103,7 +105,6 @@ class Controleur {
 
             // Fin de la page HTML
             $oVuePage->getFoot();
-
         } catch (Exception $oException) {
             echo "<p>" . $oException->getMessage() . "</p>";
         }
@@ -118,7 +119,8 @@ class Controleur {
      *
      * @return void
      */
-    public function gererAfficherHeader() {
+    public function gererAfficherHeader()
+    {
         try {
             // Recherche un utilisateur 
             $oUtilisateur = new Utilisateur(2);
@@ -133,19 +135,20 @@ class Controleur {
     }
 
     /**
-     * Gérer l'affichage de la quote
+     * Gérer l'affichage de la citation
      *
      * @param void
      *
      * @return void
      */
-    public function gererAfficherQuote() {
+    public function gererAfficherCitation()
+    {
         try {
-            $oVueQuote = new VueQuote();
-            $oQuote = new Quote();
-            $oQuote->chercherRandQuote();
+            $oVueCitation = new VueCitation();
+            $oCitation = new Citation();
+            $oCitation->chercherRandCitation();
 
-            $oVueQuote->afficherUn($oQuote);
+            $oVueCitation->afficherUn($oCitation);
         } catch (Exception $oException) {
             echo "<p>" . $oException->getMessage() . "</p>";
         }
@@ -158,7 +161,8 @@ class Controleur {
      *
      * @return void
      */
-    public function gererAfficherEvenements() {
+    public function gererAfficherEvenements()
+    {
         try {
             $oUtilisateur = new Utilisateur(2);
             $oVueEvenement = new VueEvenement();
@@ -178,7 +182,8 @@ class Controleur {
      *
      * @return void
      */
-    public function gererAfficherTaches() {
+    public function gererAfficherTaches()
+    {
         try {
             $oUtilisateur = new Utilisateur(2);
             $oVueTache = new VueTache();
@@ -200,7 +205,8 @@ class Controleur {
      *
      * @return void
      */
-    public function gererAfficherHorloge() {
+    public function gererAfficherHorloge()
+    {
         try {
             $oVueTemps = new VueTemps();
 
@@ -217,7 +223,8 @@ class Controleur {
      *
      * @return void
      */
-    public function gererAfficherDate() {
+    public function gererAfficherDate()
+    {
         try {
             $oVueTemps = new VueTemps();
 
@@ -234,12 +241,11 @@ class Controleur {
      *
      * @return void
      */
-    public function gererAfficherMeteo() {
+    public function gererAfficherMeteo()
+    {
         try {
             $oVueMeteo = new VueMeteo();
             $oVueMeteo->afficherMeteo();
-
-
         } catch (Exception $oException) {
             echo "<p>" . $oException->getMessage() . "</p>";
         }
@@ -250,12 +256,11 @@ class Controleur {
      * @param void
      * @return void
      */
-    public function gererAfficherNouvelle() {
+    public function gererAfficherNouvelle()
+    {
         try {
             $oVueNouvelle = new VueNouvelle();
             $oVueNouvelle->afficherTousNouvelles();
-
-
         } catch (Exception $oException) {
             echo "<p>" . $oException->getMessage() . "</p>";
         }
@@ -266,12 +271,11 @@ class Controleur {
      * @param void
      * @return void
      */
-    public function gererAfficherBourse() {
+    public function gererAfficherBourse()
+    {
         try {
             $oVueNouvelle = new VueNouvelle();
             $oVueNouvelle->afficherTousBourse();
-
-
         } catch (Exception $oException) {
             echo "<p>" . $oException->getMessage() . "</p>";
         }
@@ -282,12 +286,11 @@ class Controleur {
      * @param void
      * @return void
      */
-    public function gererAfficherCalculatrice() {
+    public function gererAfficherCalculatrice()
+    {
         try {
             $oVueCalculatrice = new VueCalculatrice();
             $oVueCalculatrice->afficherUn();
-
-
         } catch (Exception $oException) {
             echo "<p>" . $oException->getMessage() . "</p>";
         }
@@ -300,7 +303,8 @@ class Controleur {
      *
      * @return void
      */
-    public function gererAfficherModal() {
+    public function gererAfficherModal()
+    {
         try {
             $oUtilisateur = new Utilisateur(2);
             $oUtilisateur->rechercherUn();
