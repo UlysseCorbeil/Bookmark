@@ -11,7 +11,7 @@ class PDOLib
     /* À Modifier */
     const HOST = "localhost";
     const USER = "root";
-    const PWD = "root";
+    const PWD = "";
     const BDD = "page-accueil";
 
     /* Non modifié */
