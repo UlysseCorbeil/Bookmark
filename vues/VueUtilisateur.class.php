@@ -23,8 +23,8 @@ class VueUtilisateur {
                     <input type='text' placeholder='Rechercher sur Google'>
                 </div>
                 <div id='user' class='flex-container'>
-                    <p>" . $oUtilisateur->getsPrenom() . " " . substr($oUtilisateur->getsNom(), 0, 1) . "</p>
-                    <img src='../medias/P1020673.jpg' alt=''>
+                    <p>" . $oUtilisateur->getsPrenom() . " " . substr($oUtilisateur->getsNom(), 0, 1) . ".</p>
+                    <img src='medias/" . $oUtilisateur->getsAvatar() . "' alt=''>
                 </div>
                 <div id='settings'>
                     <a href='#'><i class='fas fa-cog'></i></a>
