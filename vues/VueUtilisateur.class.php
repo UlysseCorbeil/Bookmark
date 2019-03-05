@@ -22,7 +22,9 @@ class VueUtilisateur
             <header class='flex-container'>
                 <div id='search'>
                     <span><i class='fas fa-search'></i></span>
-                    <input type='text' placeholder='Rechercher sur Google' action='http://www.google.com/search'>
+                    <form action='http://www.google.com/search' method='get'> 
+                        <input type='text' placeholder='Rechercher sur Google' required>
+                        </form>
                 </div>
                 <div id='user' class='flex-container'>
                     <p>" . $oUtilisateur->getsPrenom() . " " . substr($oUtilisateur->getsNom(), 0, 1) . ".</p>

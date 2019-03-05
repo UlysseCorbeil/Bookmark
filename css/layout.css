@@ -7,8 +7,6 @@ body {
     display: none;
 }
 
-input {}
-
 /* === NAV === */
 nav {
     background-color: var(--blanc);

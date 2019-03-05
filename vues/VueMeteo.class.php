@@ -14,39 +14,15 @@ class VueMeteo
      * @param void
      * @return void
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function afficherMeteo()
     {
-        $sMeteo = '
-        
-        <div id="meteo" class="card">
-
-            <ul class="tab-mnu">
-                <li class = "active" >Météo</li>
-                <li>Nouvelles</li>
-            </ul>
-
-        <div class="flex-container morning" id="meteo-actuelle">
-            <!-- Afficher météo actuelle -->
-        </div>
-=======
-    public function afficherMeteo(){
-=======
-    public function afficherMeteo()
-    {
->>>>>>> ulysse
         $sHtml = "
-            <div id='meteo'>
+            <div id=\"meteo\">
                 <h1>1°C <span>Ensoleillé</span></h1>
-<<<<<<< HEAD
->>>>>>> 6af8f3151e8bd2ee64854088aed909e717701506
-=======
->>>>>>> ulysse
                 <div>
                     <h2>Prévisions</h2>
-                    <div id='prevision-container'>
-                        <div class='item meteo-item'>
+                    <div id=\"prevision-container\">
+                        <div class=\"item meteo-item\">
                             <span>Mardi</span>
                             <p>1°C <span>//</span><span>Averses de neige</span></p>
                         </div>
