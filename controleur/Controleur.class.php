@@ -163,6 +163,7 @@ class Controleur {
             $oUtilisateur = new Utilisateur(2);
             $oVueEvenement = new VueEvenement();
             $oEvenement = new Evenement();
+            $oEvenement->setoUtilisateur($oUtilisateur);
             $aoEvenements = $oEvenement->rechercherTousAuj();
 
             $oVueEvenement->afficherTousAuj($aoEvenements);

@@ -22,6 +22,18 @@ class VueEvenement
      */
     public function afficherTousAuj($aoEvenements, $sMsg = "")
     {
+
+        $oAuj = date("j");
+        $aJourSemaine = array(
+            date("j", strtotime('monday this week') -1),
+            date("j", strtotime('monday this week')),
+            date("j", strtotime('tuesday this week')),
+            date("j", strtotime('wednesday this week')),
+            date("j", strtotime('thursday this week')),
+            date("j", strtotime('friday this week')),
+            date("j", strtotime('saturday this week'))
+            );
+
         $sHtml = "
             <div id='calendrier'>
                 <table>
@@ -34,14 +46,18 @@ class VueEvenement
                         <th>V</th>
                         <th>S</th>
                     </tr>
-                    <tr>
-                        <td>3</td>
-                        <td><span class='auj'>4</span></td>
-                        <td>5</td>
-                        <td>6</td>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>9</td>
+                    <tr>";
+
+        for($i=0; $i<count($aJourSemaine); $i++){
+            if($aJourSemaine[$i] == $oAuj){
+                $sHtml .= "<td><span class='auj'>". $aJourSemaine[$i] ."</span></td>";
+            }
+            else{
+                $sHtml .= "<td>". $aJourSemaine[$i] ."</td>";
+            }
+        }
+
+        $sHtml .= "
                     </tr>
                     <tr>
                         <td></td>
@@ -55,11 +71,36 @@ class VueEvenement
                 </table>
                 <div>
                     <h2>Événements</h2>
-                    <div id='events-container'>
+                    <div id='events-container'>";
+
+        if($aoEvenements){
+            for ($i = 0; $i < count($aoEvenements); $i++) {
+
+                $sDateDebut = ($aoEvenements[$i]->getsDateDebut());
+                $sDateFin = ($aoEvenements[$i]->getsDateFin());
+                $sDateMaintenant = new DateTime("now", new DateTimeZone("America/Toronto"));
+
+                if ($sDateDebut <= $sDateMaintenant->format("Y-m-d H:i:s") && $sDateFin >= $sDateMaintenant->format("Y-m-d H:i:s")) {
+                    $sHtml .= "
                         <div class='item events-item live'>
-                            <span>En cours - Fin à 23:59</span>
-                            <p>Sprint 3 - Projet de fin d'études</p>
-                        </div>
+                        <span>En cours - Fin à " . date('H:i', strtotime($sDateFin)) . "</span>";
+                }
+                else if ($sDateDebut >= $sDateMaintenant->format("Y-m-d H:i:s")) {
+                    $sHtml .= "
+                        <div class='item events-item'>
+                        <span>Débute à " . date('H:i', strtotime($sDateFin)) . "</span>";
+                }
+
+                $sHtml .= "
+                            <p>" . $aoEvenements[$i]->getsNomEvenement() . "</p>
+                    </div>";
+            }
+        }
+        else{
+            $sHtml .= "<p>Aucun événement pour l'instant.</p>";
+        }
+
+        $sHtml .= "
                     </div>
                 </div>
             </div>

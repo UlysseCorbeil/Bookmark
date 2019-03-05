@@ -22,9 +22,8 @@ CREATE TABLE `utilisateur` (
                              `sDateInscription` DATETIME NOT NULL,
                              `sPreference` MEDIUMTEXT NOT NULL,
                              PRIMARY KEY (`idUtilisateur`),
-                             UNIQUE KEY (),
-                             KEY (`sCourriel`)
-  );
+                             UNIQUE KEY (`sCourriel`)
+);
 
 -- ---
 -- Table 'evenement'
@@ -82,8 +81,6 @@ ALTER TABLE `evenement` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 ALTER TABLE `tache` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 ALTER TABLE `citation` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-
-
 -- ---
 -- Foreign Keys
 -- ---
@@ -91,3 +88,17 @@ ALTER TABLE `citation` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 ALTER TABLE `evenement` ADD FOREIGN KEY (iNoUtilisateur) REFERENCES `utilisateur` (`idUtilisateur`);
 ALTER TABLE `tache` ADD FOREIGN KEY (iNoUtilisateur) REFERENCES `utilisateur` (`idUtilisateur`);
 
+
+
+-- ---
+-- Test Data
+-- ---
+
+-- INSERT INTO `utilisateur` (`idUtilisateur`,`sNom`,`sPrenom`,`sCourriel`,`sMotDePasse`,`sAvatar`,`sDateInscription`,`sPreference`) VALUES
+-- ('','','','','','','','');
+-- INSERT INTO `evenement` (`idEvenement`,`sDateDebut`,`sDateFin`,`sNomEvenement`,`iNoUtilisateur`) VALUES
+-- ('','','','','');
+-- INSERT INTO `tache` (`idTache`,`sTache`,`bComplete`,`iNoUtilisateur`) VALUES
+-- ('','','','');
+-- INSERT INTO `citation` (`idCitation`,`sCitation`) VALUES
+-- ('','');
