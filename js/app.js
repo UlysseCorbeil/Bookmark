@@ -17,8 +17,8 @@ import {
 let oAjoutSite = document.getElementById("ajoutSite"),
     oInputAjout = document.querySelector(".site-lien:last-of-type>div"),
     modalEvent = document.getElementById("modalEvent"),
-    btnAjoutEvent = document.querySelector("#calendrier a"),
-    btnAjoutTache = document.querySelector("#todo a"),
+    btnAjoutEvent = document.querySelector("nav ul li:nth-of-type(2) a"),
+    btnAjoutTache = document.querySelector("nav ul li:nth-of-type(3) a"),
     modalTache = document.getElementById('modalTodo'),
 
     // Variables du temps
@@ -38,7 +38,7 @@ interaction = new Interaction(oAjoutSite, oInputAjout, btnAjoutEvent, modalEvent
 meteo = new Meteo();
 
 // Gère les call API à spotify
-spotify = new SpotifyAPI();
+//spotify = new SpotifyAPI();
 
 // fonction qui gère les événements automatiques
 autoRefresh = new AutoRefresh(elmTemps);

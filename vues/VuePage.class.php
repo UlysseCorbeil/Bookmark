@@ -67,7 +67,7 @@ class VuePage
     {
         $sfinHTML = '
             <script src="https://spotify-player.herokuapp.com/spotify-player.js"></script>
-            <!-- <script type="module" src="js/app.js"></script> -->
+            <script type="module" src="js/app.js"></script>
         </body>
         
         </html> ';
