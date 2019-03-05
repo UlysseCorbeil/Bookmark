@@ -26,14 +26,24 @@ body{
 
     --main-texte-gris-1: #BCC1CE;
     --main-texte-gris-2: #7E8390;
+    --main-texte-gris-pale: #CACED8;
     --main-texte-gris-h2: #282828;
-    --main-texte-gris-sous-titre: #CACED8;
+    --main-texte-gris-sous-titre: #9399AD;
+
 
     --blanc: #FFF;
-
     --border-nav: #ebecf1;
+
+    /* Couleurs Alertes */
+    --alerte-vert-fonce: #2FD573;
+    --alerte-vert-pale: #C3F3D7;
+    --alerte-jaune-fonce: #FFA503;
+    --alerte-jaune-pale: #FFDB9B;
+    --alerte-rouge-fonce: #FF4858;
+    --alerte-rouge-pale: #FFE0E3;
 }
 
+/* === CLASSES GLOBALES === */
 .flex-container{
     display: flex;
 }

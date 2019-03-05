@@ -20,7 +20,6 @@ class VuePage
                 
                 <title>Bookmark | Développement</title>
                 
-                <link rel="stylesheet" href="css/style.css">
                 <link rel="stylesheet" href="css/style_po.css">
                 <link rel="stylesheet" href="css/style_ulysse.css">
                 <link rel="stylesheet" href="css/style_quotes.css">

@@ -6,12 +6,6 @@ export class Meteo {
         // Appel des fonctions
         this.getLocation();
 
-        this.options = options = {
-            enableHighAccuracy: true,
-            timeout: 5000,
-            maximumAge: 0
-          };
-
     } // fin constr
 
 
@@ -20,10 +14,9 @@ export class Meteo {
             navigator.geolocation.getCurrentPosition(this.afficherMeteo);
             //console.log(navigator.geolocation.getCurrentPosition());
         } else {
-            afficherMeteo();
+            this.afficherMeteo();
         }
-
-        navigator.geolocation.getCurrentPosition(this.success, this.error, this.options);
+        
     } // fin ()
 
     afficherMeteo(position = "") {
@@ -79,18 +72,7 @@ export class Meteo {
         } // fin if else
 
 
-    } // fin ()
-      
-      success(pos) {
-        var crd = pos.coords;
-      
-        console.log(crd.latitude);
-      }
-      
-      error(err) {
-        console.warn(`ERREUR (${err.code}): ${err.message}`);
-      }
-      
+    } // fin ()  
       
 
 } // fin classe
