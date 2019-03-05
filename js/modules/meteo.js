@@ -12,12 +12,10 @@ export class Meteo {
     getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(this.afficherMeteo);
-        } else {
-            afficherMeteo();
         }
     } // fin ()
 
-    afficherMeteo(position = "") {
+    afficherMeteo(position) {
 
         if (position != "") {
             var sRequetePrevision = "https://api.apixu.com/v1/forecast.json?key=4367423a680c4b499f624827192802&days=5&lang=fr&q=" + position.coords.latitude + ",=" + position.coords.longitude;
@@ -68,7 +66,6 @@ export class Meteo {
 
             document.getElementById("meteo-prevision").innerHTML = sPrevision;
         } // fin if else
-
 
     } // fin ()
 
