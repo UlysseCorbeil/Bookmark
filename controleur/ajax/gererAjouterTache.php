@@ -33,7 +33,7 @@ try {
     if (isset($_POST['cmd']) == true) {
 
         // si le nom de la tache est bien initialisé
-        if (isset($_POST['sNomTache'])) {   
+        if (isset($_POST['sNomTache'])) {
 
             // Vérifier si le nom de l'événement n'est pas vide
             if (empty($_POST['sNomTache']) || preg_match('/^\s*$/', $_POST['sNomTache'])) {
@@ -45,7 +45,7 @@ try {
             if (!$erreur) {
 
                 // Créer l'événement
-                $oTache = new Tache(1, $_POST['sNomTache']);
+                $oTache = new Tache(2, $_POST['sNomTache']);
                 $oTache->setoUtilisateur($oUtilisateur);
 
                 // Ajouter l'événement dans la BDD

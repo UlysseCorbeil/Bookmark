@@ -20,7 +20,7 @@ require "../../vues/VueEvenement.class.php";
 
 try {
 
-    $oUtilisateur = new Utilisateur(1);
+    $oUtilisateur = new Utilisateur(2);
     $oVueEvenement = new VueEvenement();
     $oEvenement = new Evenement();
     $sMsg = "";
@@ -77,7 +77,7 @@ try {
             // S'il n'y a pas d'erreur,
             if (!$erreur) {
                 // Créer l'événement
-                $oEvenement = new Evenement(1, $sDateDebut->format('Y-m-d H:i:s'), $sDateFin->format('Y-m-d H:i:s'), $_POST['sNomEvenement']);
+                $oEvenement = new Evenement(3, $sDateDebut->format('Y-m-d H:i:s'), $sDateFin->format('Y-m-d H:i:s'), $_POST['sNomEvenement']);
                 $oEvenement->setoUtilisateur($oUtilisateur);
 
                 // Ajouter l'événement dans la BDD

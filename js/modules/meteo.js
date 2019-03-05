@@ -15,10 +15,10 @@ export class Meteo {
         } else {
             this.afficherMeteo();
         }
-        
+
     } // fin ()
 
-    afficherMeteo(position = "") {
+    afficherMeteo(position) {
 
         if (position != "") {
             var sRequetePrevision = "https://api.apixu.com/v1/forecast.json?key=4367423a680c4b499f624827192802&days=5&lang=fr&q=" + position.coords.latitude + ",=" + position.coords.longitude;
@@ -32,7 +32,7 @@ export class Meteo {
                 .done(function (sHtml) {
 
                     // Afficher météo actuelle
-                    document.querySelector("#meteo h1").innerHTML = Math.floor(sHtml.current.temp_c) +" °C <span>"+ sHtml.current.condition.text + "<span>";
+                    document.querySelector("#meteo h1").innerHTML = Math.floor(sHtml.current.temp_c) + " °C <span>" + sHtml.current.condition.text + "<span>";
 
                     // Afficher prévision
                     var sPrevision = "";
@@ -68,6 +68,6 @@ export class Meteo {
 
 
     } // fin ()  
-      
+
 
 } // fin classe

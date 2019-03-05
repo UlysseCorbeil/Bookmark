@@ -21,6 +21,7 @@ class VuePage
                 <title>Bookmark | Développement</title>
                 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <link rel="stylesheet" href="css/style.css">
                 <link rel="stylesheet" href="css/style_po.css">
                 <link rel="stylesheet" href="css/style_ulysse.css">
@@ -31,6 +32,12 @@ class VuePage
                 <link rel="stylesheet" href="css/global.css">
                 <link rel="stylesheet" href="css/layout.css">
 >>>>>>> 6af8f3151e8bd2ee64854088aed909e717701506
+=======
+                <link rel="stylesheet" href="css/global.css">
+                <link rel="stylesheet" href="css/layout.css">
+                <link rel="stylesheet" href="css/style_quotes.css">
+                <link rel="stylesheet" href="css/tabs.css">
+>>>>>>> ulysse
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
                 <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700,900" rel="stylesheet">
                 
@@ -47,14 +54,15 @@ class VuePage
      * @param void
      * @return void
      */
-    public function getNav(){
+    public function getNav()
+    {
         $sHtml = "
         <nav>
             <span><i class='fas fa-bars'></i></span>
             <ul>
                 <li class='actif'><a href='#'><i class='fas fa-home'></i></a></li>
-                <li><a href='#'><i class='far fa-calendar-plus'></i></a></li>
-                <li><a href='#'><i class='fas fa-tasks'></i></a></li>
+                <li id='btnAjouterEvenement'><a href='#'><i class='far fa-calendar-plus'></i></a></li>
+                <li id='btnAjouterTache'><a href='#'><i class='fas fa-tasks'></i></a></li>
             </ul>
             <div>
                 <a href='#'><i class='fas fa-heart'></i></a>
@@ -65,8 +73,8 @@ class VuePage
 
         echo $sHtml;
     }
-    
-    
+
+
     /**
      * Affichage de la fin de la page HTML
      * @param void

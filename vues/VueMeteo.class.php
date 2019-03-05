@@ -15,6 +15,7 @@ class VueMeteo
      * @return void
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function afficherMeteo()
     {
         $sMeteo = '
@@ -31,10 +32,17 @@ class VueMeteo
         </div>
 =======
     public function afficherMeteo(){
+=======
+    public function afficherMeteo()
+    {
+>>>>>>> ulysse
         $sHtml = "
             <div id='meteo'>
                 <h1>1°C <span>Ensoleillé</span></h1>
+<<<<<<< HEAD
 >>>>>>> 6af8f3151e8bd2ee64854088aed909e717701506
+=======
+>>>>>>> ulysse
                 <div>
                     <h2>Prévisions</h2>
                     <div id='prevision-container'>
