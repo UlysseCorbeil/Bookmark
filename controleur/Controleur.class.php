@@ -4,8 +4,7 @@
  * @version: 2019-02-28
  */
 
-class Controleur
-{
+class Controleur {
 
     /**
      * Gérer l'affichage du site
@@ -14,8 +13,7 @@ class Controleur
      *
      * @return void
      */
-    public function gererSite()
-    {
+    public function gererSite() {
 
         try {
 
@@ -33,36 +31,68 @@ class Controleur
             /* ========================================================================================== */
 
             // Afficher le NAV de la page
-            $this->gererAfficherNav();
+            $oVuePage->getNav();
 
-            // Afficher la quote
-            $this->gererAfficherQuote();
+            $this->gererAfficherHeader();
 
             /* ========================================================================================== */
             /* CONTENU DE LA PAGE */
             /* ========================================================================================== */
 
-            // Afficher les liens des sites
-            $this->gererAfficherLiens();
+            // Afficher la date du jour
+            $this->gererAfficherDate();
 
+            /* ========================================================================================== */
+            /* RANGÉE #1 */
+            /* ========================================================================================== */
 
-            // DÉBUT DU DIV QUI CONTIENT TOUS LES BLOCS
-            echo "<div id='actu' class='flex-container row'>";
+            echo "<div class='row'>";
 
             // Afficher le calendrier
             $this->gererAfficherEvenements();
 
-            // Afficher la liste de tache à faire
-            $this->gererAfficherTaches();
+            // Horloge
+            $this->gererAfficherHorloge();
 
-            // Afficher le temps (chrono et horloge)
-            $this->gererAfficherTemps();
-
-            // Afficher la météo
+            // Météo
             $this->gererAfficherMeteo();
 
-            echo "</div></div></main>";
-            // </MAIN>
+            // Citation
+            $this->gererAfficherQuote();
+
+            echo "</div>";
+
+            /* ========================================================================================== */
+            /* RANGÉE #2 */
+            /* ========================================================================================== */
+
+            echo "<div class='row'>";
+
+            // Taches
+            $this->gererAfficherTaches();
+
+            // Nouvelles
+            $this->gererAfficherNouvelle();
+
+            /* ========================================================================================== */
+
+            echo "<div class='column'>";
+
+            // Bourse
+            $this->gererAfficherBourse();
+
+            // Calculatrice
+            $this->gererAfficherCalculatrice();
+
+            echo "</div>";
+
+            /* ========================================================================================== */
+
+            echo "</div>";
+
+            /* ========================================================================================== */
+
+            echo "</div></main>";
 
             // Afficher les modals
             $this->gererAfficherModal();
@@ -73,6 +103,7 @@ class Controleur
 
             // Fin de la page HTML
             $oVuePage->getFoot();
+
         } catch (Exception $oException) {
             echo "<p>" . $oException->getMessage() . "</p>";
         }
@@ -87,8 +118,7 @@ class Controleur
      *
      * @return void
      */
-    public function gererAfficherNav()
-    {
+    public function gererAfficherHeader() {
         try {
             // Recherche un utilisateur 
             $oUtilisateur = new Utilisateur(2);
@@ -109,39 +139,13 @@ class Controleur
      *
      * @return void
      */
-    public function gererAfficherQuote()
-    {
+    public function gererAfficherQuote() {
         try {
-
-            // Recherche un utilisateur 
             $oVueQuote = new VueQuote();
             $oQuote = new Quote();
             $oQuote->chercherRandQuote();
 
-            $oVueQuote->afficherQuote($oQuote);
-        } catch (Exception $oException) {
-            echo "<p>" . $oException->getMessage() . "</p>";
-        }
-    }
-
-    /**
-     * Gérer l'affichage des liens vers les sites
-     *
-     * @param void
-     *
-     * @return void
-     */
-    public function gererAfficherLiens()
-    {
-        try {
-            $oUtilisateur = new Utilisateur(2);
-            $oRelUtilisateurLien = new RelUtilisateurLien();
-            $oRelUtilisateurLien->setoUtilisateur($oUtilisateur);
-            $aoLiens = $oRelUtilisateurLien->rechercherTousLiensParUtilisateur();
-
-            $oVueLien = new VueLien();
-
-            $oVueLien->afficherTous($aoLiens);
+            $oVueQuote->afficherUn($oQuote);
         } catch (Exception $oException) {
             echo "<p>" . $oException->getMessage() . "</p>";
         }
@@ -154,12 +158,12 @@ class Controleur
      *
      * @return void
      */
-    public function gererAfficherEvenements()
-    {
+    public function gererAfficherEvenements() {
         try {
             $oUtilisateur = new Utilisateur(2);
             $oVueEvenement = new VueEvenement();
             $oEvenement = new Evenement();
+            $oEvenement->setoUtilisateur($oUtilisateur);
             $aoEvenements = $oEvenement->rechercherTousAuj();
 
             $oVueEvenement->afficherTousAuj($aoEvenements);
@@ -175,8 +179,7 @@ class Controleur
      *
      * @return void
      */
-    public function gererAfficherTaches()
-    {
+    public function gererAfficherTaches() {
         try {
             $oUtilisateur = new Utilisateur(2);
             $oVueTache = new VueTache();
@@ -184,6 +187,7 @@ class Controleur
             $oTache->setoUtilisateur($oUtilisateur);
 
             $aoTaches = $oTache->rechercherTousParUtilisateur();
+
 
             $oVueTache->afficherTous($aoTaches);
         } catch (Exception $oException) {
@@ -198,14 +202,28 @@ class Controleur
      *
      * @return void
      */
-    public function gererAfficherTemps()
-    {
+    public function gererAfficherHorloge() {
         try {
-            $oUtilisateur = new Utilisateur(2);
-            $oUtilisateur->rechercherUn();
             $oVueTemps = new VueTemps();
 
-            $oVueTemps->afficherTous();
+            $oVueTemps->afficherHorloge();
+        } catch (Exception $oException) {
+            echo "<p>" . $oException->getMessage() . "</p>";
+        }
+    }
+
+    /**
+     * Gérer l'affichage de la date d'aujourd'hui
+     *
+     * @param void
+     *
+     * @return void
+     */
+    public function gererAfficherDate() {
+        try {
+            $oVueTemps = new VueTemps();
+
+            $oVueTemps->afficherDate();
         } catch (Exception $oException) {
             echo "<p>" . $oException->getMessage() . "</p>";
         }
@@ -218,14 +236,60 @@ class Controleur
      *
      * @return void
      */
-    public function gererAfficherMeteo()
-    {
+    public function gererAfficherMeteo() {
         try {
-            $oUtilisateur = new Utilisateur(2);
-            $oUtilisateur->rechercherUn();
             $oVueMeteo = new VueMeteo();
-
             $oVueMeteo->afficherMeteo();
+
+
+        } catch (Exception $oException) {
+            echo "<p>" . $oException->getMessage() . "</p>";
+        }
+    }
+
+    /**
+     * Gérer l'affichage des nouvelles
+     * @param void
+     * @return void
+     */
+    public function gererAfficherNouvelle() {
+        try {
+            $oVueNouvelle = new VueNouvelle();
+            $oVueNouvelle->afficherTousNouvelles();
+
+
+        } catch (Exception $oException) {
+            echo "<p>" . $oException->getMessage() . "</p>";
+        }
+    }
+
+    /**
+     * Gérer l'affichage de la bourse
+     * @param void
+     * @return void
+     */
+    public function gererAfficherBourse() {
+        try {
+            $oVueNouvelle = new VueNouvelle();
+            $oVueNouvelle->afficherTousBourse();
+
+
+        } catch (Exception $oException) {
+            echo "<p>" . $oException->getMessage() . "</p>";
+        }
+    }
+
+    /**
+     * Gérer l'affichage de la calculatrice
+     * @param void
+     * @return void
+     */
+    public function gererAfficherCalculatrice() {
+        try {
+            $oVueCalculatrice = new VueCalculatrice();
+            $oVueCalculatrice->afficherUn();
+
+
         } catch (Exception $oException) {
             echo "<p>" . $oException->getMessage() . "</p>";
         }
@@ -238,8 +302,7 @@ class Controleur
      *
      * @return void
      */
-    public function gererAfficherModal()
-    {
+    public function gererAfficherModal() {
         try {
             $oUtilisateur = new Utilisateur(2);
             $oUtilisateur->rechercherUn();

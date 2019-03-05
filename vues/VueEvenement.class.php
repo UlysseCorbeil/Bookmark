@@ -22,51 +22,89 @@ class VueEvenement
      */
     public function afficherTousAuj($aoEvenements, $sMsg = "")
     {
-        $sHtml = "
-        <div id='calendrier' class='card'>
-            <div style='background-image: url(\"https://source.unsplash.com/random\");'>
-                <h2>Calendrier</h2>
-                <div>
-                    <p>" . date("d") . "</p>
-                    <p>" . $this->aMois[date('n') - 1] . "</p>
-                </div>
-                <a href='#'><i class='fas fa-plus'></i></a>
-            </div>
-            <div>
-                <h3>Événements</h3>
-                <div>";
 
-        if ($aoEvenements) {
+        $oAuj = date("j");
+        $aJourSemaine = array(
+            date("j", strtotime('monday this week') -1),
+            date("j", strtotime('monday this week')),
+            date("j", strtotime('tuesday this week')),
+            date("j", strtotime('wednesday this week')),
+            date("j", strtotime('thursday this week')),
+            date("j", strtotime('friday this week')),
+            date("j", strtotime('saturday this week'))
+            );
+
+        $sHtml = "
+            <div id='calendrier'>
+                <table>
+                    <tr>
+                        <th>D</th>
+                        <th>L</th>
+                        <th>M</th>
+                        <th>M</th>
+                        <th>J</th>
+                        <th>V</th>
+                        <th>S</th>
+                    </tr>
+                    <tr>";
+
+        for($i=0; $i<count($aJourSemaine); $i++){
+            if($aJourSemaine[$i] == $oAuj){
+                $sHtml .= "<td><span class='auj'>". $aJourSemaine[$i] ."</span></td>";
+            }
+            else{
+                $sHtml .= "<td>". $aJourSemaine[$i] ."</td>";
+            }
+        }
+
+        $sHtml .= "
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><span class='event-bullet'></span></td>
+                        <td></td>
+                        <td><span class='event-bullet'></span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+                <div>
+                    <h2>Événements</h2>
+                    <div id='events-container'>";
+
+        if($aoEvenements){
             for ($i = 0; $i < count($aoEvenements); $i++) {
 
-                if ($aoEvenements[$i]->getsDateDebut() <= date("Y-m-d H:i:s") && $aoEvenements[$i]->getsDateFin() >= date("Y-m-d H:i:s")) {
+                $sDateDebut = ($aoEvenements[$i]->getsDateDebut());
+                $sDateFin = ($aoEvenements[$i]->getsDateFin());
+                $sDateMaintenant = new DateTime("now", new DateTimeZone("America/Toronto"));
+
+                if ($sDateDebut <= $sDateMaintenant->format("Y-m-d H:i:s") && $sDateFin >= $sDateMaintenant->format("Y-m-d H:i:s")) {
                     $sHtml .= "
-                        <div class='flex-container event-item event-item-now'>
-                            <div>";
-                    $sHtml .= "<span>En cours - Fin à " . date("H:i", strtotime($aoEvenements[$i]->getsDateFin())) . "</span>";
-                } else if ($aoEvenements[$i]->getsDateDebut() >= date("Y-m-d H:i:s")) {
+                        <div class='item events-item live'>
+                        <span>En cours - Fin à " . date('H:i', strtotime($sDateFin)) . "</span>";
+                }
+                else if ($sDateDebut >= $sDateMaintenant->format("Y-m-d H:i:s")) {
                     $sHtml .= "
-                        <div class='flex-container event-item'>
-                            <div>";
-                    $sHtml .= "<span>" . date("H:i", strtotime($aoEvenements[$i]->getsDateDebut())) . "</span>";
+                        <div class='item events-item'>
+                        <span>Débute à " . date('H:i', strtotime($sDateFin)) . "</span>";
                 }
 
                 $sHtml .= "
                             <p>" . $aoEvenements[$i]->getsNomEvenement() . "</p>
-                        </div>
-                        <a href='#'><i class='fas fa-ellipsis-v'></i></a>
-                    </div>
-                    ";
+                    </div>";
             }
-        } else {
-            $sHtml .= "<p>Aucun événement prévu.</p>";
+        }
+        else{
+            $sHtml .= "<p>Aucun événement pour l'instant.</p>";
         }
 
         $sHtml .= "
+                    </div>
                 </div>
             </div>
-        </div>
-        ";
+            ";
 
         echo $sHtml;
     }

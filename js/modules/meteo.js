@@ -13,8 +13,9 @@ export class Meteo {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(this.afficherMeteo);
         } else {
-            afficherMeteo();
+            this.afficherMeteo();
         }
+        
     } // fin ()
 
     afficherMeteo(position = "") {
@@ -31,24 +32,20 @@ export class Meteo {
                 .done(function (sHtml) {
 
                     // Afficher météo actuelle
-                    document.getElementById("meteo-actuelle").innerHTML = "<h2>" + sHtml.current.condition.text + "</h2>" +
-                        "<p>" + sHtml.location.name + ", " + sHtml.location.region + "</p>" +
-                        "<p>" + Math.floor(sHtml.current.temp_c) + " <span>°C</span></p>";
+                    document.querySelector("#meteo h1").innerHTML = Math.floor(sHtml.current.temp_c) +" °C <span>"+ sHtml.current.condition.text + "<span>";
 
                     // Afficher prévision
                     var sPrevision = "";
 
                     for (var i = 0; i < sHtml.forecast.forecastday.length; i++) {
-                        sPrevision += "<div class='flex-container meteo-item'>\n" +
-                            "<p>" + aJour[new Date(sHtml.forecast.forecastday[i].date).getDay()] + "</p>" +
-                            "<div>" +
-                            "<p>" + Math.floor(sHtml.forecast.forecastday[i].day.avgtemp_c) + "°C</p>" +
-                            "<p>" + sHtml.forecast.forecastday[i].day.condition.text + "</p>" +
-                            "</div>" +
-                            "</div>"
+
+                        sPrevision += "<div class='item meteo-item'>" +
+                            "<span>" + aJour[new Date(sHtml.forecast.forecastday[i].date).getDay()] + "</span>" +
+                            "<p>" + Math.floor(sHtml.forecast.forecastday[i].day.avgtemp_c) + "°C <span>//</span><span>" +
+                            sHtml.forecast.forecastday[i].day.condition.text + "</span></p></div>";
                     }
 
-                    document.getElementById("meteo-prevision").innerHTML = sPrevision;
+                    document.getElementById("prevision-container").innerHTML = sPrevision;
                 });
         } else {
 
@@ -70,6 +67,7 @@ export class Meteo {
         } // fin if else
 
 
-    } // fin ()
+    } // fin ()  
+      
 
 } // fin classe

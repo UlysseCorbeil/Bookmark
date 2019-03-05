@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Bookmark | Développement</title>
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/style_po.css">
+    <link rel="stylesheet" href="../css/style_ulysse.css">
+    <link rel="stylesheet" href="../css/style_quotes.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700,900" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!--<div class="flex-container alerte" data-opt="success">-->
+    <!--<span><i class="fas fa-check-circle"></i></span>-->
+    <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>-->
+<!--</div>-->
+
+
+<nav>
+    <span><i class="fas fa-bars"></i></span>
+    <ul>
+        <li class="actif"><a href="#"><i class="fas fa-home"></i></a></li>
+        <li><a href="#"><i class="far fa-calendar-plus"></i></a></li>
+        <li><a href="#"><i class="fas fa-tasks"></i></a></li>
+    </ul>
+    <div>
+        <a href="#"><i class="fas fa-heart"></i></a>
+        <p><a href="https://pobourdeau.com" target="_blank">POB</a> &amp; <a href="http://ulyssecorbeil.com" target="_blank">UC</a></p>
+    </div>
+</nav>
+
+<main class="flex-container">
+    <header class="flex-container">
+        <div id="search">
+            <span><i class="fas fa-search"></i></span>
+            <input type="text" placeholder="Rechercher sur Google">
+        </div>
+        <div id="user" class="flex-container">
+            <p>Pier-Olivier B.</p>
+            <img src="../medias/P1020673.jpg" alt="">
+        </div>
+        <div id="settings">
+            <a href="#"><i class="fas fa-cog"></i></a>
+        </div>
+    </header>
+    <div id="content">
+
+        <div class="row">
+            <div id="date">
+                <span>Aujourd'hui</span>
+                <p>4 Mars 2019</p>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div id="calendrier">
+                <table>
+                    <tr>
+                        <th>D</th>
+                        <th>L</th>
+                        <th>M</th>
+                        <th>M</th>
+                        <th>J</th>
+                        <th>V</th>
+                        <th>S</th>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><span class="auj">4</span></td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><span class="event-bullet"></span></td>
+                        <td></td>
+                        <td><span class="event-bullet"></span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+                <div>
+                    <h2>Événements</h2>
+                    <div id="events-container">
+                        <div class="item events-item live">
+                            <span>En cours - Fin à 23:59</span>
+                            <p>Sprint 3 - Projet de fin d'études</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="horloge"
+                 style="background-image: url('https://images.unsplash.com/photo-1551634979-2b11f8c946fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80');">
+                <h2>05 : 42 <span>PM</span></h2>
+            </div>
+
+            <div id="meteo">
+                <h1>1°C <span>Ensoleillé</span></h1>
+                <div>
+                    <h2>Prévisions</h2>
+                    <div id="prevision-container">
+                        <div class="item meteo-item">
+                            <span>Mardi</span>
+                            <p>1°C <span>//</span><span>Averses de neige</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="citation">
+                <span>"</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam blanditiis, commodi dicta ducimus
+                    facilis minus nemo officia perferendis praesentium rerum sapiente sequi similique, tempore ullam vel
+                    vitae voluptatibus. Assumenda, pariatur!</p>
+                <span>"</span>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div id="taches">
+                <h2>À faire</h2>
+                <div id="todo-container" class="div-content">
+                    <div class='flex-container todo-item'>
+                        <label class='container'>
+                            <input type='checkbox' name='cchTache_1' id='cchTache_1'>
+                            <span class='checkmark'></span>
+                            <p>d</p>
+                        </label>
+                        <a href='#'><i class='fas fa-ellipsis-v'></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="nouvelles">
+                <h2>Nouvelles</h2>
+                <div id="news-container" class="div-content">
+                    <div class="item news-item">
+                        <span>La Presse</span>
+                        <a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div>
+                    <h2>Bourse</h2>
+                    <div id="stock-container">
+
+                    </div>
+                </div>
+
+                <div id="calculatrice">
+                    <h2>Calculatrice</h2>
+                    <div id="calculator-container">
+                        <input type="text" placeholder="Expression..." id="txtCalcul">
+                        <p><span>=</span>0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+</body>
+</html>
