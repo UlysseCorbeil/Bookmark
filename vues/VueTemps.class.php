@@ -44,7 +44,7 @@ class VueTemps
     {
         $sHtml = "
             <div id='horloge'
-                 style='background-image: url(\"https://images.unsplash.com/photo-1551634979-2b11f8c946fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80\");'>
+                 style='background-image: url(\"https://source.unsplash.com/daily\");'>
                 <h2>05 : 42 <span>PM</span></h2>
             </div>
             ";
@@ -56,7 +56,7 @@ class VueTemps
             <div class='row'>
                 <div id='date'>
                     <span>Aujourd'hui</span>
-                    <p>4 Mars 2019</p>
+                    <p>". date("j") ." ". $this->aMois[date("n") - 1] ." ". date("Y") ."</p>
                 </div>
             </div>
             ";

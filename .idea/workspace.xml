@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="344ef682-f748-44aa-84c1-658f8bade382" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/vues/VueCalculatrice.class.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vues/VueNouvelle.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/Controleur.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controleur/Controleur.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/layout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modeles/Lien.class.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/new_layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/test/new_layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_classe_relUtiliLien.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vues/VueEvenement.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/vues/VueEvenement.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vues/VueLien.class.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vues/VueMeteo.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/vues/VueMeteo.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vues/VuePage.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/vues/VuePage.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vues/VueQuote.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/vues/VueQuote.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vues/VueTache.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/vues/VueTache.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vues/VueTemps.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/vues/VueTemps.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vues/VueUtilisateur.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/vues/VueUtilisateur.class.php" afterDir="false" />
     </list>
     <ignored path=".idea/" />
     <manually-removed-from-ignored>
@@ -31,23 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/new_layout.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="168" column="22" lean-forward="true" selection-start-line="168" selection-start-column="22" selection-end-line="168" selection-end-column="22" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/controleur/Controleur.class.php">
+        <entry file="file://$PROJECT_DIR$/vues/VueTemps.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="123" column="45" selection-start-line="123" selection-start-column="45" selection-end-line="123" selection-end-column="45" />
+            <state relative-caret-position="259">
+              <caret line="46" column="81" selection-start-line="46" selection-start-column="81" selection-end-line="46" selection-end-column="81" />
             </state>
           </provider>
         </entry>
@@ -98,7 +71,6 @@
         <option value="$PROJECT_DIR$/bdd.sql" />
         <option value="$PROJECT_DIR$/css/layout.css" />
         <option value="$PROJECT_DIR$/vues/VueUtilisateur.class.php" />
-        <option value="$PROJECT_DIR$/vues/VueTemps.class.php" />
         <option value="$PROJECT_DIR$/vues/VuePage.class.php" />
         <option value="$PROJECT_DIR$/vues/VueEvenement.class.php" />
         <option value="$PROJECT_DIR$/vues/VueQuote.class.php" />
@@ -108,6 +80,7 @@
         <option value="$PROJECT_DIR$/vues/VueCalculatrice.class.php" />
         <option value="$PROJECT_DIR$/vues/VueNouvelle.class.php" />
         <option value="$PROJECT_DIR$/controleur/Controleur.class.php" />
+        <option value="$PROJECT_DIR$/vues/VueTemps.class.php" />
       </list>
     </option>
   </component>
@@ -132,22 +105,7 @@
             <path>
               <item name="page-accueil" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="controleur" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="page-accueil" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="css" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="page-accueil" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modeles" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="page-accueil" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="page-accueil" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -195,12 +153,12 @@
       <workItem from="1551475537768" duration="1605000" />
       <workItem from="1551569591849" duration="9154000" />
       <workItem from="1551750675564" duration="4406000" />
-      <workItem from="1551810416193" duration="11051000" />
+      <workItem from="1551810416193" duration="11512000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32867000" />
+    <option name="totallyTimeSpent" value="33328000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -219,7 +177,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.20693392" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.20693392" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -377,16 +335,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vues/VueTemps.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="50" column="17" lean-forward="true" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vues/VueEvenement.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="637">
@@ -429,20 +377,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controleur/Controleur.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="123" column="45" selection-start-line="123" selection-start-column="45" selection-end-line="123" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/new_layout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="168" column="22" lean-forward="true" selection-start-line="168" selection-start-column="22" selection-end-line="168" selection-end-column="22" />
+        <state relative-caret-position="858">
+          <caret line="174" column="46" lean-forward="true" selection-start-line="174" selection-start-column="46" selection-end-line="174" selection-end-column="46" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controleur/Controleur.class.php">
+    <entry file="file://$PROJECT_DIR$/vues/VueTemps.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="123" column="45" selection-start-line="123" selection-start-column="45" selection-end-line="123" selection-end-column="45" />
+        <state relative-caret-position="259">
+          <caret line="46" column="81" selection-start-line="46" selection-start-column="81" selection-end-line="46" selection-end-column="81" />
         </state>
       </provider>
     </entry>
