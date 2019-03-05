@@ -39,7 +39,8 @@ class VuePage
      * @param void
      * @return void
      */
-    public function getNav(){
+    public function getNav()
+    {
         $sHtml = "
         <nav>
             <span><i class='fas fa-bars'></i></span>
@@ -57,8 +58,8 @@ class VuePage
 
         echo $sHtml;
     }
-    
-    
+
+
     /**
      * Affichage de la fin de la page HTML
      * @param void

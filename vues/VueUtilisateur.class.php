@@ -23,7 +23,7 @@ class VueUtilisateur
                 <div id='search'>
                     <span><i class='fas fa-search'></i></span>
                     <form action='http://www.google.com/search' method='get'> 
-                        <input type='text' placeholder='Rechercher sur Google' required>
+                        <input type='text' name='q' placeholder='Rechercher sur Google' required autocomplete='off'>
                         </form>
                 </div>
                 <div id='user' class='flex-container'>

@@ -51,12 +51,13 @@ class VueTemps
         echo $sHtml;
     }
 
-    public function afficherDate(){
+    public function afficherDate()
+    {
         $sHtml = "
             <div class='row'>
                 <div id='date'>
                     <span>Aujourd'hui</span>
-                    <p>". date("j") ." ". $this->aMois[date("n") - 1] ." ". date("Y") ."</p>
+                    <p>" . date("j") . " " . $this->aMois[date("n") - 1] . " " . date("Y") . "</p>
                 </div>
             </div>
             ";

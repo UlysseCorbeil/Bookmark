@@ -18,13 +18,13 @@ class VueMeteo
     {
         $sHtml = "
             <div id=\"meteo\">
-                <h1>1°C <span>Ensoleillé</span></h1>
+                <h1><span></span></h1>
                 <div>
-                    <h2>Prévisions</h2>
+                    <h2></h2>
                     <div id=\"prevision-container\">
                         <div class=\"item meteo-item\">
-                            <span>Mardi</span>
-                            <p>1°C <span>//</span><span>Averses de neige</span></p>
+                            <span></span>
+                            <p><span></span><span></span></p>
                         </div>
                     </div>
                 </div>
