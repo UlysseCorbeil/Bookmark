@@ -24,7 +24,6 @@ export class AutoRefresh {
         this.elmTemps.innerHTML = sTempsComplet;
 
         setTimeout(this.tempsTimer.bind(this), iMinute);
-
     } // fin ()
 
 } // fin classe
