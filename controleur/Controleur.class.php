@@ -188,6 +188,7 @@ class Controleur {
 
             $aoTaches = $oTache->rechercherTousParUtilisateur();
 
+
             $oVueTache->afficherTous($aoTaches);
         } catch (Exception $oException) {
             echo "<p>" . $oException->getMessage() . "</p>";
