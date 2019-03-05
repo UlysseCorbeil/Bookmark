@@ -1,0 +1,129 @@
+body{
+    background-color: var(--bg-color);
+    display: flex;
+}
+
+/* === NAV === */
+nav{
+    background-color: var(--blanc);
+    width: 75px;
+    border-right: 2px solid var(--border-nav);
+}
+nav ul{
+    list-style-type: none;
+}
+nav ul li{
+    border-left: 3px solid var(--blanc);
+}
+
+nav ul li a{
+    display: block;
+    padding: 35px 0;
+    text-align: center;
+    color: var(--main-texte-gris-2);
+}
+nav ul li:hover a{
+    color: var(--main-bleu-fonce);
+}
+
+nav .actif{
+    border-left: 3px solid var(--main-bleu-fonce);
+}
+nav .actif a{
+    color: var(--main-bleu-fonce);
+    background-color: var(--main-bleu-pale);
+}
+
+/* === MAIN === */
+main{
+    flex-flow: column nowrap;
+    flex: 1 1 0;
+}
+
+
+/* === HEADER === */
+header{
+    background-color: var(--blanc);
+    height: 75px;
+    align-items: center;
+}
+
+
+header #search{
+    flex: 1 1 0;
+    display: flex;
+    align-items: center;
+}
+header #search span{
+    margin-left: 35px;
+    color: var(--main-texte-gris-1);
+}
+header #search input[type=text]{
+    display: block;
+    flex: 1 1 0;
+    height: 50px;
+    margin-left: 35px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    font-weight: 700;
+    color: var(--main-texte-gris-1);
+}
+
+header #user{
+    align-items: center;
+    margin: 0 35px;
+}
+header #user img{
+    display: block;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-left: 25px;
+}
+
+header #settings{
+    height: 100%;
+    width: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 2px solid var(--border-nav);
+}
+header #settings a{
+    color: var(--main-texte-gris-2);
+}
+
+/* === CONTENT === */
+#content{
+    flex: 1 1 0;
+    padding: 35px;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.row{
+    margin-bottom: 35px;
+}
+.row:last-of-type{
+    margin-bottom: 0;
+}
+.row:nth-of-type(n+2){
+    flex: 1 1 0;
+}
+
+.row:nth-of-type(n+2)>div{
+    background-color: var(--blanc);
+    box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.2);
+    flex: 1 1 0;
+    margin-right: 35px;
+    border-radius: 10px;
+    padding: 25px;
+}
+.row>div:last-of-type{
+    margin: 0;
+}
+
+#taches{
+    flex: 2 1 auto;
+}
