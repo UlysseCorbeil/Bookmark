@@ -261,8 +261,9 @@ class Controleur
     public function gererAfficherNouvelle()
     {
         try {
+            $oNouvelle = new Nouvelle();
             $oVueNouvelle = new VueNouvelle();
-            $oVueNouvelle->afficherTousNouvelles();
+            $oVueNouvelle->afficherTousNouvelles($oNouvelle);
         } catch (Exception $oException) {
             echo "<p>" . $oException->getMessage() . "</p>";
         }

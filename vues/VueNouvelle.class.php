@@ -6,24 +6,18 @@
  * Time: 16:20
  */
 
-class VueNouvelle {
+class VueNouvelle
+{
 
     /**
      * Afficher toutes les nouvelles
      * @param void
      * @return void
      */
-    public function afficherTousNouvelles(){
+    public function afficherTousNouvelles(Nouvelle $oNouvelle)
+    {
         $sHtml = "
-        <div id='nouvelles'>
-                <h2>Nouvelles</h2>
-                <div id='news-container' class='div-content'>
-                    <div class='item news-item'>
-                        <span>La Presse</span>
-                        <a href='#'>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
-                    </div>
-                </div>
-            </div>
+            " . $oNouvelle->getNouvelles() . "
         ";
 
         echo $sHtml;
@@ -34,7 +28,8 @@ class VueNouvelle {
      * @param void
      * @return void
      */
-    public function afficherTousBourse(){
+    public function afficherTousBourse()
+    {
         $sHtml = "
             <div id='bourse'>
                 <h2>Bourse</h2>
@@ -45,5 +40,4 @@ class VueNouvelle {
 
         echo $sHtml;
     }
-
 }
