@@ -113,9 +113,12 @@ class VueEvenement
     {
         $sHtml = "";
 
-        $sHtml .= $sMsg;
+        $sHtml .= "<div class=\"flex-container alerte\" data-opt=\"success\">
+    <span><i class=\"fas fa-check-circle\"></i></span>
+    <p>". $sMsg ."</p>
+</div>";
 
-        if ($aoEvenements) {
+        if($aoEvenements){
             for ($i = 0; $i < count($aoEvenements); $i++) {
 
                 $sDateDebut = ($aoEvenements[$i]->getsDateDebut());
@@ -124,25 +127,22 @@ class VueEvenement
 
                 if ($sDateDebut <= $sDateMaintenant->format("Y-m-d H:i:s") && $sDateFin >= $sDateMaintenant->format("Y-m-d H:i:s")) {
                     $sHtml .= "
-                        <div class='flex-container event-item event-item-now'>
-                            <div>";
-                    $sHtml .= "<span>En cours - Fin à " . date('H:i', strtotime($sDateFin)) . "</span>";
-                } else if ($sDateDebut >= $sDateMaintenant->format("Y-m-d H:i:s")) {
+                        <div class='item events-item live'>
+                        <span>En cours - Fin à " . date('H:i', strtotime($sDateFin)) . "</span>";
+                }
+                else if ($sDateDebut >= $sDateMaintenant->format("Y-m-d H:i:s")) {
                     $sHtml .= "
-                        <div class='flex-container event-item'>
-                            <div>";
-                    $sHtml .= "<span>" . date('H:i', strtotime($sDateDebut)) . "</span>";
+                        <div class='item events-item'>
+                        <span>Débute à " . date('H:i', strtotime($sDateFin)) . "</span>";
                 }
 
                 $sHtml .= "
                             <p>" . $aoEvenements[$i]->getsNomEvenement() . "</p>
-                        </div>
-                        <a href='#'><i class='fas fa-ellipsis-v'></i></a>
-                    </div>
-        ";
+                    </div>";
             }
-        } else {
-            $sHtml .= "<p>Aucun événement prévu.</p>";
+        }
+        else{
+            $sHtml .= "<p>Aucun événement pour l'instant.</p>";
         }
 
 

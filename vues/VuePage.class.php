@@ -45,8 +45,8 @@ class VuePage
             <span><i class='fas fa-bars'></i></span>
             <ul>
                 <li class='actif'><a href='#'><i class='fas fa-home'></i></a></li>
-                <li id='btnAjouterEvenement'><a href='#'><i class='far fa-calendar-plus'></i></a></li>
-                <li id='btnAjouterTache'><a href='#'><i class='fas fa-tasks'></i></a></li>
+                <li><a href='#'><i class='far fa-calendar-plus'></i></a></li>
+                <li><a href='#'><i class='fas fa-tasks'></i></a></li>
             </ul>
             <div>
                 <a href='#'><i class='fas fa-heart'></i></a>

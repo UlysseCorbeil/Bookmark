@@ -17,8 +17,8 @@ import {
 let oAjoutSite = document.getElementById("ajoutSite"),
     oInputAjout = document.querySelector(".site-lien:last-of-type>div"),
     modalEvent = document.getElementById("modalEvent"),
-    btnAjoutEvent = document.querySelector("#btnAjouterEvenement"),
-    btnAjoutTache = document.querySelector("#btnAjouterTache"),
+    btnAjoutEvent = document.querySelectorAll("nav ul li a")[1],
+    btnAjoutTache = document.querySelectorAll("nav ul li a")[2],
     modalTache = document.getElementById('modalTodo'),
 
     // Variables du temps

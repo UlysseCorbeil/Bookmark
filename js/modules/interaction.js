@@ -15,7 +15,6 @@ export class Interaction {
         // Appel des fonctions
         // this.clicAjoutSite();
         this.btnAjoutSite();
-        this.modalEventClic();
         this.AjouterEvenement();
         this.AjouterTache();
         this.BloquerHeureFin();
@@ -39,15 +38,24 @@ export class Interaction {
     //     });
     // } // fin ()
 
-    // On fait apprait le menu au clic du bouton
-    // On empêche aussi l'utilisateur de cliquer ailleurs
+    /**
+     * Ajouter les écouteurs d'événements sur le X et sur le bouton pour ajouter un événement
+     * @param void
+     * @return void
+     */
     btnAjoutSite() {
 
         // Au clic du bouton pour ajouter une evenement
         this.btnAjoutEvent.addEventListener('click', (evt) => {
             evt.preventDefault();
+
             this.modalEvent.style.display = "flex";
             document.getElementById("sNomEvenement").focus();
+        });
+
+        // Au clic du X du panneau d'ajout d'événement
+        document.querySelector("#modalEvent .event>span").addEventListener("click", function(){
+            document.getElementById("modalEvent").style.display = "none";
         });
 
         // Au clic du bouton pour ajouter une tâche
@@ -58,19 +66,10 @@ export class Interaction {
         });
     }
 
-    // Gère les evenements clics d'ajouts
-    modalEventClic() {
-        // Clic d'événements
-        this.modalEvent.querySelector("span").addEventListener('click', () => {
-            this.modalEvent.style.display = "none";
-        });
-
-        // Clic de tâches
-        this.modalTache.querySelector("span").addEventListener('click', () => {
-            this.modalTache.style.display = "none";
-        });
-    }
-
+    /**
+     * Ajouter un événement dans le calendrier
+     * @constructor
+     */
     AjouterEvenement() {
         let cchJournee = document.getElementById("cchJournee");
         let btnAjouter = document.getElementById("btnAjouterEvenement");
@@ -105,9 +104,12 @@ export class Interaction {
                 })
                 // Si la reqête est terminée
                 .done(function (sHtml) {
+
                     let oEvenements = document.querySelector("#calendrier > div:last-of-type > div");
 
                     oEvenements.innerHTML = sHtml;
+
+                    document.getElementById("modalEvent").style.display = "none";
                 });
 
         })
