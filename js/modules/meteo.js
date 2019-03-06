@@ -12,14 +12,13 @@ export class Meteo {
     getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(this.afficherMeteo);
-            //console.log(navigator.geolocation.getCurrentPosition());
         } else {
             this.afficherMeteo();
         }
-        
+
     } // fin ()
 
-    afficherMeteo(position = "") {
+    afficherMeteo(position) {
 
         if (position != "") {
             var sRequetePrevision = "https://api.apixu.com/v1/forecast.json?key=4367423a680c4b499f624827192802&days=5&lang=fr&q=" + position.coords.latitude + ",=" + position.coords.longitude;
@@ -33,24 +32,20 @@ export class Meteo {
                 .done(function (sHtml) {
 
                     // Afficher météo actuelle
-                    document.getElementById("meteo-actuelle").innerHTML = "<h2>" + sHtml.current.condition.text + "</h2>" +
-                        "<p>" + sHtml.location.name + ", " + sHtml.location.region + "</p>" +
-                        "<p>" + Math.floor(sHtml.current.temp_c) + " <span>°C</span></p>";
+                    document.querySelector("#meteo h1").innerHTML = Math.floor(sHtml.current.temp_c) + " °C <span>" + sHtml.current.condition.text + "<span>";
 
                     // Afficher prévision
                     var sPrevision = "";
 
                     for (var i = 0; i < sHtml.forecast.forecastday.length; i++) {
-                        sPrevision += "<div class='flex-container meteo-item'>\n" +
-                            "<p>" + aJour[new Date(sHtml.forecast.forecastday[i].date).getDay()] + "</p>" +
-                            "<div>" +
-                            "<p>" + Math.floor(sHtml.forecast.forecastday[i].day.avgtemp_c) + "°C</p>" +
-                            "<p>" + sHtml.forecast.forecastday[i].day.condition.text + "</p>" +
-                            "</div>" +
-                            "</div>"
+
+                        sPrevision += "<div class='item meteo-item'>" +
+                            "<span>" + aJour[new Date(sHtml.forecast.forecastday[i].date).getDay()] + "</span>" +
+                            "<p>" + Math.floor(sHtml.forecast.forecastday[i].day.avgtemp_c) + "°C <span>//</span><span>" +
+                            sHtml.forecast.forecastday[i].day.condition.text + "</span></p></div>";
                     }
 
-                    document.getElementById("meteo-prevision").innerHTML = sPrevision;
+                    document.getElementById("prevision-container").innerHTML = sPrevision;
                 });
         } else {
 
@@ -73,6 +68,6 @@ export class Meteo {
 
 
     } // fin ()  
-      
+
 
 } // fin classe

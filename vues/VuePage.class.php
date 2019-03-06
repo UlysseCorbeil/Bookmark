@@ -22,6 +22,7 @@ class VuePage
                 
                 <link rel="stylesheet" href="css/global.css">
                 <link rel="stylesheet" href="css/layout.css">
+                <link rel="stylesheet" href="css/style_quotes.css">
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
                 <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700,900" rel="stylesheet">
                 
@@ -44,8 +45,8 @@ class VuePage
             <span><i class='fas fa-bars'></i></span>
             <ul>
                 <li class='actif'><a href='#'><i class='fas fa-home'></i></a></li>
-                <li><a href='#'><i class='far fa-calendar-plus'></i></a></li>
-                <li><a href='#'><i class='fas fa-tasks'></i></a></li>
+                <li id='btnAjouterEvenement'><a href='#'><i class='far fa-calendar-plus'></i></a></li>
+                <li id='btnAjouterTache'><a href='#'><i class='fas fa-tasks'></i></a></li>
             </ul>
             <div>
                 <a href='#'><i class='fas fa-heart'></i></a>

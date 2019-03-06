@@ -6,14 +6,16 @@
  * Time: 14:43
  */
 
-class VueMeteo {
+class VueMeteo
+{
 
     /**
      * Afficher la météo
      * @param void
      * @return void
      */
-    public function afficherMeteo(){
+    public function afficherMeteo()
+    {
         $sHtml = "
             <div id=\"meteo\">
                 <h1>1°C <span>Ensoleillé</span></h1>
@@ -30,5 +32,4 @@ class VueMeteo {
         ";
         echo $sHtml;
     }
-
 }

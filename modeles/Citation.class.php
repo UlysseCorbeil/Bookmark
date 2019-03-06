@@ -1,36 +1,36 @@
 <?php
 
 
-class Quote
+class Citation
 {
-    private $idQuote,
-        $sQuote;
+    private $idCitation,
+        $sCitation;
 
 
     // Set le id du quote
-    public function setidQuote($idQuote)
+    public function setidCitation($idCitation)
     {
-        TypeException::estNumerique($idQuote);
-        $this->idQuote = $idQuote;
+        TypeException::estNumerique($idCitation);
+        $this->idCitation = $idCitation;
     }
 
     // Set la quote
-    public function setsQuote($sQuote)
+    public function setsCitation($sCitation)
     {
-        TypeException::estChaineDeCaracteres($sQuote);
-        $this->sQuote = $sQuote;
+        TypeException::estChaineDeCaracteres($sCitation);
+        $this->sCitation = $sCitation;
     }
 
     // Recupere le ID de la quote
-    public function getidQuote()
+    public function getidCitation()
     {
-        return $this->idQuote;
+        return $this->idCitation;
     }
 
     // Recupere la valeur de la quote
-    public function getsQuote()
+    public function getsCitation()
     {
-        return $this->sQuote;
+        return $this->sCitation;
     }
 
     /**
@@ -39,10 +39,10 @@ class Quote
      * @param string $sNom
      * @throws TypeException
      */
-    public function __construct($idQuote = 1, $sQuote = "")
+    public function __construct($idCitation = 1, $sCitation = "")
     {
-        $this->setidQuote($idQuote);
-        $this->setsQuote($sQuote);
+        $this->setidCitation($idCitation);
+        $this->setsCitation($sCitation);
     }
 
     /**
@@ -50,14 +50,14 @@ class Quote
      * @return bool
      * @throws TypeException
      */
-    public function chercherRandQuote()
+    public function chercherRandCitation()
     {
         //Se connecter à la base de données
         $oPDOLib = new PDOLib();
         //Réaliser la requête
         $sRequete = "
 			SELECT *
-            FROM quotes
+            FROM citation
             ORDER BY RAND()
             LIMIT 1
             ";
@@ -77,7 +77,7 @@ class Quote
             $aEnregs = $oPDOStatement->fetch(PDO::FETCH_ASSOC);
             if ($aEnregs !== false) {
                 //Affecter les valeurs aux propriétés privées de l'objet
-                $this->__construct($aEnregs['idQuote'], $aEnregs['sQuote']);
+                $this->__construct($aEnregs['idCitation'], $aEnregs['sCitation']);
 
                 $oPDOLib->fermerLaConnexion();
                 return true;

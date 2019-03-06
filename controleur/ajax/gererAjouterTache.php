@@ -45,7 +45,7 @@ try {
             if (!$erreur) {
 
                 // Créer l'événement
-                $oTache = new Tache(1, $_POST['sNomTache']);
+                $oTache = new Tache(2, $_POST['sNomTache']);
                 $oTache->setoUtilisateur($oUtilisateur);
 
                 // Ajouter l'événement dans la BDD

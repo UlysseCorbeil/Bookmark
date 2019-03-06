@@ -1,0 +1,624 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.flex-container {
+    display: flex;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #EAF2F5;
+    font-family: 'Lato', sans-serif;
+}
+
+nav {
+    background-color: rgb(255, 255, 255);
+    padding: 15px 20px;
+    margin: 15px;
+    border-radius: 5px;
+}
+
+nav img {
+    width: 35px;
+    border-radius: 50%;
+}
+
+nav ul {
+    list-style-type: none;
+    margin-top: 70px;
+}
+
+nav ul li {
+    padding-bottom: 25px;
+}
+
+nav ul li a {
+    display: block;
+    color: #D1D1D3;
+    font-size: 1.2em;
+    text-align: center;
+    transition: color 0.2s ease-in-out;
+}
+
+nav ul li:hover a {
+    color: #6C96E7;
+}
+
+main {
+    flex: 1 1 0;
+    padding: 20px;
+}
+
+#contenu {
+    flex-flow: column nowrap;
+    height: 100%;
+}
+
+.row {
+    margin-bottom: 35px;
+}
+
+#info {
+    margin-bottom: 35px;
+    color: #111111;
+}
+
+#info h1 {
+    font-weight: 400;
+    font-size: 1.8em;
+}
+
+#info p {
+    color: #969696;
+    margin: 10px 0px;
+}
+
+#info p:first-of-type {
+    margin-right: 25px;
+}
+
+#site>div {
+    width: calc(100% - 70px);
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.site-lien {
+    background-color: #FFF;
+    border-radius: 5px;
+    margin-right: 25px;
+    box-shadow: 0px 0px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.site-lien a {
+    padding: 25px;
+    text-decoration: none;
+    display: flex;
+    color: #111;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.site-lien img {
+    margin-right: 10px;
+}
+
+.site-lien p {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.site-lien:last-of-type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.site-lien:last-of-type span {
+    cursor: pointer;
+}
+
+.site-lien:last-of-type>div {
+    display: none;
+}
+
+.site-lien:last-of-type input {
+    border: none;
+    width: 100px;
+    margin: 0px 10px;
+}
+
+.site-lien:last-of-type button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#actu {
+    flex: 1 1 0;
+    margin-bottom: 0px;
+}
+
+.card {
+    background-color: #FFF;
+    border-radius: 5px;
+    min-width: 30vh;
+    overflow: hidden;
+    margin-right: 25px;
+    flex: 1 1 0;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.card>div:first-of-type {
+    position: relative;
+    height: 30vh;
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#calendrier>div:first-of-type h2 {
+    color: #FFF;
+    padding: 25px 20px;
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+}
+
+
+.card>div:first-of-type div {
+    position: absolute;
+    background-color: rgba(101, 161, 235, 0.70);
+    padding: 15px;
+    border-radius: 3px;
+    color: #FFF;
+    text-align: center;
+    bottom: 25px;
+    left: 20px;
+}
+
+.card>div:first-of-type p:first-child {
+    font-size: 1.8em;
+    font-weight: 900;
+}
+
+.card>div:first-of-type p:last-child {
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.card>div:first-of-type a {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #FFF;
+    text-align: center;
+    position: absolute;
+    border-radius: 50%;
+    right: 10px;
+    bottom: -20px;
+    color: #333;
+    box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease-in-out;
+}
+
+.card>div:first-of-type a:hover {
+    background-color: #60A2F4;
+    color: #FFF;
+}
+
+.card>div:last-of-type {
+    padding: 25px 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 0;
+}
+
+.card>div:last-of-type h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.card>div:last-of-type>div {
+    flex: 1 1 0;
+    overflow-y: auto;
+}
+
+
+.event-item {
+    border-left: 2px solid #F49E7F;
+    padding-left: 15px;
+    font-size: 15px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.event-item-now {
+    border-color: #00D26E;
+}
+
+.event-item>div {
+    flex: 1 1 0;
+}
+
+.event-item span {
+    font-size: 12px;
+    color: #AAA;
+}
+
+.event-item a {
+    margin-right: 10px;
+    color: #333;
+}
+
+#meteo {
+    margin-right: 0px;
+}
+
+#meteo>div:first-of-type {
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+}
+
+#meteo>div:first-of-type h2 {
+    text-align: center;
+    color: #FFF;
+    font-weight: 900;
+    font-size: 1.5em;
+}
+
+#meteo>div:first-of-type>p:first-of-type {
+    font-size: 18px;
+    color: #FFF;
+    margin-bottom: 15px;
+}
+
+#meteo>div:first-of-type>p:last-of-type {
+    font-size: 2em;
+    color: #FFF;
+    font-weight: 900;
+}
+
+.meteo-item {
+    align-items: center;
+    margin-bottom: 20px;
+    border-left: 2px solid #6C96E7;
+    padding-left: 15px;
+}
+
+.meteo-item>p,
+.meteo-item>div {
+    flex: 1 1 0;
+}
+
+.meteo-item>div>p:first-of-type {
+    font-size: 18px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.meteo-item>div>p:last-of-type {
+    font-size: 14px;
+    text-align: center;
+    color: #AAA;
+}
+
+.clear-day {
+    background: linear-gradient(to bottom, #51A4DB, #74BAE1);
+}
+
+.clear-night {
+    background: linear-gradient(to bottom, #112158, #9762A2);
+}
+
+.snow {
+    background: linear-gradient(to bottom, #9BBBD2, #EDE7E2);
+}
+
+.morning {
+    background: linear-gradient(to bottom, #F0E2CF, #F1C0B5);
+}
+
+
+#middle {
+    flex: 1.5 1 0;
+    flex-flow: column nowrap;
+    margin-right: 25px;
+}
+
+#todo {
+    background-color: #FFF;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    flex: 1 1 0;
+}
+
+#todo h2 {
+    display: flex;
+    font-size: 20px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+#todo h2 span {
+    flex: 1 1 0;
+}
+
+#todo h2 a {
+    color: #6C96E7;
+    text-decoration: none;
+    font-size: 15px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid transparent;
+}
+
+#todo h2 a:hover {
+    border-bottom: 1px solid #6C96E7;
+}
+
+#todo>div {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#todo .container p {
+    font-size: 18px;
+    transition: color 0.2s ease-in-out;
+}
+
+#todo .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.todo-item>label {
+    flex: 1 1 0;
+}
+
+#todo .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #EEE;
+}
+
+#todo .container input:checked~.checkmark {
+    background-color: #6997EE;
+}
+
+#todo .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+#todo .container input:checked~.checkmark:after {
+    display: block;
+}
+
+#todo .container input:checked~p {
+    text-decoration: line-through;
+    color: #AAA;
+}
+
+/* Style the checkmark/indicator */
+#todo .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.small-box {
+    background-color: #fff;
+    padding: 25px;
+    flex: 1 1 0;
+    border-radius: 5px;
+    box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.1);
+}
+
+.small-box:first-of-type {
+    margin-right: 25px;
+}
+
+#chrono p {
+    font-size: 2em;
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+#chrono>div {
+    align-items: center;
+    justify-content: center;
+}
+
+#chrono>div button {
+    padding: 8px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    border: none;
+    width: 100px;
+    outline: none;
+}
+
+#chrono>div button:first-of-type {
+    background-color: #CCEAF9;
+    color: #6F92ED;
+    border-bottom: 2px solid #6F92ED;
+    margin-right: 15px;
+}
+
+#chrono>div button:last-of-type {
+    background-color: #C2F7E2;
+    color: #00D26E;
+    border-bottom: 2px solid #00D26E;
+}
+
+.modal {
+    position: fixed;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-contenu {
+    position: relative;
+    background-color: #FFF;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.modal-contenu>span {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    color: #AAA;
+}
+
+.modal-contenu>h3 {
+    margin-bottom: 25px;
+}
+
+.modal-contenu form>div {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #EAF2F5;
+    align-items: center;
+}
+
+.modal-contenu form>div p {
+    width: 75px;
+    color: #333;
+}
+
+.event form>div>div {
+    display: flex;
+    align-items: center;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    width: 100px;
+    margin-right: 25px;
+    overflow: hidden;
+}
+
+.event .input-date {
+    width: auto;
+}
+
+.event form>div>div label {
+    padding: 5px 10px;
+    color: #CCC;
+}
+
+.event form>div>div input[type=text],
+.modal-contenu form>div input[type=text],
+.modal-contenu form>div input[type=date] {
+    display: block;
+    height: 100%;
+    flex: 1 1 0;
+    border: none;
+    outline: none;
+    padding: 0 5px;
+}
+
+.modal-contenu form>div input[type=text] {
+    padding: 8px 10px;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+}
+
+.modal-contenu button {
+    border: 1px solid #F49E7F;
+    padding: 10px 25px;
+    background-color: #F49E7F;
+    border-radius: 3px;
+    color: #FFF;
+    cursor: pointer;
+    outline: none;
+}
+
+
+/* Customize the label (the container) */
+.event .container {
+    height: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+    font-size: 15px;
+    margin: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.event .container p {
+    flex: 1 1 0;
+    width: auto;
+}
+
+.event .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.event .checkmark {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: 1px solid #CCC;
+    margin-right: 5px;
+    transition: border 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.event .container input:checked~.checkmark {
+    background-color: #F49E7F;
+    border: 1px solid #F49E7F;
+}
