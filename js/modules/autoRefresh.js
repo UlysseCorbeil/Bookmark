@@ -16,14 +16,16 @@ export class AutoRefresh {
         let currentDate = new Date(),
             iHeure = currentDate.getHours(),
             iMinute = currentDate.getMinutes(),
-            sTempsComplet;
+            sTempsComplet,
+            sPeriode;
 
         sTempsComplet = "" + ((iHeure > 12) ? iHeure - 12 : iHeure);
         sTempsComplet += ((iMinute < 10) ? ":0" : ":") + iMinute;
-        sTempsComplet += (iHeure >= 12) ? " PM" : " AM";
-        this.elmTemps.innerHTML = sTempsComplet;
+        sPeriode = (iHeure >= 12) ? " PM" : " AM";
 
-        setTimeout(this.tempsTimer.bind(this), iMinute);
+        this.elmTemps.innerHTML = sTempsComplet + "<span>" + sPeriode +"</span>";
+
+        setTimeout(this.tempsTimer.bind(this), 1000);
     } // fin ()
 
 } // fin classe
