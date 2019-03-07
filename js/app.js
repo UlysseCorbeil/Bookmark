@@ -17,12 +17,12 @@ import {
 let oAjoutSite = document.getElementById("ajoutSite"),
     oInputAjout = document.querySelector(".site-lien:last-of-type>div"),
     modalEvent = document.getElementById("modalEvent"),
-    btnAjoutEvent = document.querySelector("#btnAjouterEvenement"),
-    btnAjoutTache = document.querySelector("#btnAjouterTache"),
+    btnAjoutEvent = document.querySelector("#btnCreerEvenement"),
+    btnAjoutTache = document.querySelector("#btnCreerTache"),
     modalTache = document.getElementById('modalTodo'),
 
     // Variables du temps
-    elmTemps = document.querySelector('#horloge h2'),
+    elmTemps = document.querySelector('.displayTemps'),
 
     // Classes
     interaction = new class {},

@@ -54,10 +54,11 @@ class Controleur
             $this->gererAfficherEvenements();
 
             // Horloge
-            $this->gererAfficherHorloge();
-
-            // Météo
             $this->gererAfficherMeteo();
+
+
+            // Bourse
+            $this->gererAfficherBourse();
 
             // Citation
             $this->gererAfficherCitation();
@@ -79,9 +80,6 @@ class Controleur
             /* ========================================================================================== */
 
             echo "<div class='column'>";
-
-            // Bourse
-            $this->gererAfficherBourse();
 
             // Calculatrice
             $this->gererAfficherCalculatrice();

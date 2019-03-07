@@ -39,8 +39,7 @@ class Nouvelle
             $item_title = $x->item($i)->getElementsByTagName('title')->item(0)->childNodes->item(0)->nodeValue;
             $item_link = $x->item($i)->getElementsByTagName('link')->item(0)->childNodes->item(0)->nodeValue;
             $sHtml .= "<span>" . $titreJournal . " </span>";
-            $sHtml .= "<a href='" . $item_link . "' target='_blank'>" . $item_title . '</a>';
-            // var_dump($item_link);
+            $sHtml .= "<a href='" . $item_link . "'>" . $item_title . '</a>';
             $sHtml .= "<br>";
         }
 
