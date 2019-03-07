@@ -82,7 +82,7 @@ class Controleur
             echo "<div class='column'>";
 
             // Calculatrice
-            // $this->gererAfficherCalculatrice();
+            $this->gererAfficherCalculatrice();
 
             echo "</div>";
 
