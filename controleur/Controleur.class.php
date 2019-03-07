@@ -54,10 +54,11 @@ class Controleur
             $this->gererAfficherEvenements();
 
             // Horloge
-            $this->gererAfficherHorloge();
-
-            // Météo
             $this->gererAfficherMeteo();
+
+
+            // Bourse
+            $this->gererAfficherBourse();
 
             // Citation
             $this->gererAfficherCitation();
@@ -79,9 +80,6 @@ class Controleur
             /* ========================================================================================== */
 
             echo "<div class='column'>";
-
-            // Bourse
-            $this->gererAfficherBourse();
 
             // Calculatrice
             $this->gererAfficherCalculatrice();
@@ -261,8 +259,9 @@ class Controleur
     public function gererAfficherNouvelle()
     {
         try {
+            $oNouvelle = new Nouvelle();
             $oVueNouvelle = new VueNouvelle();
-            $oVueNouvelle->afficherTousNouvelles();
+            $oVueNouvelle->afficherTousNouvelles($oNouvelle);
         } catch (Exception $oException) {
             echo "<p>" . $oException->getMessage() . "</p>";
         }

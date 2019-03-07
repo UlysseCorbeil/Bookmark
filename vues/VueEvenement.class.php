@@ -25,14 +25,14 @@ class VueEvenement
 
         $oAuj = date("j");
         $aJourSemaine = array(
-            date("j", strtotime('monday this week') -1),
+            date("j", strtotime('monday this week') - 1),
             date("j", strtotime('monday this week')),
             date("j", strtotime('tuesday this week')),
             date("j", strtotime('wednesday this week')),
             date("j", strtotime('thursday this week')),
             date("j", strtotime('friday this week')),
             date("j", strtotime('saturday this week'))
-            );
+        );
 
         $sHtml = "
             <div id='calendrier'>
@@ -48,12 +48,11 @@ class VueEvenement
                     </tr>
                     <tr>";
 
-        for($i=0; $i<count($aJourSemaine); $i++){
-            if($aJourSemaine[$i] == $oAuj){
-                $sHtml .= "<td><span class='auj'>". $aJourSemaine[$i] ."</span></td>";
-            }
-            else{
-                $sHtml .= "<td>". $aJourSemaine[$i] ."</td>";
+        for ($i = 0; $i < count($aJourSemaine); $i++) {
+            if ($aJourSemaine[$i] == $oAuj) {
+                $sHtml .= "<td><span class='auj' class='event-bullet'>" . $aJourSemaine[$i] . "</span></td>";
+            } else {
+                $sHtml .= "<td>" . $aJourSemaine[$i] . "</td>";
             }
         }
 
@@ -61,9 +60,9 @@ class VueEvenement
                     </tr>
                     <tr>
                         <td></td>
-                        <td><span class='event-bullet'></span></td>
+                        <td><span></span></td>
                         <td></td>
-                        <td><span class='event-bullet'></span></td>
+                        <td><span></span></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -73,7 +72,7 @@ class VueEvenement
                     <h2>Événements</h2>
                     <div id='events-container'>";
 
-        if($aoEvenements){
+        if ($aoEvenements) {
             for ($i = 0; $i < count($aoEvenements); $i++) {
 
                 $sDateDebut = ($aoEvenements[$i]->getsDateDebut());
@@ -84,8 +83,7 @@ class VueEvenement
                     $sHtml .= "
                         <div class='item events-item live'>
                         <span>En cours - Fin à " . date('H:i', strtotime($sDateFin)) . "</span>";
-                }
-                else if ($sDateDebut >= $sDateMaintenant->format("Y-m-d H:i:s")) {
+                } else if ($sDateDebut >= $sDateMaintenant->format("Y-m-d H:i:s")) {
                     $sHtml .= "
                         <div class='item events-item'>
                         <span>Débute à " . date('H:i', strtotime($sDateFin)) . "</span>";
@@ -95,8 +93,7 @@ class VueEvenement
                             <p>" . $aoEvenements[$i]->getsNomEvenement() . "</p>
                     </div>";
             }
-        }
-        else{
+        } else {
             $sHtml .= "<p>Aucun événement pour l'instant.</p>";
         }
 
